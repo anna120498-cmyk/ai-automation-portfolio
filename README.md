@@ -1,13 +1,10 @@
 # Annalisa Toia | AI & Automation Portfolio
 
-Sono una consulente business e tecnologia con esperienza nell’analisi
+Sono una consulente in ambito business e tecnologia con esperienza nell’analisi
 dei requisiti, nella progettazione funzionale, nei test e nella formazione
 degli utenti in contesti aziendali.
 
-Ho completato il Master in AI Automation presso ProfessionAI.
-Il mio obiettivo professionale è lavorare come AI Consultant,
-aiutando le aziende a individuare opportunità di applicazione dell’AI
-e a sviluppare soluzioni utili, verificabili e con adeguata supervisione umana.
+Ho approfondito l’AI e l’automazione dei processi aziendali attraverso un percorso di formazione specialistica e lo sviluppo di progetti applicativi. Il mio obiettivo è lavorare come AI Consultant, aiutando le aziende a individuare opportunità di applicazione dell’AI e a tradurle in soluzioni concrete.
 
 ## Portfolio completo
 
@@ -49,6 +46,8 @@ generare sintesi e proporre priorità di intervento.
 
 ## Contesto
 
-I progetti sono stati realizzati durante il Master in AI Automation.
-Le aziende citate costituiscono scenari o soggetti di test:
-la loro presenza non implica un rapporto di consulenza.
+## Contesto
+
+I progetti sono stati realizzati durante il mio percorso formativo specialistico e sviluppano casi d’uso dimostrativi.
+
+Le aziende citate sono utilizzate come scenari di riferimento o soggetti di test. I progetti non derivano da incarichi professionali o collaborazioni con tali aziende.
