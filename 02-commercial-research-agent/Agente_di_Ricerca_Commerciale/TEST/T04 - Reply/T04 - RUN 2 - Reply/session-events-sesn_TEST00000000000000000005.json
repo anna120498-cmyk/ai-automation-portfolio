@@ -1,0 +1,1485 @@
+[
+  {
+    "id": "sevt_01DN8mUhmJz7uBdWvG6Nj5SL",
+    "processed_at": "2026-11-05T11:05:35.384455Z",
+    "type": "session.status_running"
+  },
+  {
+    "agent_name": "Agente di ricerca commerciale - Vertek Solutions",
+    "id": "sevt_01LSjsvoSC7qNpru9ixhaTCR",
+    "processed_at": "2026-11-05T11:05:35.384456Z",
+    "session_thread_id": "sthr_01Vw2CsC8dQyF574n8JcrWSC",
+    "type": "session.thread_status_running"
+  },
+  {
+    "content": [
+      {
+        "text": "Prepara un dossier di ricerca commerciale su Reply, dominio reply.com.",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_01Bvy5NakjPeopYCuWW9kBAq",
+    "processed_at": "2026-11-05T11:05:35.454489Z",
+    "type": "user.message"
+  },
+  {
+    "id": "sevt_01KNB9FpMJ8NfxaRfz6Peavh",
+    "processed_at": "2026-11-05T11:05:35.454490Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01BgGHiAz2u9Bk2qzehsAxbx",
+    "input": {
+      "url": "https://www.reply.com/en/about-reply"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:05:37.460951Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_017eU86cndeuuSSbfJbyQVQh",
+    "input": {
+      "query": "Reply S.p.A. ricavi 2025 dipendenti risultati"
+    },
+    "name": "web_search",
+    "processed_at": "2026-11-05T11:05:37.460952Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01Tme43U9rXXRakwnPBhazYS",
+    "input": {
+      "query": "Reply S.p.A. news acquisizione 2026"
+    },
+    "name": "web_search",
+    "processed_at": "2026-11-05T11:05:37.460953Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "id": "sevt_01Jj2nfi42cxPXVCkGe7vVQ9",
+    "is_error": false,
+    "model_request_start_id": "sevt_01KNB9FpMJ8NfxaRfz6Peavh",
+    "model_usage": {
+      "cache_creation_input_tokens": 5162,
+      "cache_read_input_tokens": 0,
+      "input_tokens": 4,
+      "output_tokens": 192,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:05:37.460954Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "content": [
+      {
+        "text": "Web fetch error: url_not_in_prior_context — this URL was not fetched because it is not among the URLs this conversation has shown you. A URL counts as shown when it appeared in a message from the user, in a web_search result, or in the text of a page fetched earlier (its links count too for a while; if one is refused, fetch that page again). A URL in a message from another agent may count if that agent had itself been shown it: copy it exactly as written in that message, and if it is still refused, ask that agent to send the URL again exactly as it was shown to them. A URL that appears only in your own messages, in a summary that replaced earlier turns of the conversation, in the output of any other tool, or in an attached document does not count. A URL shown before a summary of earlier turns, or in a message from another agent, must be given with its query string and fragment (the part after #) exactly as shown. To get this page, find it with web_search if available, fetch a page that links to it, or ask whoever gave you the URL (a user, if one is available, or the agent that sent it) for it exactly as it was shown to them; guessing at a URL will not help.",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_014RbKQur2taDJpSjVFujHMb",
+    "is_error": true,
+    "processed_at": "2026-11-05T11:05:37.519077Z",
+    "tool_use_id": "sevt_01BgGHiAz2u9Bk2qzehsAxbx",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Da inizio anno, il Gruppo ha registrato ricavi consolidati pari a 603,4 milioni di euro, in incremento dell’8,9% rispetto al corrispondente dato 2024. Positivi tutti gli indicatori di periodo.",
+            "type": "text"
+          },
+          {
+            "text": "TORINO, Italia--(BUSINESS WIRE)--Sagepath Reply, agenzia specializzata in digital experience parte del Gruppo Reply, è stata inclusa nella “Gartner Market Guide for Strategic Website Agencies” per il 2026. Si tratta della terza inclusione di Sagepath Reply nella Market Guide, dopo i precedenti riconoscimenti nel 2023 e nel 2025. Gartner, società che fornisce insight oggettivi e concreti ai manager e ai loro team, definisce le strategic website agencies come “service provider dedicati allo svilu... TORINO, Italia--(BUSINESS WIRE)--La seconda edizione del Reply AI Music Contest, la competizione internazionale ideata da Reply per esplorare nuove forme di espressione che integrano intelligenza artificiale, musica e live performance, si è conclusa con la proclamazione del vincitore sul palco del Nova Stage powered by Reply durante il Kappa FuturFestival.",
+            "type": "text"
+          },
+          {
+            "text": "“Nel primo trimestre del 2025 - prosegue Mario Rizzante - abbiamo registrato un marcato incremento della domanda di soluzioni basate su Generative AI, Data Analysis, Cloud Computing e Cybersecurity. Più in generale osserviamo una crescente centralità, negli investimenti strategici delle imprese, delle soluzioni che integrano intelligenza artificiale, dati e oggetti connessi, indipendentemente dal settore di appartenenza.” · “In questi mesi - conclude Mario Rizzante - abbiamo investito significativamente per sviluppare ulteriori servizi di consulenza, design e implementazione altamente specializzati, definendo nuove offerte quaili Agentic AI, Silicon Shoring ed AI Pre Built Applications, in grado di rispondere sempre meglio alla necessità dei nostri clienti di portare, in maniera sicura, le potenzialità dell’AI all’interno dei loro sistemi, con l’obiettivo di supportare e trasformare processi sempre più complessi e critici.” ·",
+            "type": "text"
+          },
+          {
+            "text": "Il dirigente preposto alla redazione dei documenti contabili societari, Dott. Giuseppe Veneziano, dichiara ai sensi del comma 2 articolo 154 bis del Testo Unico della Finanza che l’informativa contabile contenuta nel presente comunicato corrisponde alle risultanze documentali, ai libri ed alle scritture contabili. Reply [EXM, STAR: REY, ISIN: IT0005282865] è specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali. Costituita da un modello a rete di aziende altamente specializzate, Reply affianca i principali gruppi industriali europei appartenenti ai settori Telco & Media, Industria e Servizi, Banche e Assicurazioni e Pubblica Amministrazione nella definizione e nello sviluppo di modelli di business abilitati dai nuovi paradigmi dell’AI, Cloud Computing, Digital Media e Internet degli Oggetti.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.businesswire.com/news/home/20250512698511/it",
+        "title": "REPLY: Il C.d.A. approva la relazione trimestrale al 31 marzo 2025",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Il risultato netto di gruppo è stato pari a 211,1 milioni di Euro. Nel 2023 il corrispondente valore era stato di 186,7 milioni di Euro. In seguito ai risultati conseguiti nel corso del 2024, il Consiglio di Amministrazione di Reply ha deciso ...",
+            "type": "text"
+          },
+          {
+            "text": "L’esercizio 2024 è iniziato bene per il titolo Reply con il prezzo delle azioni che ha costantemente colmato il divario con la performance dell’EuroSTOXX Technology e da metà luglio ha registrato risultati migliori rispetto a questo indice. Uno dei motivi principali è stata la continua sovraperformance di Reply rispetto alla maggior parte dei suoi concorrenti in termini di crescita dei ricavi e sviluppo dei margini. Da ottobre 2024 il titolo è entrato in un corridoio ascendente, con il prezzo dell’azione che ha raggiunto la massima quotazione il 17 dicembre 2024 attestandosi a 157,80 euro e ha chiuso l’esercizio a 153,40 euro. La capitalizzazione di mercato di Reply sale a 5,7 miliardi di euro. A gennaio 2025 è proseguito lo sviluppo al rialzo del titolo Reply. Alla data della presente relazione, il titolo Reply È scambiato a 159,60 euro, con una capitalizzazione di mercato di 5,9 miliardi di euro.",
+            "type": "text"
+          },
+          {
+            "text": "La Capogruppo Reply S.p.A. gestisce principalmente il coordinamento operativo, la direzione tecnica e di qualità del Gruppo nonché l’amministrazione, la finanza e l’attività di marketing delle società controllate. Al 31 dicembre 2024 l’organico della Capogruppo era composto da 264 dipendenti (108 dipendenti nel 2023). Reply S.p.A. svolge inoltre attività di fronting commerciale nei confronti di alcuni primari clienti la cui attività di delivery è svolta dalle società operative. I risultati economici della società pertanto non sono rappresentativi dell’andamento economico del Gruppo nel suo complesso e delle performance dei mercati in cui opera. Tale attività è invece riflessa nella voce Ricavi da attività di fronting del conto economico sotto riportato.",
+            "type": "text"
+          },
+          {
+            "text": "L’obiettivo di prezzo medio per le azioni Reply da parte degli analisti a gennaio 2025 era di 152,6. Una politica di comunicazione attiva e aperta, che garantisca la tempestiva e continua diffusione delle informazioni, è parte essenziale della strategia IR di Reply. Nel 2024 Reply ha incrementato significativamente il suo già elevato livello di attività con i mercati dei capitali. Nel corso di 18 conferenze e 13 road show, Reply ha illustrato attivamente la propria equity story. Il numero di incontri virtuali con gli investitori è rimasto stabile. Parallelamente, Reply ha incrementato del 22% il numero di incontri fisici con gli investitori. Nel 2024 Reply ha anche aggiunto le “earnings call” alla sua strategia di comunicazione. A partire dai risultati del primo semestre 2024, l’Amministratore Delegato e il CFO di Reply commentano trimestralmente l’andamento operativo e finanziario di Reply.",
+            "type": "text"
+          },
+          {
+            "text": "Il Gruppo Reply ha chiuso l’esercizio 2024 con un fatturato consolidato di 2.295,9 milioni di Euro in crescita del 8,4% rispetto a 2.118,0 milioni di Euro dell’esercizio 2023. Positivi tutti gli indicatori di periodo. L’EBITDA consolidato è stato di 410,6 milioni di Euro, in crescita del 16,6% rispetto ai 352,1 milioni di Euro registrati a dicembre 2023. L’EBIT, da gennaio a dicembre, è stato di 330,4 milioni di Euro, in crescita del 12,9% rispetto ai 292,7 milioni di Euro a dicembre 2023. Il risultato netto di gruppo è stato pari a 211,1 milioni di Euro. Nel 2023 il corrispondente valore era stato di 186,7 milioni di Euro. In seguito ai risultati conseguiti nel corso del 2024, il Consiglio di Amministrazione di Reply ha deciso di proporre alla prossima Assemblea degli Azionisti la distribuzione di un dividendo pari a 1,15 Euro per azione, che verrà posto in pagamento il 21 maggio 2025, con data di stacco dividendo fissato il 19 maggio 2025 (record date il 20 maggio 2025).",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/it/investors/financial-reports/2024/relazione-sulla-gestione.html",
+        "title": "Reply Relazione Finanziaria Annuale 2024",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "La società - quotata al segmento ... per 1,21 miliardi di euro, in crescita dell&#x27;8,6% rispetto agli 1,11 milioni ottenuti nei primi sei mesi dell’anno precedente. In aumento anche il margine operativo lordo, che è passato da 180,46 milioni a 223,66 milioni di euro; di conseguenza, la marginalità è migliorata dal 16,2% al 18,5%. L’utile netto è aumentato da 99,94 milioni a 124,76 milioni di euro. Nel solo 2° trimestre 2025 il fatturato di Reply è salito dell&#x27;8,3% a 606,72 milioni di euro, mentre l’utile ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply ha comunicato i risultati finanziari del 1° semestre del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali - ha terminato il periodo in esame con ricavi per 1,21 miliardi di euro, in crescita dell'8,6% rispetto agli 1,11 milioni ottenuti nei primi sei mesi dell’anno precedente. In aumento anche il margine operativo lordo, che è passato da 180,46 milioni a 223,66 milioni di euro; di conseguenza, la marginalità è migliorata dal 16,2% al 18,5%. L’utile netto è aumentato da 99,94 milioni a 124,76 milioni di euro. Nel solo 2° trimestre 2025 il fatturato di Reply è salito dell'8,3% a 606,72 milioni di euro, mentre l’utile ante imposte è stato pari a 92,48 milioni. A fine giugno 2025 la posizione finanziaria netta era positiva per 362,5 milioni di euro, rispetto ai 349,08 milioni di inizio anno.",
+            "type": "text"
+          },
+          {
+            "text": "Ultime dai mercati · mercoledì 24 Settembre 2025 · NextGeo - società quotata sull'Euronext Growth Milan e attiva nel campo delle geoscienze marine e dei servizi di supporto alle costruzioni offshore principalmente nel settore energetico rinnovabile - ha comunicato… Continua ... Reply ha comunicato i risultati finanziari del 1° trimestre del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali… Continua ... Reply ha comunicato i risultati finanziari del 1° semestre del 2024. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali… Continua ... Reply ha comunicato i risultati finanziari del 1° trimestre del 2024. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali…",
+            "type": "text"
+          },
+          {
+            "text": "Reply ha comunicato i risultati finanziari del 1° semestre del 2023. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali… Continua · Ultime dai mercati · mercoledì 24 Settembre 2025 · NextGeo - società quotata sull'Euronext Growth Milan e attiva nel campo delle geoscienze marine e dei servizi di supporto alle costruzioni offshore principalmente nel settore energetico rinnovabile - ha comunicato…",
+            "type": "text"
+          },
+          {
+            "text": "BANCA GENERALI -,--% • BANCA MEDIOLANUM -,--% • BANCA MONTE PASCHI SIENA -,--% • BANCO BPM -,--% • BPER BANCA -,--% • BUZZI -,--% • CAMPARI -,--% • ENEL -,--% • ENI -,--% • FERRARI -,--% • FINECOBANK -,--% • GENERALI -,--% • INTESA SANPAOLO -,--% • ITALGAS -,--% • LEONARDO -,--% • MEDIOBANCA -,--% • MONCLER -,--% • PIRELLI & C -,--% • POSTE ITALIANE -,--% • PRYSMIAN -,--% • RECORDATI ORD -,--% • SAIPEM -,--% • SNAM -,--% • STELLANTIS -,--% • STMICROELECTRONICS -,--% • TECHNOPROBE -,--% • TELECOM ITALIA -,--% • TENARIS -,--% • TERNA -,--% • UNICREDIT -,--% • UNIPOL -,--% • ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.soldionline.it/notizie/azioni-italia/conti-reply-primo-semestre-2025",
+        "title": "Conti Reply, i risultati finanziari del 1° semestre 2025",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali - ha terminato l’esercizio con ricavi per 2,48 miliardi di euro, in crescita ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply ha comunicato i risultati finanziari del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali - ha terminato l’esercizio con ricavi per 2,48 miliardi di euro, in crescita dell'8% rispetto ai 2,3 miliardi ottenuti l’anno precedente. In aumento il margine operativo lordo, che è passato da 410,61 milioni a 467,64 milioni di euro, in crescita del 13,9%; la marginalità è salita dal 17,8% al 18,8%. L’utile netto (esclusa la quota di terzi) è aumentato a 250,89 milioni di euro, rispetto ai 211,14 milioni contabilizzati nel 2023. A fine 2025 la posizione finanziaria netta era positiva per 467,58 milioni di euro, rispetto ai 349,08 milioni di inizio anno. Il management di Reply ha proposto la distribuzione del dividendo 2026 (relativo all'esercizio 2025) per un ammontare di 1,35 euro; la cedola sarà staccata lunedì 18 maggio 2026, con pagamento dal 20 maggio.",
+            "type": "text"
+          },
+          {
+            "text": "Tutte le ultime su: bilanci 2025, dividendi, Reply · Questo scritto è redatto a solo scopo informativo, può essere modificato in qualsiasi momento e NON può essere considerato sollecitazione al pubblico risparmio. Il sito web non garantisce la correttezza e non si assume la responsabilità in merito all'uso delle informazioni ivi riportate. ... Reply ha comunicato i risultati finanziari del 1° trimestre del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali… Continua ... Reply ha comunicato i risultati finanziari del 2024. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e… Continua ... Reply ha comunicato i risultati finanziari del 1° semestre del 2024.",
+            "type": "text"
+          },
+          {
+            "text": "Reply ha comunicato i risultati finanziari del 2022. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione… Continua ... Reply ha comunicato i risultati finanziari del 1° trimestre del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali…",
+            "type": "text"
+          },
+          {
+            "text": "BANCA GENERALI -,--% • BANCA MEDIOLANUM -,--% • BANCA MONTE PASCHI SIENA -,--% • BANCO BPM -,--% • BPER BANCA -,--% • BUZZI -,--% • CAMPARI -,--% • ENEL -,--% • ENI -,--% • FERRARI -,--% • FINECOBANK -,--% • GENERALI -,--% • INTESA SANPAOLO -,--% • ITALGAS -,--% • LEONARDO -,--% • MEDIOBANCA -,--% • MONCLER -,--% • PIRELLI & C -,--% • POSTE ITALIANE -,--% • PRYSMIAN -,--% • RECORDATI ORD -,--% • SAIPEM -,--% • SNAM -,--% • STELLANTIS -,--% • STMICROELECTRONICS -,--% • TECHNOPROBE -,--% • TELECOM ITALIA -,--% • TENARIS -,--% • TERNA -,--% • UNICREDIT -,--% • UNIPOL -,--% • ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.soldionline.it/notizie/azioni-italia/conti-reply-bilancio-2025-dividendo-2026",
+        "title": "Bilancio Reply, i conti del 2025. Dividendo 2026 di 1,35 euro",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.a., Torino (TO) - Attivita&#x27; Di Programmazione Informatica. Fatturato: 869.223.983 euro. P.IVA 08013390011: bilancio, dipendenti, utile.",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.a. opera nel settore: Attivita' di programmazione informatica. Nell'esercizio 2024 ha registrato ricavi per 869.223.983 euro. Il codice ATECO è 62.1 e la partita IVA è 08013390011. Reply S.p.a. ha la sua sede in Corso Francia 110, 10143, Torino. Dati · Verifica i dati nella visura camerale → · Nell'ultimo esercizio disponibile (2024) Reply S.p.a. ha registrato un fatturato di € 869.223.983, in crescita del 9,7% rispetto all'esercizio precedente, chiudendo con un utile di € 50.644.327. Ultimi 3 bilanci disponibili. 5,8%Margine netto · € 3.255.521Fatturato per dipendente · Indicatori calcolati dai dati dell'ultimo bilancio disponibile. Reply S.p.a. risulta aggiudicataria di 186 appalti pubblici per un importo complessivo di 338.838.590 euro (dati 2007–2025). Partecipa inoltre a 13 procedure in raggruppamento o consorzio. Fonte: ANAC – Banca Dati Nazionale Contratti Pubblici (Open Data, licenza CC BY-SA 4.0).",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.a. opera nel settore: Attivita' di programmazione informatica. Nell'esercizio 2024 ha registrato ricavi per 869.223.983 euro. Il codice ATECO è 62.1 e la partita IVA è 08013390011. Reply S.p.a. ha la sua sede in Corso Francia 110, 10143, Torino. ... Nell'ultimo esercizio disponibile (2024) Reply S.p.a. ha registrato un fatturato di € 869.223.983, in crescita del 9,7% rispetto all'esercizio precedente, chiudendo con un utile di € 50.644.327. Ultimi 3 bilanci disponibili. ... Indicatori calcolati dai dati dell'ultimo bilancio disponibile. Reply S.p.a. risulta aggiudicataria di 186 appalti pubblici per un importo complessivo di 338.838.590 euro (dati 2007–2025). Partecipa inoltre a 13 procedure in raggruppamento o consorzio. Fonte: ANAC – Banca Dati Nazionale Contratti Pubblici (Open Data, licenza CC BY-SA 4.0). Ogni CIG e' verificabile sul portale ANAC.",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.a. risulta attualmente un'impresa attiva. Qual è il codice ATECO di Reply S.p.a. e cosa significa? Il codice ATECO di Reply S.p.a. è 62.1, relativo a Attivita' di programmazione informatica. ... Reply S.p.a. ha sede in Corso Francia 110, 10143, Torino. ... Nel 2024 Reply S.p.a. contava 267 dipendenti.",
+            "type": "text"
+          },
+          {
+            "text": "SYNERGIE ITALIA - AGENZIA PER IL LAVORO S.P.A.>500 milioni · ATTIVITÀ DI RICERCA, SELEZIONE, FORNITURA DI PERSONALE · SUZUKI ITALIA S.P.A.>500 milioni · COMMERCIO ALL'INGROSSO (ESCLUSO QUELLO DI AUTOVEICOLI E DI MOTOCICLI) RAI PUBBLICITA' SPA>500 milioni · PUBBLICITÀ E RICERCHE DI MERCATO · SOCIETA' METROPOLITANA ACQUE TORINO S.P.A. IN ALTERNATIVA>500 milioni · RACCOLTA, TRATTAMENTO E FORNITURA DI ACQUA · MDKL S.R.L. IN LIQUIDAZIONEfatturato non disponibile · PRODUZIONE DI SOFTWARE, CONSULENZA INFORMATICA E ATTIVITÀ CONNESSE · ESCAMOTAGES SRLfatturato non disponibile · PRODUZIONE DI SOFTWARE, CONSULENZA INFORMATICA E ATTIVITÀ CONNESSE · STUDIO Z&F SRLfatturato non disponibile · PRODUZIONE DI SOFTWARE, CONSULENZA INFORMATICA E ATTIVITÀ CONNESSE · MCAFE S.R.L.fatturato non disponibile · PRODUZIONE DI SOFTWARE, CONSULENZA INFORMATICA E ATTIVITÀ CONNESSE ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.aziende.it/reply-s-p-a",
+        "title": "Reply S.p.a.: fatturato 2024 e P.IVA 08013390011",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Nell’esercizio 2025 Reply ha registrato ricavi consolidati per 2.497,6 milioni di euro, in crescita rispetto ai 2.295,9 milioni del 2024, con un incremento di circa +8,8% anno su anno.",
+            "type": "text"
+          },
+          {
+            "text": "Visit the post for more.",
+            "type": "text"
+          }
+        ],
+        "source": "https://quifinanza.it/borse/borsa-italiana/azioni/GETTEX/REJA/",
+        "title": "Azioni Reply S.p.A.: Quotazione in Tempo Reale",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "I RISULTATI DEL GRUPPO IN SINTESI · Q3 2025 · % Q3 2024 · % Dati economici · (euro/000) 30/09/2025 · % 30/09/2024 · % 598.519 · 100 · ,0 · 553.780 · 100 · ,0 · Ricavi · 1.819.779 · 100 · ,0 · 1.669.563 · 100 · ,0 · 111.817 · 18,7 · 94.996 · 17,2 · Margine operativo lordo ...",
+            "type": "text"
+          },
+          {
+            "text": "I RISULTATI DEL GRUPPO IN SINTESI · Q3 2025 · % Q3 2024 · % Dati economici · (euro/000) 30/09/2025 · % 30/09/2024 · % 598.519 · 100 · ,0 · 553.780 · 100 · ,0 · Ricavi · 1.819.779 · 100 · ,0 · 1.669.563 · 100 · ,0 · 111.817 · 18,7 · 94.996 · 17,2 · Margine operativo lordo · 335.481 · 18,4 · 275.456 · 16,5 · 92.664 · 15,5 · 77.521 · 14 · ,0 · Risultato operativo · 281.046 · 15,4 · 224.167 · 13,4 · 88.681 · 14,8 · 69.707 · 12,6 · Risultato ante imposte · 268.094 · 14,7 · 215.992 · 12,9 · Q3 202 · 5 · Q3 202 · 4 · (euro/000) 30/09/202 · 5 · 30/09/202 · 4 · 9.946 · 11.538 · Investimenti · 33.090 · 33.415 · (euro/000) 30/09/2025 · 30/06/2025 · 31/12/2024 · Posizione finanziaria netta gestionale · 423.134 · 362.495 · 349.084 · 30/09/2025 · 30/09/2024 · Numero di dipendenti · 16.402 · 15.353 ·",
+            "type": "text"
+          },
+          {
+            "text": "RED Scientific Reply Limited, società di diritto inglese, acquisita nel mese di agosto 2025, nel settore · della Difesa e della PA in UK svolgendo attività di consulenza ingegneristica in ambito tecnico e · scientifico, di cui Reply Ltd. detiene il 100% del ca ... La variazione dell’area di consolidamento ha inciso in modo marginale sui ricavi e sull’utile ante imposte del · Gruppo al 30 settembre 2025. Si segnala che nell’elenco delle imprese e partecipazioni del gruppo Reply, riportato in allegato, sono inoltre · incluse nell’area di consolidamento rispetto al 30 ... AI Studios S.r.l., Storm Reply Ltd, Valorem Reply Ltd e Whitehall Reply GmbH. ... I ricavi delle vendite e delle prestazioni, inclusa la variazione dei lavori in corso su ordinazione, ammontano ... Tale voce comprende ricavi per attività di consulenza, per attività progettuale, per servizi di assistenza e ...",
+            "type": "text"
+          },
+          {
+            "text": "partire dal terzo trimestre 2025, ai soli fini dell’analisi gestionale, il Gruppo ha riclassificato ... Tale riclassifica, neutrale ai fini IFRS e senza impatto sull’EBITDA, consente di rappresentare in modo più · coerente il volume complessivo delle attività industriali e di ricerca svolte internamente, valorizzando il ... La ripartizione percentuale dei ricavi per Region, intesa come localizzazione della fornitura dei servizi, è ... Gli acquisti di Licenze software e hardware per rivendita sono iscritti al netto della variazione delle rimanenze. La voce Altri comprende principalmente spese per l’acquisto di carburante per ... La voce Servizi diversi comprende principalmente servizi di marketing, servizi amministrativi e legali, servizi ... Le Spese ufficio includono servizi resi da parti correlate relativi a contratti di servizio per l’utilizzo di locali, la ·",
+            "type": "text"
+          },
+          {
+            "text": "L’utile ante imposte, da gennaio a settembre 2025, è stato di 268,1 milioni di Euro, pari al 14,7% del fatturato. A · settembre 2024 l’utile ante imposte si era attestato a 216,0 milioni di Euro. Per quanto riguarda il terzo trimestre dell’anno l’andamento del Gruppo è risultato positivo, con un fatturato · consolidato di periodo pari a 598,5 milioni di Euro rispetto ai 553,8 milioni ... L’EBITDA, da luglio a settembre 2025, è stato pari a 111,8 milioni di Euro, con un EBIT di 92,7 milioni di Euro e un ... La posizione finanziaria netta del Gruppo al 30 settembre 2025 è positiva per 423,1 milioni di Euro. La posizione · finanziaria netta al 30 giugno 2025 risultava positiva per 362,5 milioni di Euro. Nei primi nove mesi del 2025 il gruppo è stato in grado di crescere in tutti i segmenti di mercato dove è presente, grazie ad una distintiva capacità di adattarsi alla sempre più pervasiva evoluzione dell’intelligenza artificiale.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/contents/Resoconto_intermedio_di_gestione_al_30_settembre_2025.pdf",
+        "title": "Resoconto intermedio di gestione al 30 settembre 2025",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali - ha terminato il periodo in esame con ricavi per 1,82 miliardi di euro, in ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply ha comunicato i risultati finanziari dei primi nove mesi del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali - ha terminato il periodo in esame con ricavi per 1,82 miliardi di euro, in crescita del 9% rispetto agli 1,67 miliardi ottenuti nei primi tre trimestri dell’anno precedente. In aumento anche il margine operativo lordo, che è passato da 275,46 a 335,48 milioni di euro; di conseguenza, la marginalità è migliorata dal 16,5% al 18,4%. L’utile ante imposte è aumentato da 215,99 milioni a 268,09 milioni di euro. Nel solo 3° trimestre 2024 il fatturato di Reply è salito a 598,52 milioni di euro, mentre l’utile ante imposte è aumentato a 88,68 milioni. A fine settembre 2025 la posizione finanziaria netta era positiva per 423,13 milioni di euro, rispetto ai 349,08 milioni di inizio anno.",
+            "type": "text"
+          },
+          {
+            "text": "Reply ha comunicato i risultati finanziari del 1° trimestre del 2025. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali… Continua ... Reply ha comunicato i risultati finanziari del 2024. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e… Continua ... Reply ha comunicato i risultati finanziari dei primi nove mesi del 2024. La società - quotata al segmento STAR e specializzata nella progettazione e nella realizzazione di soluzioni basate sui nuovi… Continua ... Moltiply Group (ex MutuiOnline) - società quotata al segmento STAR - ha comunicato i risultati finanziari del 1° trimestre 2024, periodo chiuso con ricavi per 106,35 milioni di euro,… Continua ...",
+            "type": "text"
+          },
+          {
+            "text": "BANCA GENERALI -,--% • BANCA MEDIOLANUM -,--% • BANCA MONTE PASCHI SIENA -,--% • BANCO BPM -,--% • BPER BANCA -,--% • CAMPARI -,--% • ENEL -,--% • ENI -,--% • FERRARI -,--% • FINECOBANK -,--% • GENERALI -,--% • INTESA SANPAOLO -,--% • ITALGAS -,--% • LEONARDO -,--% • MEDIOBANCA -,--% • MONCLER -,--% • PIRELLI & C -,--% • POSTE ITALIANE -,--% • PRYSMIAN -,--% • RECORDATI ORD -,--% • SAIPEM -,--% • SNAM -,--% • STELLANTIS -,--% • STMICROELECTRONICS -,--% • TECHNOPROBE -,--% • TELECOM ITALIA -,--% • TENARIS -,--% • TERNA -,--% • UNICREDIT -,--% • UNIPOL -,--% • ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.soldionline.it/notizie/azioni-italia/conti-reply-primi-nove-mesi-2025",
+        "title": "Reply, i risultati finanziari dei primi nove mesi del 2025",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Nei primi nove mesi dell’anno, il fatturato consolidato del gruppo ha raggiunto 1.819,8 milioni di euro, in aumento del 9% rispetto ai 1.669,6 milioni registrati nello stesso periodo del 2024.",
+            "type": "text"
+          },
+          {
+            "text": "La posizione finanziaria netta al 30 settembre 2025 risulta positiva per 423,1 milioni di euro, in miglioramento rispetto ai 362,5 milioni di fine giugno. “Nei primi nove mesi del 2025 - ha dichiarato Mario Rizzante, Presidente di Reply - il nostro gruppo è stato in grado di crescere in tutti i segmenti di mercato dove è presente, grazie ad una distintiva capacità di adattarsi alla sempre più pervasiva evoluzione dell’intelligenza artificiale. Le architetture agentiche stanno aprendo una nuova frontiera per l’impresa digitale - continua Rizzante - rappresentando l’evoluzione naturale dei modelli di intelligenza artificiale oggi in uso. Non parliamo più solo di algoritmi che analizzano dati o generano output, ma di sistemi capaci di interagire, collaborare e prendere decisioni, integrandosi nei processi aziendali in modo dinamico e distribuito.",
+            "type": "text"
+          },
+          {
+            "text": "Oggi molte imprese stanno già sperimentando soluzioni agentiche, ma solo una piccola parte è riuscita a farle scalare realmente - continua ancora il Presidente di Reply -. È un passaggio complesso, che richiede non solo tecnologia, ma una visione architetturale nuova: dati più vicini agli agenti, orchestrazione intelligente, e soprattutto alta sicurezza e inviolabilità nei sistemi autonomi. Per questo - conclude Rizzante - nei prossimi mesi continueremo ad investire nella costruzione di ecosistemi AI realmente agentici: architetture distribuite, capaci di apprendere dai contesti, adattarsi in tempo reale e cooperare in modo sicuro.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.engage.it/agenzie/reply-ricavi-in-crescita-del-9-nei-primi-nove-mesi-del-2025.aspx",
+        "title": "Bilanci: Reply chiude i primi nove mesi del 2025 con ricavi in crescita del 9%",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Since the beginning of the year, the Group has recorded consolidated revenues amounting to €603.4 million, an increase of 8.9% compared to the corresponding data for 2024. All indicators are positive for the period.",
+            "type": "text"
+          },
+          {
+            "text": "“The close of 2024 and the positive start of 2025,’ said Mario Rizzante, Reply Chairman, ‘reaffirm both the solidity of the Reply model and the Group's ability to quickly position itself among the market-recognized leaders in the transformation driven by artificial intelligence.” · “In the first quarter of 2025,’ continues Mario Rizzante, \"we recorded a marked increase in demand for solutions based on Generative AI, Data Analysis, Cloud Computing and Cybersecurity. “More generally, we are seeing a growing centrality of solutions integrating artificial intelligence, data, and connected objects in the strategic investments made by companies, regardless of their industry. “In recent months,’ concludes Mario Rizzante, “we have made significant investments to develop additional highly specialised consulting, design and implementation services, defining new offerings such as Agentic AI, Silicon Shoring, and AI pre-built applications .",
+            "type": "text"
+          },
+          {
+            "text": "The manager responsible for preparing the company's financial reports, Giuseppe Veneziano, states in accordance with Paragraph 2 of Article 154-bis of the Consolidated Finance Act, that the accounting information contained in this press release corresponds to the company's records, ledgers and accounting entries. This press release is a translation, the Italian version will prevail. REPLY Reply [EXM, STAR: REY, ISIN: IT0005282865] specialises in the design and implementation of solutions based on new communication channels and digital media. Reply is a network of highly specialised companies supporting key European industrial groups operating in the telecom and media, industry and services, banking, insurance and public administration sectors in the definition and development of business models enabled for the new paradigms of AI, cloud computing, digital media and the Internet of Things.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/the-board-of-directors-approves-the-quarterly-report-dated-31-march-2025",
+        "title": "The Board of Directors approves the quarterly report dated 31 March 2025 | Reply",
+        "type": "search_result"
+      }
+    ],
+    "id": "sevt_01PzDm7WpJ2d8494rbUvrqQD",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:05:38.589936Z",
+    "tool_use_id": "sevt_017eU86cndeuuSSbfJbyQVQh",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from July 1 to July 31, 2026, Reply purchased ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from July 1 to July 31, 2026, Reply purchased on the Euronext Milan market, organized and managed by Borsa Italiana S.p.A., a total of no. 203,146 treasury shares, equal to 0.54301% of the share capital, at an average unit price of Euro 97.14, for a total consideration of Euro 19,726,832.11. Details of the purchase transactions carried out during the period on a daily basis are available on the authorized storage mechanism E-Market Storage ( ... Following these purchases, as of July 31, 2026, the Company holds a total of no. 1,083,192 treasury shares, equal to 2.89535% of the share capital. Reply Reply [EXM, STAR: REY, ISIN: IT0005282865] specialises in the design and implementation of solutions based on new communication channels and digital media.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/share-buyback-program-july-2026",
+        "title": "Reply S.p.A.: Share Buyback Program – July 2026 | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from May 4 to May 29, 2026, Reply purchased ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from May 4 to May 29, 2026, Reply purchased on the Euronext Milan market, organized and managed by Borsa Italiana S.p.A., a total of no. 128,000 treasury shares, equal to 0.3421% of the share capital, at an average unit price of Euro 99.7029, for a total consideration of Euro 12,394,908.25. Details of the purchase transactions carried out during the period on a daily basis are available on the authorized storage mechanism E-Market Storage ( ... Following these purchases, as of May 31, 2026, the Company holds a total of no. 400,192 treasury shares, equal to 1.06971% of the share capital. This press release is a translation, the Italian version will prevail.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/share-buyback-program-may-2026",
+        "title": "Reply S.p.A.: Share Buyback Program – May 2026 | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from June 1 to June 30, 2026, Reply purchased ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from June 1 to June 30, 2026, Reply purchased on the Euronext Milan market, organized and managed by Borsa Italiana S.p.A., a total of no. 479,854 treasury shares, equal to 1.2826% of the share capital, at an average unit price of Euro 96.746, for a total consideration of Euro 45,211,287.85. Details of the purchase transactions carried out during the period on a daily basis are available on the authorized storage mechanism E-Market Storage ( ... Following these purchases, as of June 30, 2026, the Company holds a total of no. 880,046 treasury shares, equal to 2.35235% of the share capital. Reply Reply [EXM, STAR: REY, ISIN: IT0005282865] specialises in the design and implementation of solutions based on new communication channels and digital media.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/share-buyback-program-june-2026",
+        "title": "Reply S.p.A.: Share Buyback Program – June 2026 | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from April 13 to April 30, 2026, Reply purchased ...",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.A. (“Reply” or the “Company”) announces that, within the share buyback program disclosed to the market on April 9, 2026 and launched on April 13, 2026, during the reference period from April 13 to April 30, 2026, Reply purchased on the Euronext Milan market, organized and managed by Borsa Italiana S.p.A., a total of no. 139,000 treasury shares, equal to 0.3715% of the share capital, at an average unit price of Euro 91.7422, for a total consideration of Euro 12,705,819.20. Details of the purchase transactions carried out during the period on a daily basis are available on the authorized storage mechanism E-Market Storage ( ... Following these purchases, as of April 30, 2026, the Company holds a total of no. 272,192 treasury shares, equal to 0.7276% of the share capital. This press release is a translation, the Italian version will prevail.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/share-buyback-program-april-2026",
+        "title": "Reply S.p.A.: Share Buyback Program – April 2026 | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A. has announced the launch of a share buyback program starting April 13, 2026. The program allows for the purchase of up to 3,607,950 shares, representing 9.64% of the company&#x27;s current share capital.",
+            "type": "text"
+          },
+          {
+            "text": "Copyright © 2026 FinanzWire, all reproduction and representation rights reserved. Disclaimer: although drawn from the best sources, the information and analyzes disseminated by FinanzWire are provided for informational purposes only and in no way constitute an incentive to take a position on the financial markets. Share Buyback Market Regulations Reply S.p.A. Equity Interests INTESA SANPAOLO · Click here to consult the press release on which this article is based See all Reply S.p.A. news",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.A. has announced the launch of a share buyback program starting April 13, 2026. The program allows for the purchase of up to 3,607,950 shares, representing 9.64% of the company's current share capital. This initiative aims to support equity-based incentive plans, acquire equity interests, facilitate extraordinary financial operations, and foster strategic partnerships. Purchases will be conducted on the Euronext Milan and CBOE Europe Equity markets through Intesa Sanpaolo S.p.A. The share price will not fall below 0.13 euros and will not exceed the previous day's market price by more than 20%. Daily purchases are capped at 25% of the average daily trading volume over the last 20 days. The program will run until October 23, 2026, and can be adjusted or suspended as needed. At present, the company holds 133,192 treasury shares, making up 0.36% of its share capital.R.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.finanzwire.com/article/reply-spa-etr-reply-initiates-share-buyback-program-ZzgD16UzWaW",
+        "title": "Reply S.p.A. |",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A. [EXM, STAR: REY] (“Reply” or the “Company”) announces the launch of a buyback program for its ordinary shares (the “Shares”) starting from April 13, 2026, in execution of the authorization granted by the Shareholders’ ...",
+            "type": "text"
+          },
+          {
+            "text": "The number of Shares purchased on each trading day may not exceed 25% of the average daily trading volume of Reply ordinary shares on the trading venue where the purchase is carried out, calculated on the basis of the average daily trading volume over the 20 (twenty) trading days preceding the purchase date. ... From April 13, 2026, to October 23, 2026, the date on which the 18-month period from the approval of the Shareholders’ Meeting of April 23, 2025 will expire, as provided for by Article 2357 of the Italian Civil Code. The purchase of Shares may in any case be carried partially and/or suspended at any time, subject to the prompt disclosure to the market in the manner and within the deadlines required by applicable law. It should be noted that, in light of its aforementioned purpose, the Program is not intended for any capital reduction operation.",
+            "type": "text"
+          },
+          {
+            "text": "Reply S.p.A. [EXM, STAR: REY] (“Reply” or the “Company”) announces the launch of a buyback program for its ordinary shares (the “Shares”) starting from April 13, 2026, in execution of the authorization granted by the Shareholders’ Meeting on April 23, 2025, and the subsequent resolution adopted by the Board of Directors on May 12, 2025 (the “Program”). ... The purpose of the Program is the purchase of Shares to serve equity-based incentive plans, transactions aimed at acquiring equity interests, extraordinary finance operations, and/or the conclusion of agreements with strategic partners. For the purposes of implementing the Program, the purchase of Shares will be carried out on the regulated market Euronext Milan, organized and managed by Borsa Italiana S.p.A., and on CBOE Europe Equity, through the authorized intermediary Intesa Sanpaolo S.p.A., appointed to execute the Program.",
+            "type": "text"
+          },
+          {
+            "text": "Minimum and Maximum Purchase Price and Daily Quantity of Shares · The maximum number of treasury shares subject to the Program will not exceed 3,607,950 ordinary shares of Reply S.p.A. (representing 9.64398% of the current share capital), with a nominal value of Euro 0.13 each, for a maximum total consideration of Euro 550,000,000. Minimum and maximum price and daily volume of shares purchased ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/reply-launch-of-a-share-buyback-program-for-a-maximum-number-of-3607950-shares",
+        "title": "Launch of a share buyback program for a maximum number of 3,607,950 shares | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "... 12.03.2026 - Approved the Financial Statements for the financial year 2025, consolidated turnover of 2,483.6 million (€2,300.5 million in 2024) and Group net profits of 250.9 million (€211.1 million in 2024).",
+            "type": "text"
+          },
+          {
+            "text": "We herewith specify that from May 19, 2014 to March 4, 2015, Reply S.p.A. adopted the centralised data storage system known as “1Info”, available at www.1info.it, operated by Computershare S.p.A. based in Milan, Via Lorenzo Mascheroni n.",
+            "type": "text"
+          },
+          {
+            "text": "{\n  \"prefixes\": {\n    \"com_de\": \"de\",\n    \"com_en\": \"en\",\n    \"com_fr\": \"fr\",\n    \"com_it\": \"it\",\n    \"com_pt\": \"pt\"\n  }\n}",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/investors",
+        "title": "Investors | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": " Share price chart · 20 May ... 31 March 2026 ·  · 9 April 2026 · 18:15 Corporate · Corporate · REPLY: Launch of a share buyback program for a maximum number of 3,607,950 shares ·  · 13 March 2026 · 15:45 Research · Research · Original-Research: Reply SpA ...",
+            "type": "text"
+          },
+          {
+            "text": " Share price chart · 20 May 2026 · 17:13 Research · Research · Original-Research: Reply SpA (von Quirin Privatbank Kapitalmarktgeschäft): Buy ·  · 15 May 2026 · 12:47 Corporate · Corporate · REPLY: The Board of Directors approves the quarterly report dated 31 March 2026 ·  · 9 April 2026 · 18:15 Corporate · Corporate · REPLY: Launch of a share buyback program for a maximum number of 3,607,950 shares ·  · 13 March 2026 · 15:45 Research · Research · Original-Research: Reply SpA (von Quirin Privatbank Kapitalmarktgeschäft): Buy ·  · 12 March 2026 · 13:51 Corporate · Corporate · REPLY: The Board of Directors approved the draft financial statements for the year 2025 ·  · 20 November 2025 · 16:07 Research · Research · Original-Research: Reply SpA (von Quirin Privatbank Kapitalmarktgeschäft): Buy ·  · 13 November 2025 ·",
+            "type": "text"
+          },
+          {
+            "text": "Original-Research: Reply S.p.A. (von GBC AG): BUY ... Original-Research: Reply S.p.A. (von GBC AG): Kaufen ... Original-Research: Reply S.p.A. (von GBC AG): BUY ... Original-Research: Reply S.p.A. (von GBC AG): BUY ...",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.eqs-news.com/company/reply-spa/news/5c02f0af-ea7c-11e8-902f-2c44fd856d8c",
+        "title": "Reply SpA | News - EQS News",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "All indicators are positive for the period. In the first half of 2026 consolidated EBITDA of €233.2 million compared to the €223.7 million recorded in 2025 and corresponds to 17.8% of turnover.",
+            "type": "text"
+          },
+          {
+            "text": "As at 30 June 2026 the Group's net financial position was positive for €402.0 million, while at 31 March 2026 was positive for €643.0 million. The financial position at 31 December 2025 was positive for €467.6 million. \"The first-half results\" said Mario Rizzante, Chairman of Reply, \"confirm a trend that in now well-established: investments in technology are increasingly focusing on AI initiatives that have a direct impact on companies' competitiveness. Artificial intelligence has become a structural component of growth strategies and is accelerating the convergence of software, data and domain expertise. In this context, Reply has established itself by leveraging a model that combines innovation, specialisation and speed of execution.\" \"Over the past few months,\" continued Mario Rizzante, \"we have witnessed a very profound change within companies.",
+            "type": "text"
+          },
+          {
+            "text": "The manager responsible for preparing the company's financial reports, Dr Giuseppe Veneziano, states in accordance with Paragraph 2 of Article 154-bis of the Consolidated Finance Act, that the accounting information contained in this press release corresponds to the company's records, ledgers and accounting entries. Reply [EXM, STAR: REY, ISIN: IT0005282865] specialises in the design and implementation of solutions based on new communication channels and digital media. As a network of highly specialised companies, Reply supports major industrial groups in the telecom and media; industry and services; banking and insurance and public sectors in defining and developing business models enabled by the new paradigms of AI, cloud computing, digital media and the internet of things. Reply's services include: consulting, system integration and digital services.",
+            "type": "text"
+          },
+          {
+            "text": "Artificial intelligence is not replacing people, but it is redefining the way digital systems are designed and developed, reshaping the role of software and the professionals who build it. The ability to orchestrate networks of intelligent agents, supported by increasingly specialised and contextualised models, is opening a new phase in application development and the organisation of business processes.\" ... \"In this new landscape\" concluded Mario Rizzante, \"our value will be increasingly determined by our ability to design and governe intelligent ecosystems. Reply will continue to invest in this vision by developing expertise, platforms and new models.",
+            "type": "text"
+          }
+        ],
+        "source": "https://finance.yahoo.com/markets/stocks/articles/reply-p-board-directors-approves-115200324.html",
+        "title": "Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "(Teleborsa) - Reply, società quotata ... ha annunciato l&#x27;avvio, dal 13 aprile 2026, di un programma di acquisto di azioni proprie in esecuzione dell&#x27;autorizzazione dell&#x27;assemblea del 23 aprile 2025 e della delibera del Consiglio di Amministrazione del 12 maggio 2025, con l&#x27;obiettivo di dotarsi di titoli da utilizzare per piani di incentivazione azionaria, operazioni di acquisizione di partecipazioni, iniziative di finanza straordinaria e/o accordi con partner strategici. Il programma prevede l&#x27;acquisto, anche in più tranche, fino a un massimo di 3.607.950 azioni (circa il 9,64% del capitale sociale) per un controvalore complessivo fino a 550 milioni di euro, con operazioni ...",
+            "type": "text"
+          },
+          {
+            "text": "(Teleborsa) - Reply, società quotata su euronext STAR Milan e specializzata nella realizzazione di soluzioni basate sui nuovi canali di comunicazione e media digitali, ha annunciato l'avvio, dal 13 aprile 2026, di un programma di acquisto di azioni proprie in esecuzione dell'autorizzazione dell'assemblea del 23 aprile 2025 e della delibera del Consiglio di Amministrazione del 12 maggio 2025, con l'obiettivo di dotarsi di titoli da utilizzare per piani di incentivazione azionaria, operazioni di acquisizione di partecipazioni, iniziative di finanza straordinaria e/o accordi con partner strategici. Il programma prevede l'acquisto, anche in più tranche, fino a un massimo di 3.607.950 azioni (circa il 9,64% del capitale sociale) per un controvalore complessivo fino a 550 milioni di euro, con operazioni effettuate sui mercati Euronext Milan e CBOE Europe Equity tramite Intesa Sanpaolo, che agirà in piena indipendenza.",
+            "type": "text"
+          },
+          {
+            "text": "La durata è fissata fino al 23 ottobre 2026 (18 mesi dall'approvazione assembleare), potendo essere interrotto o parzializzato con comunicazioni tempestive al mercato, senza finalità di riduzione del capitale Al 9 aprile la società ha in portafoglio 133.192 azioni proprie, pari a circa lo 0,36% del capitale sociale. A Piazza Affari, oggi, sottotono Reply, che chiude la seduta con un calo del 3,41%. ... Il paniere ISTAT è l’insieme di beni e servizi utilizzato per seguire l’andamento dei prezzi pagati dalle famiglie e calcolare l’inflazione.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.teleborsa.it/News/2026/04/09/reply-avvia-buyback-fino-a-550-milioni-di-euro-dal-13-aprile-2026-241.html",
+        "title": "Reply avvia buyback fino a 550 milioni di euro dal 13 aprile 2026 | Teleborsa.it",
+        "type": "search_result"
+      }
+    ],
+    "id": "sevt_01FF2GYS94xMHGiCKFJgJMcW",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:05:39.444277Z",
+    "tool_use_id": "sevt_01Tme43U9rXXRakwnPBhazYS",
+    "type": "agent.tool_result"
+  },
+  {
+    "id": "sevt_018oEZXnfUGTmkXr7T4TTHDe",
+    "processed_at": "2026-11-05T11:05:39.509549Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "id": "sevt_01EMo748Ekjg7FZmJfHihqYP",
+    "processed_at": "2026-11-05T11:05:42.045363Z",
+    "type": "agent.thinking"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01BTr8vWe3RWD1hPVLnj3EmJ",
+    "input": {
+      "url": "https://www.reply.com/en/investors"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:05:43.355646Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01YQZn9Z8CXZCfQ3n42834tK",
+    "input": {
+      "url": "https://finance.yahoo.com/markets/stocks/articles/reply-p-board-directors-approves-115200324.html"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:05:43.355647Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_0189zTyoXn4JX3CX5oiyUnKj",
+    "input": {
+      "query": "Reply logistics supply chain traceability IoT solutions"
+    },
+    "name": "web_search",
+    "processed_at": "2026-11-05T11:05:43.355648Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01XdCQFAWZN7UStGD21XsJf9",
+    "input": {
+      "query": "Reply management team Filippo Rizzante CTO Tatiana Rizzante Daniele Angelucci"
+    },
+    "name": "web_search",
+    "processed_at": "2026-11-05T11:05:43.355649Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "id": "sevt_01MNkDLkfLN2zUWuMQwG9Nwe",
+    "is_error": false,
+    "model_request_start_id": "sevt_018oEZXnfUGTmkXr7T4TTHDe",
+    "model_usage": {
+      "cache_creation_input_tokens": 25798,
+      "cache_read_input_tokens": 2033,
+      "input_tokens": 2,
+      "output_tokens": 450,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:05:43.355650Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "content": [
+      {
+        "source": {
+          "data": "---\ncanonical: https://www.reply.com/en/investors\nmeta-author: TamTamy Reply\nmeta-description: Discover the section dedicated to investors and financial data on the official website of Reply S.p.A.\nmeta-og:description: Discover the section dedicated to investors and financial data on the official website of Reply S.p.A.\nmeta-og:image: https://replydam.discoveryreplymedia.com/production/14/14/381671bf-a583-3f39-92a9-885683834645/44e2ecb9-0adf-4af9-801f-29f1bdb970c2.png\nmeta-og:site_name: Reply\nmeta-og:title: Investors | Reply\nmeta-og:type: article\nmeta-og:url: https://www.reply.com/en/investors\nmeta-twitter:card: summary_large_image\nmeta-twitter:description: Discover the section dedicated to investors and financial data on the official website of Reply S.p.A.\nmeta-twitter:title: Investors | Reply\nmeta-viewport: width=device-width,minimum-scale=1,initial-scale=1\ntitle: Investors | Reply\n---\n\n[https://www.googletagmanager.com/ns.html?id=GTM-5J8JCZQ](https://www.googletagmanager.com/ns.html?id=GTM-5J8JCZQ)\n\nEN\n\n[DE](https://www.reply.com/de/investors)\n\n[EN](https://www.reply.com/en/investors)\n\n[FR](https://www.reply.com/fr/investors)\n\n[IT](https://www.reply.com/it/investors)\n\n[PT](https://www.reply.com/pt/investors)\n\n[Reply Logo](https://www.reply.com/en)\n\nServices\n\nServices\n\n[Artificial Intelligence](https://www.reply.com/en/artificial-intelligence)\n\n[AI-powered Software Engineering](https://www.reply.com/en/ai-powered-software-engineering)\n\n[Cloud Computing](https://www.reply.com/en/cloud-computing)\n\n[CX & Digital Commerce](https://www.reply.com/en/cx-and-digital-commerce)\n\n[Cybersecurity](https://www.reply.com/en/cybersecurity)\n\n[Data World](https://www.reply.com/en/data-world)\n\n[Design](https://www.reply.com/en/design)\n\n[Digital Assets](https://www.reply.com/en/digital-assets)\n\n[Digital Experience](https://www.reply.com/en/digital-experience)\n\n[Gaming](https://www.reply.com/en/gaming)\n\n[Governance, Risk and Compliance](https://www.reply.com/en/governance-risk-and-compliance)\n\n[Hybrid Work](https://www.reply.com/en/hybrid-work)\n\n[Internet of Things](https://www.reply.com/en/iot)\n\n[Metaverse](https://www.reply.com/en/metaverse)\n\n[Prebuilt AI Apps](https://www.reply.com/en/prebuilt-ai-apps)\n\n[Quality Engineering](https://www.reply.com/en/quality-engineering)\n\n[Quantum Computing](https://www.reply.com/en/quantum-computing)\n\n[Robotics & Autonomous Things](https://www.reply.com/en/robotics-and-autonomous-things)\n\n[Social Media](https://www.reply.com/en/social-media)\n\n[Strategy and Business Model Transformation](https://www.reply.com/en/strategy-and-business-model-transformation)\n\n[Supply Chain Management](https://www.reply.com/en/supply-chain-management)\n\n[Telco Networks](https://www.reply.com/en/telco-networks)\n\n[3D & Mixed Reality](https://www.reply.com/en/3d-and-mixed-reality)\n\n![](https://replydam.discoveryreplymedia.com/production/8/8/6e27da44-3d37-383b-6ffd-01b9bf0fbefb/d0322109-575b-45fd-9971-45190633c2b6.png?im=Crop%2Crect%3D%28381%2C0%2C1076%2C1076%29%2CallowExpansion%3BResize%2Cwidth%3D600) [Reply Model Factory Read more](https://www.reply.com/en/artificial-intelligence/reply-model-factory)\n\n![](https://replydam.discoveryreplymedia.com/production/18/82/14d033aa-8d1c-425e-9934-3bfab357dc19/6a83d9fb-6523-4b54-ac4a-12b422b1769f.png?im=AspectCrop%3D%281%2C1%29%3BResize%2Cwidth%3D600) [Symbiosys: Move at AI speed. Decide with evidence. Read more](https://www.reply.com/symbiosis-reply/en)\n\nIndustries\n\nIndustries\n\n[Automotive & Manufacturing](https://www.reply.com/en/automotive-and-manufacturing)\n\n[Energy & Utilities](https://www.reply.com/en/energy-and-utilities)\n\n[Financial Services](https://www.reply.com/en/financial-services)\n\n[Logistics](https://www.reply.com/en/logistics)\n\n[Retail & Consumer Products](https://www.reply.com/en/retail-and-consumer-products)\n\n[Telco & Media](https://www.reply.com/en/telco-and-media)\n\n![](https://replydam.discoveryreplymedia.com/production/13/13/4b5994fa-1b7f-9b5c-35c9-6ccccd4f2168/f727e88f-8ead-431b-a235-3071066e869b.png?im=Crop%2Crect%3D%28318%2C175%2C1595%2C897%29%2CallowExpansion%3BResize%2Cwidth%3D1000) [Brick Cognitive: Agentic AI to scale manufacturing Read more](https://www.reply.com/brick-reply/en/brick-cognitive-agentic-ai-to-scale-manufacturing)\n\n![](https://replydam.discoveryreplymedia.com/production/21/85/6dca77db-f041-7b75-abda-5bf198f0c749/aa4238ba-3403-49d7-a043-8101b9cc4847.png?im=AspectCrop%3D%2816%2C9%29%3BResize%2Cwidth%3D1000) [Industrial Agentic AI Read more](https://www.reply.com/en/artificial-intelligence/industrial-agentic-ai)\n\nInsights & Labs\n\nInsights & Labs\n\n[Labs](https://www.reply.com/en/labs)\n\n[Area42](https://www.reply.com/en/labs/area-42)\n\n[Area73](https://www.reply.com/en/labs/area-73)\n\n[Area Phi](https://www.reply.com/en/labs/area-phi)\n\n[Cyber Security Lab](https://www.reply.com/en/labs/cyber-security-lab)\n\n[House of Models](https://www.reply.com/en/labs/reply-house-of-models)\n\n[IoT Validation Lab](https://www.reply.com/en/labs/reply-iot-labs-concept-quality)\n\n[Test Automation Center](https://www.reply.com/en/labs/testautomationcentre)\n\n[Challenges](https://challenges.reply.com/tamtamy/home.action)\n\n[Insights](https://www.reply.com/en/insights)\n\n[Xchange](https://www.reply.com/en/xchange)\n\n[Webinars](https://webinars.reply.com/home.action)\n\n![Scaling AI in 2026](https://replydam.discoveryreplymedia.com/production/4/4/2eef4cee-9903-f784-6288-2b06002322dd/590a6b5b-6b81-4e68-963c-33f1418ad260.png?im=AspectCrop%3D%281%2C1%29%3BResize%2Cwidth%3D600) [Scaling AI in 2026 Discover More](https://www.reply.com/en/artificial-intelligence/scaling-ai-in-2026)\n\n![AI for Retailers](https://replydam.discoveryreplymedia.com/production/3/3/30d60750-f521-879c-4a67-7083fde14b6a/4a3ac8fc-61fc-44d6-b871-c03234921740.png?im=AspectCrop%3D%2816%2C9%29%3BResize%2Cwidth%3D1000) [AI for Retailers Discover More](https://www.reply.com/en/artificial-intelligence/ai-for-retailers)\n\n[ROSE](https://onlineservices.reply.com/)\n\nWe care\n\nWe care\n\n[Making a difference](https://www.reply.com/en/esg)\n\n[Environment](https://www.reply.com/en/environment)\n\n[Energy & Emissions](https://www.reply.com/en/environment/energy-and-emissions)\n\n[Reply to the Earth](https://www.reply.com/en/environment/reply-to-the-earth)\n\n[Sustainable Supply Chain](https://www.reply.com/en/environment/sustainable-supply-chain)\n\n[Social](https://www.reply.com/en/social)\n\n[Continuous Learning Culture](https://www.reply.com/en/people/continuous-learning)\n\n[Wellbeing](https://www.reply.com/en/people/wellbeing)\n\n[Diversity, Equity and Inclusion](https://www.reply.com/en/people/inclusion-and-diversity)\n\n[Governance](https://www.reply.com/en/governance)\n\n[Governance System](https://www.reply.com/en/investors/governance-system)\n\n[Governance Policies](https://www.reply.com/en/investors/governance-policies)\n\n[Ethical AI](https://www.reply.com/en/governance/our-commitment-to-ethical-ai)\n\n![](https://replydam.discoveryreplymedia.com/production/2/2/6113342e-c9f7-b238-36d8-3e07f20200ac/32281efa-65ff-4225-b742-81b0132935da.jpg?im=Crop%2Crect%3D%28837%2C0%2C1080%2C1080%29%2CallowExpansion%3BResize%2Cwidth%3D600) [Sustainability at Reply Discover More](https://www.reply.com/en/esg)\n\nWe are\n\nWe are\n\n[Company profile](https://www.reply.com/en/company-profile)\n\n[Offices](https://www.reply.com/en/offices)\n\n[Contacts](https://www.reply.com/en/contacts)\n\n[Newsroom](https://www.reply.com/en/newsroom)\n\n[Investors](https://www.reply.com/en/investors)\n\n[Financial News](https://www.reply.com/en/newsroom?type=financial-news)\n\n[Share Information](https://www.reply.com/en/investors/reply-share-information)\n\n[Financial Highlights](https://www.reply.com/en/investors/financial-highlights)\n\n[Financial Calendar & Events](https://www.reply.com/en/investors/financial-calendar-and-events)\n\n[Financial Reports](https://www.reply.com/en/investors/financial-reports)\n\n[Shareholders' Meeting](https://www.reply.com/en/investors/shareholders-meeting)\n\n[Loyalty Shares](https://www.reply.com/en/investors/loyalty-shares)\n\n[Governance](https://www.reply.com/en/investors#H6tmz)\n\n![](https://replydam.discoveryreplymedia.com/production/26/90/afe834fc-dd2d-b3c6-a6b9-688348d5ee29/7105a802-e582-481d-9ddb-871fc30c6b71.jpg?im=AspectCrop%3D%281%2C1%29%3BResize%2Cwidth%3D600) [The Board of Directors approves the half-year financial report as of 30 June 2026 Discover more](https://www.reply.com/en/newsroom/financial-news/the-board-of-directors-approves-the-half-year-financial-report-as-of-30-june-2026)\n\n![](https://replydam.discoveryreplymedia.com/production/26/90/afe834fc-dd2d-b3c6-a6b9-688348d5ee29/7105a802-e582-481d-9ddb-871fc30c6b71.jpg?im=AspectCrop%3D%281%2C1%29%3BResize%2Cwidth%3D600) [About Reply Read More](https://www.reply.com/en/company-profile)\n\n[Join us](https://www.reply.com/en/about/careers/)\n\nEnglish\n\nLanguages\n\n[Deutsch](https://www.reply.com/de/investors)\n\n[English](https://www.reply.com/en/investors)\n\n[Français](https://www.reply.com/fr/investors)\n\n[Italiano](https://www.reply.com/it/investors)\n\n[Português](https://www.reply.com/pt/investors)\n\nWhat are you looking for?\n\n![](https://replydam.discoveryreplymedia.com/production/9/9/afe04b7b-25c9-387c-5891-407483ba431c/fed160b5-60fb-4fc2-b58c-67c84a5a4c62.png?im=AspectCrop%3D%2816%2C9%29)\n\n# Investors\n\nMade up of a network of highly-specialised companies in different areas of expertise, Reply's defining characteristics are its knowledge, flexible structure, and commitment to technological innovation, which enable it to anticipate market evolution and discern new technology drivers.\n\nINDEX\n\n- [Financial Highlights](#iV6rV)\n- [Reply Stock](#LOucS)\n- [Financial News & Events](#sMVbc)\n- [Governance](#H6tmz)\n- [Financial Reports](#I7uZB)\n- [Other financial documents](#QTWK5)\n- [Contacts](#cLMb3)\n\n### Financial Highlights\n\n[View all](https://www.reply.com/en/investors/financial-highlights)\n\n# 14.7%\n\nAnnual shareholder return for a 10-year investment in Reply shares (2013-2025, dividends reinvested)\n\n#### 13.4%\n\nCompound annual revenue growth  \nduring the last 10 financial years\n\n#### 13.8%\n\nAverage EBIT margin during  \nthe last 10 financial years\n\n[/it/investors/reply-share-information](https://www.reply.com/it/investors/reply-share-information)\n\n[View section](https://www.reply.com/it/investors/reply-share-information)\n\n### Reply Stock\n\n![](https://replydam.discoveryreplymedia.com/production/3/3/a51f8113-44ef-d3f5-f540-0db1c5f1b0b9/f992d08e-110f-486a-a021-78a7ebec6c59.png?im=Crop%2Crect%3D%2824%2C78%2C344%2C194%29%2CallowExpansion)\n\nISIN IT0005282865\n\nSymbol REY\n\nReuters REY.MI\n\nBloomberg REY.IM\n\nMarket segment STAR\n\n[Analyst coverage](https://www.reply.com/en/investors/reply-share-information#wWhBy)\n\n[Basic share data](https://www.reply.com/en/investors/reply-share-information#eT381)\n\n[Dividends](https://www.reply.com/en/investors/reply-share-information#Oc6IH)\n\n[Share capital](https://www.reply.com/en/investors/reply-share-information#X5yVa)\n\n[Yearly statistics](https://www.reply.com/en/investors/reply-share-information#Tfizp)\n\n### Latest Financial News\n\n30/07/2026\n\n[The Board of Directors approves the half-year financial report as of 30 June 2026](https://www.reply.com/en/newsroom/financial-news/the-board-of-directors-approves-the-half-year-financial-report-as-of-30-june-2026)\n\n15/05/2026\n\n[The Board of Directors approves the quarterly report dated 31 March 2026](https://www.reply.com/en/newsroom/financial-news/the-board-of-directors-approves-the-quarterly-report-dated-31-march-2026)\n\n23/04/2026\n\n[Shareholders’ Meeting approves the 2025 Financial Statements](https://www.reply.com/en/newsroom/financial-news/shareholders-meeting-approves-the-2025-financial-statements)\n\n[View all](https://www.reply.com/en/newsroom?type=financial-news)\n\n### Calendar and events\n\n30/07/26\n\nHalf Year Report 30 June 2026 | Q2 Earnings Call\n\n12/11/26\n\nConsolidated results for Third Quarter 2026 | Q3 Earnings Call\n\n23-24/11/26\n\nEquity Forum\n\n[View all](https://www.reply.com/en/investors/financial-calendar-and-events)\n\n### Governance\n\nOur ethical values are aligned with local legislation as well as international norms and guidelines. They apply to all our operations and any contributing parties, solutions and other business activities.\n\n![](https://replydam.discoveryreplymedia.com/production/0/0/cc8609ea-dd3b-2d33-e270-77397fc6c25c/b1689304-351b-475d-a8f6-9dcbcc164d87.png?im=AspectCrop%3D%281%2C1%29)\n\nBoard of directors and  \nother Corporate bodies\n\n[/en/investors/board-of-directors-and-other-corporate-bodies](https://www.reply.com/en/investors/board-of-directors-and-other-corporate-bodies)\n\n![](https://replydam.discoveryreplymedia.com/production/13/13/b1b683e9-9d3f-0176-4414-8f9ee7a771ea/4230c2bc-0d13-4b02-85b9-6c0dbeb6e055.png?im=AspectCrop%3D%281%2C1%29)\n\nGovernance  \nsystem\n\n[/en/investors/governance-system](https://www.reply.com/en/investors/governance-system)\n\n![](https://replydam.discoveryreplymedia.com/production/19/83/fd6cdb72-32d5-2f73-7445-699cddf2abac/71cdb082-93ae-48bc-904b-c46c9c27bf38.png?im=AspectCrop%3D%281%2C1%29)\n\nGovernance  \npolicies\n\n[/en/investors/governance-policies](https://www.reply.com/en/investors/governance-policies)\n\n![](https://replydam.discoveryreplymedia.com/production/1/1/0ad2d411-1105-82b1-1869-efe5c5c51329/8aa1643b-3277-4a39-81b6-8ae95fa06705.png?im=AspectCrop%3D%281%2C1%29)\n\nLoyalty  \nshares\n\n[/en/investors/loyalty-shares](https://www.reply.com/en/investors/loyalty-shares)\n\n#### Featured documents\n\n[Whistleblowing Policy](https://www.reply.com/contents/Reply-Whistleblowing-Policy_ENG.pdf)\n\n[Modello 231 (Italian Version)](https://www.reply.com/contents/modello231_reply.pdf)\n\n[Code of Ethics](https://www.reply.com/contents/Code_of_Ethics.pdf)\n\n[Articles of Association](https://www.reply.com/contents/Reply_SpA_Articles_of_Association_%28EN%29.pdf)\n\n![](https://replydam.discoveryreplymedia.com/production/2/2/6113342e-c9f7-b238-36d8-3e07f20200ac/32281efa-65ff-4225-b742-81b0132935da.jpg?im=AspectCrop%3D%2816%2C9%29)\n\nMaking a difference\n\n\"Make forward\" for us also means taking concrete action to make the change we want to see in the world happen, and to involve as many actors as possible in this transformation: people, companies, communities.\n\n[Discover more](#)\n\n[Consolidated Sustainability Statement 2025](https://www.reply.com/contents/REPLY_Bilancio_2025_ENG.pdf)\n\n### Financial Reports\n\n[View all](https://www.reply.com/en/investors/financial-reports)\n\n[](https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf)\n\n[](https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf)\n\n[](https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf)\n\n[https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf](https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf)[https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf](https://www.reply.com/contents/Half_year_Financial_Report_2026.pdf)\n\n[31/03/2026 Quarterly Report Q1 2026](https://dam-media.reply.com/contents/Interim_Management_Report_at_31_March_2026-1.pdf)\n\n[31/12/2025 Annual Report 2025](https://dam-media.reply.com/contents/REPLY_Bilancio_2025_ENG.pdf)\n\n[30/09/2025 Quarterly Report Q3 2025](https://www.reply.com/contents/Interim_Management_Report_at_30_September_2025.pdf)\n\n[30/06/2025 Half Year Report 2025](https://www.reply.com/contents/half_year_Financial_Report_2025.pdf)\n\n## Other financial documents\n\n### Shareholders’ meeting\n\n12.03.2026 - Approved the Financial Statements for the financial year 2025, consolidated turnover of 2,483.6 million (€2,300.5 million in 2024) and Group net profits of 250.9 million (€211.1 million in 2024). The proposal to distribute a dividend of 1.35 per share has been approved, and resolutions in relation to the purchase and/or sale of treasury shares.\n\n[View all documents](https://www.reply.com/en/investors/shareholders-meeting)\n\n### Extraordinary transactions\n\nHere you can find relevant documents for extraordinary transactions conducted by Reply S.p.A., relative to:​\n\n• merger of **Reply Deutschland**  \n• **syskoplan's** acquisition  \n• **IPO** Prospectus\n\n[View section](https://www.reply.com/en/investors/extraordinary-transactions)\n\n### Contacts\n\nMichael Lückenkötter\n\nInvestor Relations\n\nphone\n\n[+49 (0) 52 41 - 50 09 611](tel:+49%20%280%29%2052%2041%20-%2050%2009%20611)\n\nfax\n\n[+49 (0) 52 41 - 50 09 701](tel:+49%20%280%29%2052%2041%20-%2050%2009%20701)\n\nemail\n\n[contatto018@example.invalid](mailto:contatto018@example.invalid) [contatto014@example.invalid](mailto:contatto014@example.invalid)\n\nPaolo Capitelli\n\nInvestor Relations\n\nphone\n\n[+39 02 535761](tel:+39%2002%20535761)\n\nfax\n\n[+39 02 53576444](tel:+39%2002%2053576444)\n\nemail\n\n[contatto020@example.invalid](mailto:contatto020@example.invalid) [contatto014@example.invalid](mailto:contatto014@example.invalid)\n\nFor the dissemination and storage of regulated information, Reply S.p.A. uses eMarket SDIR and the centralised data storage system authorised by Consob, known as “eMarket STORAGE” at url [www.emarketstorage.com](https://www.emarketstorage.it/) which is operated by Spafid Connect S.p.A., based in in Foro Buonaparte 10, Milan. We herewith specify that from May 19, 2014 to March 4, 2015, Reply S.p.A. adopted the centralised data storage system known as “1Info”, available at [www.1info.it](http://www.1info.it/PORTALE1INFO), operated by Computershare S.p.A. based in Milan, Via Lorenzo Mascheroni n. 19.\n\n[Reply Logo](https://www.reply.com/ \"Reply\")\n\nWe are\n\n[Company Profile](https://www.reply.com/en/company-profile)\n\n[Offices](https://www.reply.com/en/offices)\n\n[Investors](https://www.reply.com/en/investors)\n\n[Newsroom](https://www.reply.com/en/newsroom)\n\nPrivacy & legal\n\n[Privacy & Cookie Policy](https://www.reply.com/en/privacy-policy)\n\n[Privacy Notice (Candidate)](https://www.reply.com/en/privacy-notice-candidate)\n\n[Privacy Notice (Client)](https://www.reply.com/en/privacy-notice-client)\n\n[Privacy Notice (Supplier)](https://www.reply.com/en/privacy-notice-supplier)\n\n[Privacy Notice (Marketing)](https://www.reply.com/en/privacy-notice-marketing)\n\n[CCPA Privacy Notice](https://www.reply.com/en/CCPA-privacy-notice)\n\n[Modern Slavery Act Transparency Policy (UK & IR)](https://www.reply.com/en/modern-slavery-statement)\n\n[Declaration of Principles - LKSG (Germany)](https://www.reply.com/en/declaration-of-principles)\n\n[Approach to UK Taxation](https://www.reply.com/en/approach-to-uk-taxation)\n\n[Accessibility Statement](https://www.reply.com/en/accessibility)\n\nDo Not Sell/Share My Personal Information\n\n[Careers](https://www.reply.com/en/about/careers/)\n\n[Contacts](https://www.reply.com/en/contacts)\n\n[*![](https://dam-media.reply.com/production/13/13/1f55152d-f796-2e20-2be8-d9c9ca502400/f56ec3f9-312b-40e1-b47d-bdebc0a5c918.svg)*](https://www.facebook.com/ReplyinUK \"Facebook\")\n\n[*![](https://dam-media.reply.com/production/19/83/0d610eac-759a-88af-0b23-cd3facfc20ec/a6732ee4-95cf-4951-9c4b-3675c7154f7e.svg)*](https://twitter.com/Reply_UK \"Twitter\")\n\n[*![](https://dam-media.reply.com/production/7/7/43950e4f-9cad-75d1-fc9c-a5b2b94b0bf4/49664893-bfc1-4d79-9208-3bdd7083126b.svg)*](https://www.linkedin.com/company/reply \"LinkedIn\")\n\n[*![](https://dam-media.reply.com/production/24/88/85b23a7d-9f9a-77a6-0851-de44fa6ffe10/c48097ef-90ed-4c24-aa40-1764649e72ff.svg)*](https://www.xing.com/pages/reply \"Xing\")\n\nReply © 2026 - [Company information](https://www.reply.com/contents/Reply_Company_Information_en.pdf)\n\nCookie settings",
+          "media_type": "text/plain",
+          "type": "text"
+        },
+        "title": "Investors | Reply",
+        "type": "document"
+      }
+    ],
+    "id": "sevt_01SF9CvG1ncfcqpyCHnW4uPX",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:05:43.528376Z",
+    "tool_use_id": "sevt_01BTr8vWe3RWD1hPVLnj3EmJ",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "source": {
+          "data": "---\ncanonical: https://finance.yahoo.com/markets/stocks/articles/reply-p-board-directors-approves-115200324.html\nmeta-al:android:app_name: Yahoo Finance\nmeta-al:android:package: com.yahoo.mobile.client.android.finance\nmeta-al:android:url: intent://#Intent;scheme=yfinance;action=android.intent.action.VIEW;package=com.yahoo.mobile.client.android.finance;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.yahoo.mobile.client.android.finance;end\nmeta-al:ios:app_name: Yahoo Finance\nmeta-al:ios:app_store_id: 328412701\nmeta-apple-itunes-app: app-id=328412701, affiliate-data=ct=us.fin.mbl.smart-banner&amp;pt=9029, app-argument=https://yfinance.onelink.me/3068494570?pid=SmartBanner&amp;c=US_Acquisition_YMktg_337__&amp;af_sub1=Acquisition&amp;af_sub2=US_YMktg&amp;af_sub3=&amp;af_sub4=100000591&amp;af_sub5=YahooFinanceApp__SmartBanner_\nmeta-conf:cjs:consent-event-listener: true\nmeta-description: TURIN, Italy, July 30, 2026--Today, the Board of Directors of Reply S.p.A. [EXM, STAR: REY] approved the results as at 30 June 2026.\nmeta-fb:app_id: 458584288257241\nmeta-fb:pages: 458584288257241\nmeta-keywords: Reply, &quot;confirm, €1,311.9 million, €189.7 million, €194.1 million, €233.2 million\nmeta-oath:guce:consent-host: guce.yahoo.com\nmeta-og:description: TURIN, Italy, July 30, 2026--Today, the Board of Directors of Reply S.p.A. [EXM, STAR: REY] approved the results as at 30 June 2026.\nmeta-og:image: https://s.yimg.com/lo/mysterio/api/32566b0a257d4718cfb0b22eda66e2c98b8308737c6275da725fb550284a9483/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness-wire.com%2F8eb996fa9d32f200ce5d326d30c6b2bc\nmeta-og:image:height: 628\nmeta-og:image:width: 1200\nmeta-og:site_name: Yahoo Finance\nmeta-og:title: Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026\nmeta-og:type: article\nmeta-og:url: https://finance.yahoo.com/markets/stocks/articles/reply-p-board-directors-approves-115200324.html\nmeta-ogImg: https://s.yimg.com/lo/mysterio/api/32566b0a257d4718cfb0b22eda66e2c98b8308737c6275da725fb550284a9483/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness-wire.com%2F8eb996fa9d32f200ce5d326d30c6b2bc\nmeta-robots: max-image-preview:large\nmeta-theme-color: #037B66\nmeta-title: Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026\nmeta-twitter:card: summary_large_image\nmeta-twitter:description: TURIN, Italy, July 30, 2026--Today, the Board of Directors of Reply S.p.A. [EXM, STAR: REY] approved the results as at 30 June 2026.\nmeta-twitter:dnt: on\nmeta-twitter:image: https://s.yimg.com/lo/mysterio/api/32566b0a257d4718cfb0b22eda66e2c98b8308737c6275da725fb550284a9483/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness-wire.com%2F8eb996fa9d32f200ce5d326d30c6b2bc\nmeta-twitter:image:src: https://s.yimg.com/lo/mysterio/api/32566b0a257d4718cfb0b22eda66e2c98b8308737c6275da725fb550284a9483/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness-wire.com%2F8eb996fa9d32f200ce5d326d30c6b2bc\nmeta-twitter:site: @YahooFinance\nmeta-twitter:title: Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026\nmeta-viewport: width=device-width, initial-scale=1\ntitle: Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026\n---\n\nOops, something went wrong\n\n     [Skip to navigation](#navigation-container) [Skip to main content](#nimbus-app) [Skip to right column](#right-rail)  \n\n# Yahoo Finance\n\n [/](https://finance.yahoo.com/)\n\n- [News](https://www.yahoo.com/)\n- [Finance](https://finance.yahoo.com/)\n- [Sports](https://sports.yahoo.com/)\n-  \n  \n  More\n\n  \n\n  * [News](https://www.yahoo.com/)\n    + [Today's news](https://www.yahoo.com/news/)\n    + [US](https://www.yahoo.com/news/us/)\n    + [Politics](https://www.yahoo.com/news/politics/)\n    + [World](https://www.yahoo.com/news/world/)\n    + [Weather](https://weather.yahoo.com/)\n    + [Tech](https://tech.yahoo.com/)\n    + [Science](https://www.yahoo.com/news/science/)\n    + [Originals](https://www.yahoo.com/guides/originals/)\n    + [Newsletters](https://www.yahoo.com/newsletters/)\n    + [Games](https://www.yahoo.com/games)\n  * [Life](https://www.yahoo.com/lifestyle/)\n    + [Health](https://health.yahoo.com/)\n    + [Parenting](https://www.yahoo.com/lifestyle/family-relationships/)\n    + [Horoscopes](https://www.yahoo.com/lifestyle/horoscope/)\n    + [Shopping](https://shopping.yahoo.com/)\n    + [Food](https://www.yahoo.com/lifestyle/food-drink/)\n    + [Travel](https://travel.yahoo.com/)\n    + [Autos](https://autos.yahoo.com/)\n    + [Gift ideas](https://shopping.yahoo.com/gift-ideas/)\n    + [Buying guides](https://shopping.yahoo.com/guides/)\n    + [Labor Day sales](https://shopping.yahoo.com/deals/breaking-news/article/labor-day-sales-were-shopping-early-the-best-deals-from-amazon-apple-hoka-patagonia-and-more-204203986.html)\n  * [Entertainment](https://www.yahoo.com/entertainment/)\n    + [Celebrity](https://www.yahoo.com/entertainment/celebrity/)\n    + [TV](https://www.yahoo.com/entertainment/tv/)\n    + [Movies](https://www.yahoo.com/entertainment/movies/)\n    + [Music](https://www.yahoo.com/entertainment/music/)\n    + [How to Watch](https://www.yahoo.com/guides/how-to-watch/)\n    + [Interviews](https://www.yahoo.com/guides/interviews/)\n    + [Videos](https://www.yahoo.com/guides/videos/)\n    + [Nonfiction Hotlist](https://www.yahoo.com/nonfictionhotlist/)\n  * [Finance](https://finance.yahoo.com/)\n    + [My portfolio](https://finance.yahoo.com/portfolios/)\n    + [News](https://finance.yahoo.com/news/)\n    + [Markets](https://finance.yahoo.com/markets/)\n    + [Research](https://finance.yahoo.com/research-hub/screener/)\n    + [Community](https://finance.yahoo.com/community/)\n    + [Personal finance](https://finance.yahoo.com/personal-finance/)\n    + [Videos](https://finance.yahoo.com/videos/)\n    + [AlphaSpace](https://finance.yahoo.com/about/promos/gold/alphaspace/)\n  * [Sports](https://sports.yahoo.com/)\n    + [World Cup](https://sports.yahoo.com/soccer/world-cup/)\n    + [Fantasy Football 2026](https://football.fantasysports.yahoo.com/)\n    + [Fantasy](https://sports.yahoo.com/fantasy/)\n    + [NFL](https://sports.yahoo.com/nfl/)\n    + [NFL Odds](https://sports.yahoo.com/nfl/odds/)\n    + [NBA](https://sports.yahoo.com/nba/)\n    + [MLB](https://sports.yahoo.com/mlb/)\n    + [NHL](https://sports.yahoo.com/nhl/)\n    + [College football](https://sports.yahoo.com/college-football/)\n    + [College basketball](https://sports.yahoo.com/college-basketball/)\n    + [Soccer](https://sports.yahoo.com/soccer/)\n    + [Sports Betting](https://sports.yahoo.com/betting/)\n    + [Yahoo Sports AM](https://sports.yahoo.com/newsletters/yahoo-sports-am/)\n  * New on Yahoo\n    + [Yahoo Scout](https://scout.yahoo.com/?fr=fp-more-sct&fr2=p:fp,m:more-sct)\n    + [Creators](https://creators.yahoo.com/)\n    + [Climate change](https://www.yahoo.com/issues/climate-change/)\n    + [Local](https://local.yahoo.com/)\n\n    [Selected edition](https://www.yahoo.com/everything/world/) US English\n\n[https://mail.yahoo.com/](https://mail.yahoo.com/)\n\n[Sign in](https://login.yahoo.com/?done=https%3A%2F%2Ffinance.yahoo.com%2Fmarkets%2Fstocks%2Farticles%2Freply-p-board-directors-approves-115200324.html&intl=us&lang=en-US&activity=ybar-signin&pspid=1183300100&src=finance)\n\n1. [My Portfolio](https://finance.yahoo.com/portfolios/)\n2. [News](https://finance.yahoo.com/topic/latest-news/)\n  1. [Markets](https://finance.yahoo.com/topic/stock-market-news/)  \n\n    1. [Stock market](https://finance.yahoo.com/topic/stock-market-news/)\n    2. [Crypto](https://finance.yahoo.com/markets/crypto/)\n    3. [Housing](https://finance.yahoo.com/topic/housing-market/)\n    4. [Magnificent 7](https://finance.yahoo.com/topic/magnificent-7/)\n    5. [Private markets](https://finance.yahoo.com/topic/private-markets/)\n    6. [Futures & Derivatives](https://finance.yahoo.com/topic/futures-derivatives/)\n\n  2. [Originals](https://finance.yahoo.com/topic/yahoo-finance-originals/)\n  3. [Premium news](https://finance.yahoo.com/topic/premium-news/)\n\n  4. [Newsletters](https://finance.yahoo.com/news/sign-up-for-yahoo-finances-newsletters-174158495.html)\n  5. [Economy & Policy](https://finance.yahoo.com/economy/)  \n\n    1. [Earnings](https://finance.yahoo.com/topic/earnings/)\n    2. [Oil & gas](https://finance.yahoo.com/energy/oil-gas/)\n    3. [Strait of Hormuz](https://finance.yahoo.com/topic/strait-of-hormuz/)\n    4. [Tariffs](https://finance.yahoo.com/topic/tariffs/)\n    5. [Clean Energy](https://finance.yahoo.com/energy/clean-energy/)\n\n  6. [Tech](https://finance.yahoo.com/topic/tech/)  \n\n    1. [Aerospace & Defense](https://finance.yahoo.com/topic/aerospace-defense/)\n    2. [Enterprise Cloud](https://finance.yahoo.com/technology/enterprise-cloud/)\n    3. [Pharma & Biotech](https://finance.yahoo.com/topic/pharma-biotech/)\n    4. [Cybersecurity](https://finance.yahoo.com/technology/cybersecurity/)\n\n3. [Markets](https://finance.yahoo.com/markets/)\n  1. [Stocks](https://finance.yahoo.com/markets/stocks/)  \n\n    1. [Most active](https://finance.yahoo.com/markets/stocks/most-active/)\n    2. [Day gainers](https://finance.yahoo.com/markets/stocks/gainers/)\n    3. [Day losers](https://finance.yahoo.com/markets/stocks/losers/)\n    4. [Trending](https://finance.yahoo.com/markets/stocks/trending/)\n    5. [Highest dividend](https://finance.yahoo.com/markets/stocks/highest-dividend/)\n    6. [Small cap](https://finance.yahoo.com/markets/stocks/small-cap-stocks/)\n    7. [Large cap](https://finance.yahoo.com/markets/stocks/large-cap-stocks/)\n    8. [Most expensive](https://finance.yahoo.com/markets/stocks/most-expensive-stocks/)\n    9. [Highest beta](https://finance.yahoo.com/markets/stocks/highest-beta-stocks/)\n    10. [Pink sheet](https://finance.yahoo.com/markets/stocks/pink-sheet-stocks/)\n    11. [Unusual volume](https://finance.yahoo.com/markets/stocks/unusual-volume-stocks/)\n\n  2. [Crypto](https://finance.yahoo.com/markets/crypto/all/)  \n\n    1. [Most active](https://finance.yahoo.com/markets/crypto/most-active/)\n    2. [Day gainers](https://finance.yahoo.com/markets/crypto/gainers/)\n    3. [Day losers](https://finance.yahoo.com/markets/crypto/losers/)\n\n  3. [Private companies](https://finance.yahoo.com/markets/private-companies/highest-valuation/)  \n\n    1. [52 week gainers](https://finance.yahoo.com/markets/private-companies/52-week-gainers/)\n    2. [Recently funded](https://finance.yahoo.com/markets/private-companies/recently-funded/)\n    3. [Most funded](https://finance.yahoo.com/markets/private-companies/most-funded/)\n\n  4. [Options](https://finance.yahoo.com/markets/options/most-active/)  \n\n    1. [Day gainers](https://finance.yahoo.com/markets/options/gainers/)\n    2. [Day losers](https://finance.yahoo.com/markets/options/losers/)\n    3. [Highest open interest](https://finance.yahoo.com/markets/options/highest-open-interest/)\n    4. [Highest implied volatility](https://finance.yahoo.com/markets/options/highest-implied-volatility/)\n\n  5. [Sectors](https://finance.yahoo.com/sectors/)  \n\n    1. [Technology](https://finance.yahoo.com/sectors/technology/)\n    2. [Financial services](https://finance.yahoo.com/sectors/financial-services/)\n    3. [Consumer cyclical](https://finance.yahoo.com/sectors/consumer-cyclical/)\n    4. [Communication services](https://finance.yahoo.com/sectors/communication-services/)\n    5. [Healthcare](https://finance.yahoo.com/sectors/healthcare/)\n    6. [Industrials](https://finance.yahoo.com/sectors/industrials/)\n    7. [Consumer defensive](https://finance.yahoo.com/sectors/consumer-defensive/)\n    8. [Energy](https://finance.yahoo.com/sectors/energy/)\n    9. [Basic materials](https://finance.yahoo.com/sectors/basic-materials/)\n    10. [Real estate](https://finance.yahoo.com/sectors/real-estate/)\n    11. [Utilities](https://finance.yahoo.com/sectors/utilities/)\n\n  6. [Treasury bonds](https://finance.yahoo.com/markets/bonds/)\n  7. [Futures](https://finance.yahoo.com/markets/commodities/)\n  8. [Currencies](https://finance.yahoo.com/markets/currencies/)\n  9. [World indices](https://finance.yahoo.com/markets/world-indices/)\n  10. [ETFs](https://finance.yahoo.com/markets/etfs/)\n  11. [Mutual funds](https://finance.yahoo.com/markets/mutualfunds/gainers/)\n4. [Calendars](https://finance.yahoo.com/calendar/)\n  1. [Earnings](https://finance.yahoo.com/calendar/earnings/)\n  2. [IPOs](https://finance.yahoo.com/calendar/ipo/)\n  3. [Stock splits](https://finance.yahoo.com/calendar/splits/)\n  4. [Economic events](https://finance.yahoo.com/calendar/economic/)\n5. [Research](https://finance.yahoo.com/research-hub/screener/)\n  1. [AlphaSpace](https://finance.yahoo.com/plus/alphaspace/?.done=https%3A%2F%2Falphaspace.finance.yahoo.com%2F)\n\n  2. [Stock picks](https://finance.yahoo.com/plus/silver/?.done=%2Fstock-picks%2F&ncid=100002600)\n\n  3. [Screeners](https://finance.yahoo.com/research-hub/screener/)  \n\n    1. [Stocks](https://finance.yahoo.com/research-hub/screener/equity/)\n    2. [Most shorted](https://finance.yahoo.com/research-hub/screener/most_shorted_stocks/)\n    3. [Most active penny stocks](https://finance.yahoo.com/research-hub/screener/most_active_penny_stocks/)\n    4. [Analyst strong buy](https://finance.yahoo.com/research-hub/screener/analyst_strong_buy_stocks/)\n\n  4. [Stock comparison](https://finance.yahoo.com/compare/)  \n\n    1. [NVDA vs INTC](https://finance.yahoo.com/compare?comps=NVDA,INTC)\n    2. [NVDA vs AMD](https://finance.yahoo.com/compare?comps=NVDA,AMD)\n    3. [GOOG vs AMZN](https://finance.yahoo.com/compare?comps=GOOG,AMZN)\n    4. [AAPL vs MSFT](https://finance.yahoo.com/compare?comps=AAPL,MSFT)\n    5. [TSLA vs RIVN](https://finance.yahoo.com/compare?comps=TSLA,RIVN)\n\n  5. [Currency converter](https://finance.yahoo.com/currency-converter/)\n  6. [Advanced charts](https://finance.yahoo.com/chart/%5EGSPC/)\n  7. [Investment ideas](https://finance.yahoo.com/plus/silver/?.done=%2Fresearch%2Ftrade-ideas%3Fncid%3D100000577&ncid=100000577)\n\n  8. [Research reports](https://finance.yahoo.com/plus/silver/?.done=%2Fresearch%3Fncid%3D100001249&ncid=100001249)\n\n6. [Community](https://finance.yahoo.com/community/)\n7. [Personal Finance](https://finance.yahoo.com/personal-finance/)\n  1. [My Money BETA](https://finance.yahoo.com/my-money/)\n  2. [Credit cards](https://finance.yahoo.com/personal-finance/credit-cards/)  \n\n    1. [Compare Credit Cards](https://finance.yahoo.com/personal-finance/credit-cards/compare/)\n    2. [Best 0% APR cards](https://finance.yahoo.com/personal-finance/credit-cards/best/0-apr-credit-cards/)\n    3. [Best balance transfer cards](https://finance.yahoo.com/personal-finance/credit-cards/best/balance-transfer-credit-cards/)\n    4. [Best rewards cards](https://finance.yahoo.com/personal-finance/credit-cards/best/rewards-credit-cards/)\n    5. [Best travel cards](https://finance.yahoo.com/personal-finance/credit-cards/best/travel-credit-cards/)\n\n  3. [Banking](https://finance.yahoo.com/personal-finance/banking/)  \n\n    1. [Best CD rates](https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-201308688.html)\n    2. [Best high-yield savings accounts](https://finance.yahoo.com/personal-finance/banking/best/high-yield-savings-accounts/)\n    3. [Best money market accounts](https://finance.yahoo.com/personal-finance/banking/article/4-percent-interest-money-market-accounts-160154289.html)\n    4. [Best free checking accounts](https://finance.yahoo.com/personal-finance/banking/article/best-free-checking-accounts-195709452.html)\n    5. [Best online banks](https://finance.yahoo.com/personal-finance/banking/article/best-online-banks-225003422.html)\n\n  4. [Mortgage](https://finance.yahoo.com/personal-finance/mortgages/)  \n\n    1. [Best mortgage lenders](https://finance.yahoo.com/personal-finance/mortgages/article/best-mortgage-lenders-173044403.html)\n    2. [Best mortgage rates](https://finance.yahoo.com/personal-finance/mortgages/best/mortgage-rates/)\n    3. [Mortgage refinance](https://finance.yahoo.com/personal-finance/mortgages/article/refinance-mortgage-162831396.html)\n    4. [First time homebuyer](https://finance.yahoo.com/personal-finance/mortgages/article/first-time-home-buyer-195246478.html)\n    5. [Mortgage payment calculator](https://finance.yahoo.com/personal-finance/calculators/mortgage-payment-calculator/)\n    6. [Home affordability calculator](https://finance.yahoo.com/personal-finance/calculators/how-much-home-can-i-afford/)\n\n  5. [Insurance](https://finance.yahoo.com/personal-finance/insurance/)  \n\n    1. [Find car insurance](https://finance.yahoo.com/personal-finance/insurance/article/cheap-car-insurance-152307402.html)\n    2. [Types of car insurance](https://finance.yahoo.com/personal-finance/insurance/article/types-of-car-insurance-175724082.html)\n    3. [Find life insurance](https://finance.yahoo.com/personal-finance/insurance/article/what-is-life-insurance-200844307.html)\n\n  6. [Taxes](https://finance.yahoo.com/personal-finance/taxes/)  \n\n    1. [How to file](https://finance.yahoo.com/personal-finance/taxes/article/irs-direct-file-230748915.html)\n    2. [Tax brackets and rates](https://finance.yahoo.com/personal-finance/taxes/article/tax-brackets-165854746.html)\n    3. [Child tax credit](https://finance.yahoo.com/personal-finance/taxes/article/child-tax-credit-2023-170245284.html)\n    4. [Tax extension](https://finance.yahoo.com/personal-finance/taxes/article/tax-extension-220004592.html)\n    5. [Tax refund status](https://finance.yahoo.com/personal-finance/taxes/article/wheres-my-refund-223612874.html)\n\n  7. [Student loans](https://finance.yahoo.com/personal-finance/student-loans/)  \n\n    1. [Federal vs. private](https://finance.yahoo.com/personal-finance/student-loans/article/are-federal-or-private-loans-better-175200294.html)\n    2. [How to apply](https://finance.yahoo.com/personal-finance/student-loans/article/how-to-apply-for-federal-student-loans-203505397.html)\n    3. [FAFSA 2026-27](https://finance.yahoo.com/personal-finance/student-loans/article/what-is-fafsa-173422253.html)\n    4. [Student loan assistance](https://finance.yahoo.com/personal-finance/student-loans/article/when-do-student-loans-resume-203115948.html)\n\n  8. [Personal loans](https://finance.yahoo.com/personal-finance/personal-loans/)  \n\n    1. [Best personal loans](https://finance.yahoo.com/personal-finance/personal-loans/article/best-personal-loans-202034980.html)\n    2. [Improve credit score](https://finance.yahoo.com/personal-finance/banking/article/how-to-improve-credit-score-140045472.html)\n    3. [How to get approved](https://finance.yahoo.com/personal-finance/personal-loans/article/how-to-get-approved-for-personal-loan-173728303.html)\n\n  9. [Calculators](https://finance.yahoo.com/personal-finance/calculators/)  \n\n    1. [All Calculators](https://finance.yahoo.com/personal-finance/calculators/)\n    2. [50/30/20 Budget Calculator](https://finance.yahoo.com/personal-finance/calculators/budget/)\n    3. [Compound Interest Calculator](https://finance.yahoo.com/personal-finance/calculators/compound-interest/)\n    4. [Savings Calculator](https://finance.yahoo.com/personal-finance/calculators/savings/)\n    5. [Savings Goal Calculator](https://finance.yahoo.com/personal-finance/calculators/savings-goal/)\n    6. [Social Security Calculator](https://finance.yahoo.com/personal-finance/calculators/social-security/)\n\n8. [Videos](https://finance.yahoo.com/videos/)\n  1. [Watch Now](https://finance.yahoo.com/live/)\n  2. [Latest](https://finance.yahoo.com/videos/latest/)\n  3. [Editor's picks](https://finance.yahoo.com/videos/editor-picks/)\n  4. [Trending stocks](https://finance.yahoo.com/videos/trending-stocks/)\n  5. [Investing insights](https://finance.yahoo.com/videos/investing-insights/)\n  6. [Live shows](https://finance.yahoo.com/videos/series/)  \n\n    1. [Morning Brief](https://finance.yahoo.com/videos/series/morning-brief/)\n    2. [Opening Bid](https://finance.yahoo.com/videos/series/opening-bid/)\n    3. [Market Catalysts](https://finance.yahoo.com/videos/series/market-catalysts/)\n    4. [Market Domination](https://finance.yahoo.com/videos/series/market-domination/)\n    5. [Market Domination Overtime](https://finance.yahoo.com/videos/series/market-domination-overtime/)\n    6. [Asking for a Trend](https://finance.yahoo.com/videos/series/asking-for-a-trend/)\n    7. [The Daily Wolf](https://finance.yahoo.com/videos/series/daily-wolf/)\n\n  7. [Weekly shows](https://finance.yahoo.com/videos/series/)  \n\n    1. [Power Players](https://finance.yahoo.com/videos/series/power-players/)\n    2. [Trader Talk](https://finance.yahoo.com/videos/series/trader-talk/)\n    3. [Built Different](https://finance.yahoo.com/videos/series/built-different/)\n    4. [The Big Idea](https://finance.yahoo.com/videos/series/big-idea/)\n\n  8. [ETF Report](https://finance.yahoo.com/topic/etf-report/)\n  ...\n\n     Network\n\n        [Try AlphaSpace](https://finance.yahoo.com/plus/alphaspace/?.done=https%3A%2F%2Falphaspace.finance.yahoo.com%2F&ncid=100003418)\n\n[Upgrade to Premium](https://finance.yahoo.com/plus/select-plan/?.done=https%3A%2F%2Ffinance.yahoo.com%2Fmarkets%2Fstocks%2Farticles%2Freply-p-board-directors-approves-115200324.html&ncid=100002891)\n\n### U.S. markets open in 5h 49m\n\n       US Markets  \n\nUS Markets\n\nEurope Markets\n\nAsia Markets\n\nCryptocurrencies\n\nRates\n\nCommodities\n\nCurrencies\n\n  U.S. markets open in 5h 49m\n\n     [S&P Futures](https://finance.yahoo.com/quote/ES%3DF/)\n\n7,702.50\n\n+3.50 +0.05%\n\n     [Dow Futures](https://finance.yahoo.com/quote/YM%3DF/)\n\n53,250.00\n\n+10.00 +0.02%\n\n     [Nasdaq Futures](https://finance.yahoo.com/quote/NQ%3DF/)\n\n29,541.00\n\n+28.00 +0.09%\n\n     [Russell 2000 Futures](https://finance.yahoo.com/quote/RTY%3DF/)\n\n2,961.60\n\n+2.90 +0.10%\n\n     [VIX](https://finance.yahoo.com/quote/%5EVIX/)\n\n14.97\n\n+0.05 +0.34%\n\n     [Gold](https://finance.yahoo.com/quote/GC%3DF/)\n\n4,474.50\n\n-7.00 -0.16%\n\n     [Bitcoin USD](https://finance.yahoo.com/quote/BTC-USD/)\n\n78,506.08\n\n+327.09 +0.42%\n\n     [Crude Oil Oct 26](https://finance.yahoo.com/quote/CL%3DF/)\n\n87.08\n\n+1.32 +1.54%\n\n  \n\n  \n\n   ADVERTISEMENT\n\n  \n\n  \n\n  \n\n  \n\nThis is a paid press release. Contact the press release distributor directly with any inquiries.\n\n  [![Business Wire](https://s.yimg.com/lo/mysterio/api/77672c89d2b43e91d3721ce5db5d10b07a353e135193f3cd96d24293d7518731/lightyear_networkapi/resizefill_h48%3Bquality_100%3Bformat_webp/https%3A%2F%2Fs.yimg.com%2Fos%2Fcreatr-uploaded-images%2F2020-11%2F29c0c440-2a63-11eb-aff7-af8d7ebd46a4)](http://www.businesswire.com/ \"Business Wire\")\n\n# Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026\n\n![](https://s.yimg.com/lo/mysterio/api/a65f32c38d3058dcece02bb668448cc289637056eca19dd5409f26144c9833e4/lightyear_networkapi/resizefit_w960%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness-wire.com%2F8eb996fa9d32f200ce5d326d30c6b2bc)\n\nBusiness Wire\n\n July 30, 2026 3 min read\n\n  \n\n  \n\n  \n\n  \n\n- [REY](https://finance.yahoo.com/quote/REY/ \"REY\")\n  \n\n- [REJA.F](https://finance.yahoo.com/quote/REJA.F/ \"REJA.F\")\n  \n\n**All economic and financial indicators grew:**  \n\n  \n\n-           **Consolidated turnover of €1,311.9 million (1,221.3 in H1 2025);**  \n\n-           **EBITDA of €233.2 million (223.7 in H1 2025);**  \n\n-           **EBIT a of €189.7 million (188.4 in H1 2025);**  \n\n-           **Pre-tax profit of €194.1 million (179.4 in H1 2025).**  \n\n**TURIN, Italy, July 30, 2026**--([BUSINESS WIRE](https://www.businesswire.com))--Today, the Board of Directors of Reply S.p.A. [EXM, STAR: REY] approved the results as at 30 June 2026.  \n\nSince the start of the year, the Group has recorded a consolidated turnover of €1,311.9 million which is an increase of 7.4% compared to the same period in 2025.  \n\nAll indicators are positive for the period. In the first half of 2026 consolidated EBITDA of €233.2 million compared to the €223.7 million recorded in 2025 and corresponds to 17.8% of turnover.  \n\nEBIT, from January to June, was €189.7 million (€188.4 million in 2025), corresponding to 14.5% of turnover.  \n\nPre-tax profit, from January to June 2026, was €194.1 million (€179.4 million in 2025), corresponding to 14.8% of turnover.  \n\nAs regards the second quarter of 2026, the Group's performance was also positive, with consolidated turnover for the period of €667.0 million, up by 8.7% compared to 2025.  \n\nEBITDA, from April to June 2026, amounted to €121.2 million, with EBIT of €94.6 and pre-tax profit of €94.3 million.  \n\nAs at 30 June 2026 the Group's net financial position was positive for €402.0 million, while at 31 March 2026 was positive for €643.0 million. The financial position at 31 December 2025 was positive for €467.6 million.  \n\n\"The first-half results\" said Mario Rizzante, Chairman of Reply, \"confirm a trend that in now well-established: investments in technology are increasingly focusing on AI initiatives that have a direct impact on companies' competitiveness. Artificial intelligence has become a structural component of growth strategies and is accelerating the convergence of software, data and domain expertise. In this context, Reply has established itself by leveraging a model that combines innovation, specialisation and speed of execution.\"  \n\n\"Over the past few months,\" continued Mario Rizzante, \"we have witnessed a very profound change within companies. Artificial intelligence is not replacing people, but it is redefining the way digital systems are designed and developed, reshaping the role of software and the professionals who build it. The ability to orchestrate networks of intelligent agents, supported by increasingly specialised and contextualised models, is opening a new phase in application development and the organisation of business processes.\"  \n\n    Story Continues\n\n\"In this new landscape\" concluded Mario Rizzante, \"our value will be increasingly determined by our ability to design and governe intelligent ecosystems. Reply will continue to invest in this vision by developing expertise, platforms and new models. Our aim is to support companies in transforming artificial intelligence from a collection of one-off initiatives into a widespread, reliable and governable industrial capability, embedded in processes, products and decision-making.\"  \n\n*The manager responsible for preparing the company's financial reports, Dr Giuseppe Veneziano, states in accordance with Paragraph 2 of Article 154-bis of the Consolidated Finance Act, that the accounting information contained in this press release corresponds to the company's records, ledgers and accounting entries.*  \n\nReply [EXM, STAR: REY, ISIN: IT0005282865] specialises in the design and implementation of solutions based on new communication channels and digital media. As a network of highly specialised companies, Reply supports major industrial groups in the telecom and media; industry and services; banking and insurance and public sectors in defining and developing business models enabled by the new paradigms of AI, cloud computing, digital media and the internet of things. Reply's services include: consulting, system integration and digital services. [www.reply.com](https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Feur01.safelinks.protection.outlook.com%2F%3Furl%3Dhttp%253A%252F%252Fwww.reply.com%252F%26data%3D05%257C02%257CI.Benecchi%2540barabino.it%257Cf3afad62e2174a58fbf608de7e81a1c5%257C374a6fc733f14929b0559859a9d8c27a%257C1%257C0%257C639087292460088548%257CUnknown%257CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%253D%253D%257C0%257C%257C%257C%26sdata%3DszKh%252Flk6T4Fh3dBWQjRIxhB2Q1JcmgIFMQGuqQ%252FJSp8%253D%26reserved%3D0&esheet=54580080&newsitemid=20260730864539&lan=en-US&anchor=www.reply.com&index=1&md5=f70b6e9fd881ffd1b069ef0e4aa98c65)  \n\nThis press release is a translation, the Italian version will prevail.  \n\nView source version on businesswire.com: <https://www.businesswire.com/news/home/20260730864539/en/>  \n\n**Contacts**  \n\n**Media**  \n\n**Reply**  \nFabio Zappelli  \n<contatto010@example.invalid>  \nTel. +390117711594  \n\n**Investor Relation**  \n\n**Reply**  \nMichael Lueckenkoetter  \n<contatto018@example.invalid>  \nTel. +4952415009611  \n\nPaolo Capitelli  \n<contatto020@example.invalid>  \nTel. +390117711594  \n\n  View Comments  \n\n[Terms](https://guce.yahoo.com/terms?locale=en-US) and [Privacy Policy](https://guce.yahoo.com/privacy-policy?locale=en-US)\n\n[Privacy Dashboard](https://guce.yahoo.com/privacy-dashboard?locale=en-US)\n\n  [More Info](https://finance.yahoo.com/more-info)\n\n  \n\n  \n\n## Recommended Stories\n\n[/](https://finance.yahoo.com/)\n\nCopyright © 2026 Yahoo. All rights reserved.\n\n[https://twitter.com/YahooFinance](https://twitter.com/YahooFinance \"Follow on Twitter\")[https://facebook.com/yahoofinance](https://facebook.com/yahoofinance \"Follow on Facebook\")[https://www.linkedin.com/company/yahoo-finance](https://www.linkedin.com/company/yahoo-finance \"Follow on LinkedIn\")\n\nTrending Topics\n\n [Dow Jones](https://finance.yahoo.com/quote/%5EDJI/)[S&P 500](https://finance.yahoo.com/quote/SPY/)[DAX Index](https://finance.yahoo.com/quote/%5EGDAXI/)[Nvidia](https://finance.yahoo.com/quote/NVDA/)[Tesla](https://finance.yahoo.com/quote/TSLA/)[DJT](https://finance.yahoo.com/quote/DJT/)[Tariffs](https://finance.yahoo.com/topic/tariffs/)\n\nExplore Further\n\n [Mortgages](https://finance.yahoo.com/personal-finance/mortgages/)[Credit Cards](https://finance.yahoo.com/personal-finance/credit-cards/)[Sectors](https://finance.yahoo.com/sectors/)[Crypto Heatmap](https://finance.yahoo.com/crypto/heatmap/)[Financial News](https://finance.yahoo.com/news/)\n\nAbout\n\n [Data Disclaimer](https://help.yahoo.com/kb/finance-for-web/SLN2310.html?locale=en_US)[Help](https://help.yahoo.com/kb/finance-for-web)[Feedback](https://yahoo.uservoice.com/forums/952723-finance-b3)[Sitemap](https://finance.yahoo.com/sitemap/)[Licensing](https://info.wrightsmedia.com/yahoo-finance-licensing)[What's New](https://finance.yahoo.com/about/whatsnew/)[About Our Ads](https://policies.oath.com/us/en/oath/privacy/adinfo/index.html) [Premium Plans](https://finance.yahoo.com/about/plans/)\n\n[Terms](https://guce.yahoo.com/terms?locale=en-US) and [Privacy Policy](https://guce.yahoo.com/privacy-policy?locale=en-US)\n\n[Privacy Dashboard](https://guce.yahoo.com/privacy-dashboard?locale=en-US)\n\n  [More Info](https://finance.yahoo.com/more-info)\n\n  \n\n  \n\n  \n\n-\n\n [Trending tickers](https://finance.yahoo.com/trending-tickers)\n\n  *  \n    [GPRO GoPro, Inc. 0.8762 +0.2763 (+46.06%)](https://finance.yahoo.com/quote/GPRO/)\n  \n\n  \n\n  *  \n    [BTC-USD Bitcoin USD 78,506.08 +327.09 (+0.42%)](https://finance.yahoo.com/quote/BTC-USD/)\n  \n\n  \n\n  *  \n    [NIO NIO Inc. 4.2300 -0.1400 (-3.20%)](https://finance.yahoo.com/quote/NIO/)\n  \n\n  \n\n  *  \n    [PCG PG&E Corporation 13.27 -3.33 (-20.06%)](https://finance.yahoo.com/quote/PCG/)\n  \n\n  \n\n  *  \n    [EIX Edison International 53.98 -16.19 (-23.07%)](https://finance.yahoo.com/quote/EIX/)\n  \n\n  \n\n-  \n  \n     ADVERTISEMENT\n\n-  \n\n [Portfolio](https://finance.yahoo.com/portfolios)\n\n-  \n  \n  \n\n [Recently viewed](https://finance.yahoo.com/recent-quotes)\n\n-\n\n [Top gainers](https://finance.yahoo.com/gainers/)\n\n  \n\n-\n\n [Top losers](https://finance.yahoo.com/losers/)\n\n  \n\n-\n\n [Most active](https://finance.yahoo.com/most-active/)\n\n  \n\n-  \n\n [Top economic events](https://finance.yahoo.com/calendar/economic)\n\n- [ ] [Earnings events](https://finance.yahoo.com/calendar/earnings?day=2026-09-01)  My earnings events\n\n  \n  \n   Earnings events\n\nEdit your Dock\n\n## More News\n\n[Terms](https://guce.yahoo.com/terms?locale=en-US) and [Privacy Policy](https://guce.yahoo.com/privacy-policy?locale=en-US)\n\n[Privacy Dashboard](https://guce.yahoo.com/privacy-dashboard?locale=en-US)\n\n[Ad Terms](https://policies.oath.com/us/en/oath/privacy/adinfo/index.html) [Feedback](https://yahoo.uservoice.com/forums/952723-finance-b3) [More Info](https://finance.yahoo.com/more-info)\n\n  \n\n  \n\n  ",
+          "media_type": "text/plain",
+          "type": "text"
+        },
+        "title": "Reply S.p.A: The Board of Directors Approves the Half-year Financial Report as of 30 June 2026",
+        "type": "document"
+      }
+    ],
+    "id": "sevt_011rjEd4BcWsucta6oFJW583",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:05:43.667012Z",
+    "tool_use_id": "sevt_01YQZn9Z8CXZCfQ3n42834tK",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Logistics Reply&#x27;s solutions provide robust real-time visibility into inventory levels, enabling proactive inventory management that helps prevent both shortages and overstocking. With advanced tracking capabilities, our system ensures end-to-end ...",
+            "type": "text"
+          },
+          {
+            "text": "IoT & Advanced Sensors – Connecting a network of sensors for real-time monitoring of assets, conditions, and performance. Digital Twin & Advanced Analytics – Simulating warehouse operations, forecasting demand, and continuously improving performance with data-driven insights. With Logistics Reply, businesses can tailor their operations to specific needs, drive efficiency, minimize errors, and scale automation for a future-ready supply chain. Logistics Reply's solutions provide robust real-time visibility into inventory levels, enabling proactive inventory management that helps prevent both shortages and overstocking. With advanced tracking capabilities, our system ensures end-to-end traceability of every part throughout the entire supply chain, from supplier to final delivery. By capturing essential data at each critical stage—spanning production, storage, and shipping—our solutions offer unparalleled transparency and accountability.",
+            "type": "text"
+          },
+          {
+            "text": "External factors like, economic shifts, upstream price changes and variations in supply and demand; make accurate forecasting and planning challenging. By leveraging data-driven insights and adaptable supply chain solutions, companies can better anticipate market changes, ensuring optimal inventory levels and customer satisfaction. Achieving real-time visibility across the supply chain is critical for tracking parts and materials from diverse global suppliers. Strengthening transparency reduces delays, optimizes stock levels, and improves overall agility. Incorporating robotics, IoT, and AI into warehouse management unlocks significant efficiencies. A well-planned integration strategy ensures that new technologies complement existing systems, reducing inefficiencies and maximizing automation benefits while empowering teams with the right skills and tools.",
+            "type": "text"
+          },
+          {
+            "text": "With over 25 years of experience serving industrial and manufacturing clients, Logistics Reply delivers cutting-edge solutions to optimize production flows, and ensure efficient distribution across complex and extended networks. ... Revolutionize your processes: boost performance, drive innovation, and stay ahead in a rapidly evolving industry. Our Warehouse Management System (WMS) provides real-time visibility and control over warehouse operations. Key features include Inventory Tracking, Order Fulfillment and Automation Integration. ... LEA Reply™ Supplier Portal is an easy-to-adopt cloud solution that enables companies to track packing and shipping activities at their suppliers’ premises, providing real-time visibility of stock in-transit. ... The LEA Reply™ Yard Management solution enhances the coordination and efficiency of activities in the yard.",
+            "type": "text"
+          },
+          {
+            "text": "Sequential Feeding – Supplying parts in a predefined order to support structured assembly line operations, ideal for complex manufacturing. Batch Feeding – Providing materials in bulk or kits, ensuring operators have all necessary components for specific production phases. With Logistics Reply’s WMS, manufacturers can streamline production, reduce waste, and maintain a smooth, uninterrupted workflow. Logistics Reply enables seamless integration with a wide range of advanced warehouse technologies, enhancing flexibility, efficiency, and automation in operations. ... Mobile Devices – Empowering real-time inventory management, barcode scanning, and task execution with handheld and mobile devices. Wearable Technologies – Enhancing operator efficiency with smart glasses, wearable scanners, and hands-free devices as Pick-to-Light/Pick-to-Voice system in order to improve accuracy and productivity in picking and warehouse processes ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/logistics-reply/en/manufacturing-industry",
+        "title": "Manufacturing Logistics Solutions | Logistics Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "We leverage the smart and adaptive solutions of our digital platforms and latest technologies to reduce waste and CO2 and enable sustainable warehouse and transport practices. Discover More ... The collaboration between Puma and Logistics Reply evolves the Warehouse Management System (WMS) and improves the user experience in daily logistics activities. ... We are proud to announce that Logistics Reply has been acknowledged as a Visionary in the Gartner® Magic Quadrant™ for Warehouse Management Systems for the seventh consecutive year. ... Reply has been named a Visionary for the sixth consecutive year in the Gartner Magic Quadrant for Warehouse Management Systems. ... LEA Reply™, our modular and cloud-native platform for supply chain execution, has successfully completed the AWS Foundational Technical Review (FTR). ... The Fraunhofer Institute for Material Flow and Logistics (IML) has once again validated the warehouse management solution of the LEA Reply™ supply chain platform in 2024",
+            "type": "text"
+          },
+          {
+            "text": "LEA Reply™ is Reply’s latest evolution of Supply Chain Software. It is a digital platform based on a microservices architecture that enables agile supply chain solutions for business needs. No contents here. ... Logistics Reply announces that Marazzi has selected LEA Reply™ WMS to support the progressive evolution of its warehouse management processes within the CerEU perimeter. ... Experience automated, disruption-free stocktaking with drones, AI, and WMS at our live demonstration. ... Discover the future of warehouse management to see how GaliLEA is redefining warehouse logistics, from real-time data analysis to advanced task automation. ... Discover the latest advancements in warehouse management and AI-powered drone solutions for logistics by visiting Logistics Reply's and Autonomous Reply's booth at LogiMAT 2026. ... Reply WMS ranks 2nd for Level 2 and 3rd for Level 3 Warehouse Operations in 2025 Gartner® Critical Capabilities for Warehouse Management Systems ...",
+            "type": "text"
+          },
+          {
+            "text": "Logistics Reply, the Reply Group company specializing in innovative supply chain solutions, is pleased to announce that LEA Reply™, its modular and cloud-native platform for supply chain execution, has successfully completed the AWS Foundational Technical Review (FTR). ... Reply will be exhibiting at the Gartner Supply Chain Symposium/Xpo 2024 EMEA in Barcelona, Spain. Join us to learn about key trends and technologies to optimize your supply chain and bring your business to the next level. International Barcelona Convention Centre, Barcelona · No contents here. Gain expertise with Reply’s worldwide network of experts and find practical solutions to your challenges.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/supply-chain-management",
+        "title": "Supply Chain Management and logistics solutions | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "| Logistics Reply provides cutting-edge software solutions that help companies achieve an efficient and more connected digital supply chain where different systems, partners, humans and machines seamlessly interact embracing the use of ...",
+            "type": "text"
+          },
+          {
+            "text": "Logistics Reply provides cutting-edge software solutions that help companies achieve an efficient and more connected digital supply chain where different systems, partners, humans and machines seamlessly interact embracing the use of next-generation technologies such as AI, robotics, wearables and IoT. Logistics Reply accompanies its customers in this transformation journey ensuring rapid time-to-value and long-term quality results thanks to over 20 years of experience and deep knowledge of technologies and supply chain processes. Logistics Reply is a Reply company. LEA Reply™ (Logistics Execution Architecture) is the latest evolution of logistics software: a digital platform for efficient, agile and connected supply chains. A suite of business microservices for inventory, warehousing, distribution, delivery, point-of-sales activities and end-to-end visibility.",
+            "type": "text"
+          },
+          {
+            "text": "LEA Reply™ (Logistics Execution Architecture) is the latest evolution of logistics software: a digital platform for efficient, agile, and connected supply chains. A suite of business microservices for inventory, warehousing, distribution, delivery, point-of-sales activities, and end-to-end visibility. It is composed of the following Supply Chain Execution solutions: LEA Reply™ Warehouse Management, Supplier Portal, Dock Scheduling, Yard Management, Hub & Network, Last Mile, Dropship, In-Store Picking, Store Logistics and Visibility. ... 🤖 Meet LEA Reply, the latest evolution of supply chain platform. Our state-of-the-art, modular platform seamlessly incorporates the most advanced technologies, enabling you to bring your vision for the future of logistics to reality. 💥 Uncover the endless possibilities of optimizing your warehouse or production site and ensuring its resilience for the future right here 👉https://lnkd.in/emRrqBE #supplychain #warehousemanagement #innovation #technology …s",
+            "type": "text"
+          },
+          {
+            "text": "It's not just a technological leap; it's a strategic imperative for navigating the winds of change. 🤖 Tech as a Lifeline: Digitalization acts as a lifeline, enabling real-time visibility, agility, and predictive analytics. It's not just about staying ahead! 🤸🏻 Adaptability Matters: Supply chains must be adaptive to survive. A digitalized supply chain isn't just about efficiency; it's a strategic move towards adaptability and robust risk management. 🌍 Global Collaboration: digitalization fosters connectivity, creating a unified ecosystem that transcends borders and mitigates risks collectively. 💡 #SupplyChainDigitalization #GlobalRisksReport #ResilienceInTech ... By clicking Continue, you agree to LinkedIn’s User Agreement, Privacy Policy, and Cookie Policy. ... By clicking Continue, you agree to LinkedIn’s User Agreement, Privacy Policy, and Cookie Policy.",
+            "type": "text"
+          },
+          {
+            "text": "🤖 Supply chain disruptions are constantly looming and their unpredictability is undeniable. How can we effectively plan and establish a more adaptable and robust supply chain? According to Harvard Business Review, the solution lies in Optimal Machine Learning (OML). This approach relies on a decision-support engine that can analyze extensive historical and real-time supply-and-demand data, consider a company's priorities, and swiftly generate recommendations for optimal production quantities, shipping arrangements, and more. Read more about this innovative methodology here 👉https://lnkd.in/dFcguzA3 #machinelearning #supplychainmanagement #innovation ... 📆 Mark your calendars! It's -14 days from the Retail Supply Chain & Logistics Expo 2024! 🚀 We are ready to make waves at the upcoming Retail Supply Chain & Logistics Expo 2024 Event! Visit our booth and talk with our experts to discover how LEA Reply™, our microservices-based digital platform for supply chain execution, can make your su",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.linkedin.com/company/logistics-reply-s.r.l.",
+        "title": "Logistics Reply | LinkedIn",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Logistics Reply is the Reply Group company specialized in delivering state-of-the-art software to transform supply chains. With over 25 years of pioneering experience, we lead clients through their supply chain digital transformations, ensuring ...",
+            "type": "text"
+          },
+          {
+            "text": "Logistics Reply is the Reply Group company specialized in delivering state-of-the-art software to transform supply chains. With over 25 years of pioneering experience, we lead clients through their supply chain digital transformations, ensuring rapid value and lasting quality. Blending modularity with enhanced connectivity, to meet the dynamic demands of modern warehousing and logistics. Our solutions ensure seamless collaboration between systems, humans and machines, creating a digital footprint orchestrating advanced automation. We optimize warehouse efficiency through smart robotics and enhance operational decision-making with AI. ... We offer a comprehensive range of supply chain consulting and design services, encompassing supply chain strategy, network modeling and design, among other solutions. With over 25 years of industry experience and deep expertise, our team of professionals will guide you through every step of the process.",
+            "type": "text"
+          },
+          {
+            "text": "Our dedicated R&D team focuses on innovating our supply chain solutions, allowing us to customize services to meet our clients' evolving needs and maintain their competitive edge. With a focus on efficiency and cost reduction, we use advanced simulation techniques, data analytics, and strategic planning to design customized logistics solutions that align with our clients' unique needs. As a system integrator, we ensure seamless integration of our solutions with your existing systems. Our team of experts works closely with businesses to align technology with their strategic goals, from initial deployment to ongoing support and optimization. Our support team assists our clients after the project go-live with different coverage options, including 24/7 support. We are structured to work on different daily shifts, to assist customers distributed on a global scale, across multiple time zones.",
+            "type": "text"
+          },
+          {
+            "text": "At Logistics Reply, we empower businesses with cutting-edge, cloud-native solutions to provide agility, full visibility, and seamless integration across their supply chain operations. By combining deep industry expertise, an innovative digital platform, and a co-innovation approach, we help customers optimize processes and drive growth, while maintaining their competitive edge and differentiating processes in an ever-evolving market. ... Explore Logistics Reply’s 2026 events calendar to discover when and where you can connect with our team and see our innovative solutions in action. The skills and the core values we look for in our team members are: - Proactivity - Passion for Innovation - Customer Focus - Enthusiasm - Reliability - Teamwork · If you are interested in joining our team, send us a message below. ... Av. Nossa Senhora do Carmo, 660 - 1º andar São Pedro ...",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/logistics-reply/en/about-us",
+        "title": "Supply Chain Solutions & Consulting | Logistics Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Improved efficiency Optimise the efficiency of your supply chain operations by reducing safety stock while maintaining a high quality of service, lowering downtime and decreasing waste.",
+            "type": "text"
+          },
+          {
+            "text": "Logistics Reply leads your digital transformation journey with an AI-driven, microservices-based supply chain digital platform that blends modularity with enhanced connectivity to meet the dynamic demands of modern warehousing, logistics, and beyond, ensuring rapid value and lasting quality. ... Download the 2026 Gartner® Critical Capabilities for Warehouse Management Systems report and see how Logistics Reply is evaluated alongside other WMS vendors—a key resource for benchmarking solutions and informing your investment decision. The digital platform for efficient, agile and connected Supply Chains. Whether supply chain needs are big or small, LEA Reply is the perfect solution! ... Simplified collaboration Interconnected apps across different supply chain areas and functions make collaboration with internal and external parties simple. Supply Chain Execution Convergence leads to more efficient and effective supply chain processes.",
+            "type": "text"
+          },
+          {
+            "text": "Agility & Adaptability Highly configurable solutions for enhanced adaptability. You can easily add functionalities, improve existing processes or hide features that are no longer required. Scalable for growth The SaaS model allows you to upgrade storage and processing power only when needed at peak times or as the business expands. The \"pay-as-you-go\" model means you only pay for what you are actually using. Continuous improvements Agility to continuously improve and refine our products for a perfect fit, we apply continuous improvement adding new features and developments over time. ... Discover how PUMA is strengthening supply-chain agility with LEA Reply and GaliLEA, the AI assistant powering faster, smarter warehouse operations. Read the full case study. No contents here. Discover LEA Reply, the latest evolution of logistics software.",
+            "type": "text"
+          },
+          {
+            "text": "Digitalise your supply chain Digitalisation journeys based on Industrie 4.0 principles: interoperability of systems and people, modularity of solutions, real-time and decentralised decision-making. Advantages of the cloud Cloud Native Applications create reliability and resilience, ensuring minimal downtime. Cloud architecture also improves time-to-value, paying only for what you actually use and allowing customers to scale as their business grows. Tech playground Innovation and experimentation are in our DNA. With a strong focus on R&D, the Reply Network gives access to a technology playground with expertise in a broad array of innovation domains. Integration of next generation technologies Flexible architecture enables the integration of next generation technologies as soon as they come to market. Anticipate the technology trends of tomorrow with LEA's forward-looking platform.",
+            "type": "text"
+          },
+          {
+            "text": "Improved efficiency Optimise the efficiency of your supply chain operations by reducing safety stock while maintaining a high quality of service, lowering downtime and decreasing waste. Increased reliability Reliability and business continuity are ensured through our DevOps approach. Minimise downtime with seamless patching and quick response to customer needs. Better decision-making Turn your existing data into actionable insights through real-time indicators and interactive dashboards. These insights can help transform your supply chain execution to achieve true competitive advantage. Optimal user interface Intuitive user interfaces with interactions recognisable from everyday consumer apps. The addition of technologies such as voice, wearables and conversational interfaces allow the operator to focus on the task rather than the technology. Simplified integration Simplified integration with existing customer and 3rd-party systems through our microservice-based architecture.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/logistics-reply/en",
+        "title": "Innovative Supply Chain Solutions | Logistics Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "An area dedicated to the development of innovative solutions to enable the integration and management of Autonomous Vehicles &amp; Robots (AV&amp;R) in the last-mile logistics and manufacturing sectors.",
+            "type": "text"
+          },
+          {
+            "text": "A data-driven business and technology trend report on supply chain digitization, sustainable logistics, workforce transformation and omnichannel distribution. We virtualize your assets and make them more flexible and reusable for an end-to-end digital journey · We apply artificial intelligence and machine learning to manage complexity both internally and externally with your customers, suppliers and partners · We can drive innovation with you in Marketing, Sales, Operation, HR, and finance · We use digital social listening to help understand global trends and individual markets ... No contents here. ... An area for creating autonomous solutions for warehouse operations management through drones, autonomous vehicles, and advanced Warehouse Management platforms. ... The solution developed by Axulus Reply for Fraport has contributed to reduce the search and set-up times of the drivers and to minimise empty runs.",
+            "type": "text"
+          },
+          {
+            "text": "An area dedicated to the development of innovative solutions to enable the integration and management of Autonomous Vehicles & Robots (AV&R) in the last-mile logistics and manufacturing sectors. ... The new frontier of innovation technology is to use the molecular container in which information has always travelled. ... We are proud to announce that Logistics Reply has been acknowledged as a Visionary in the Gartner® Magic Quadrant™ for Warehouse Management Systems for the seventh consecutive year. ... The Fraunhofer Institute for Material Flow and Logistics (IML) has validated Logistics Reply’s warehouse management system (WMS) LEA Reply™ for the sixth consecutive time in 2025. ... Reply has been named a Visionary for the sixth consecutive year in the Gartner Magic Quadrant for Warehouse Management Systems. ... LEA Reply™, our modular and cloud-native platform for supply chain execution, has successfully completed the AWS Foundational Technical Review (FTR).",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/logistics",
+        "title": "Logistic solutions | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Finally, IOT solutions are enabling greater supply chain traceability and security. From edible microchips in luxury foods to smart labels and unique QR codes, these devices create a digital twin for each product.",
+            "type": "text"
+          },
+          {
+            "text": "The IOT for logistics refers to using a network of internet-connected sensors, devices and software to gather and exchange data throughout the supply chain. These devices can be embedded in products, vehicles, warehouses and more to collect real-time information on location, temperature, humidity and other key data points. This information is then sent to the cloud, providing unprecedented visibility into every step of a product’s journey. The IOT for logistics offers significant benefits, particularly in a complex and unpredictable global environment. First, these devices provide real-time visibility, which is crucial for modern supply chain risk management. With sensors providing data about the condition and location of goods, logistics managers can identify and respond to disruptions immediately, improving supply chain resilience. This real-time data visibility also dramatically improves the planning process by providing accurate, up-to-the-minute information.",
+            "type": "text"
+          },
+          {
+            "text": "QR codes gained popularity with consumers during the pandemic due to their simple format and integration with smartphones. And unlike bar codes, the information stored in a QR code is extensive: up to 7,000 characters, making them useful for supply chain managers seeking product data as well as customers interested in understanding more about their purchase’s authenticity. From manual counts and bar codes to today's smart sensors and data analytics, logistics has evolved to a point of unprecedented intelligence and efficiency. The IOT for logistics is not just a trend; it's the foundation of a new era, enabling real-time visibility and traceability that fortify the modern supply chain. While this technological leap introduces challenges, the potential for improved supply chain resilience, greater security and more precise operations demonstrates that the future of logistics will be defined by an ever-smarter, more connected world.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.ascm.org/ascm-insights/smart-logistics-and-the-iot--a-new-era-in-product-tracking/",
+        "title": "IOT-Powered Logistics: Revolutionizing Supply Chain Visibility and Security",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "The main contributions are as follows: (1) an architecture enabling real-time monitoring and automated verification of logistics transactions; (2) a proof of concept integrating blockchain, the IoT and Android-based OBUs; and (3) a quantitative ...",
+            "type": "text"
+          },
+          {
+            "text": "The main contributions are as follows: (1) an architecture enabling real-time monitoring and automated verification of logistics transactions; (2) a proof of concept integrating blockchain, the IoT and Android-based OBUs; and (3) a quantitative analysis of gas and smart contract execution costs. Experimental tests show gas consumption ranging from 21,000 to 5,000,000 units and transaction costs ranging from 0.0001 to 0.0033 ETH, confirming the system’s technical feasibility and cost-efficiency. As well as cost and efficiency, the process improved transparency, real-time traceability and decentralized verification, confirming the system’s efficacy for supply chains involving autonomous vehicles. ... ... The COVID-19 pandemic spotlighted the need for resilient and transparent cold chain systems, particularly in vaccine distribution, necessitating real-time data sharing and temperature-related monitoring (Chen et al. 2023;Halim et al. 2021). Among the most promising emerging solutions for",
+            "type": "text"
+          },
+          {
+            "text": "and trust in blockchain-enabled IoT food supply chains [59]. These solutions aim to minimize · the potential for arbitrary claims regarding IoT data performance and promote supply chain · Green Intelligent Systems and Applications 4(1), 2024, 11‒28 ... Table 1. Application of IoT in SCM. ... Table 2. Application of Blockchain in SCM. ... KDD, IoTDevNet, DS2OS, IoTID20, and IoT Botnet dataset. Various performance metrics · such as accuracy, precision, recall, and F1-score were used to evaluate the performance of · shallow and deep ML-based IDS. The authors found that deep ML IDS outperforms shallow · ML in detecting IoT attacks. Another study [80] exploited the waveform superposition property of a multi-access · channel to develop an over-the-air computation-based communication-efficient federated ML · framework for intelligent IoT networks.",
+            "type": "text"
+          },
+          {
+            "text": "Supply chain traceability is essential for ensuring safety, preventing counterfeit goods, and improving efficiency. The integration of blockchain technology and the Internet of Things (IoT) has emerged as a transformative approach to enhance supply chain traceability by creating a secure, transparent, and efficient way to track the movement of goods and materials. This comprehensive literature review examines how the integration of blockchain and the Internet of Things can enhance supply chain traceability, utilizing a systematic literature search to identify and analyze all relevant studies. Recent and related articles selected from the Scopus database were reviewed. Our analysis underscores the potential for blockchain and IoT integration to provide end-to-end visibility, secure data sharing, and real-time monitoring across the supply chain ecosystem.",
+            "type": "text"
+          },
+          {
+            "text": "chain management. In Logistics 4.0, 1st Edition; Paksoy, T., Kochan C.G., Ali, S.S., Eds.; CRC · Press: Boca Raton, USA, pp. 27–34. http://doi.org/10.1201/9780429327636-5. [18] Gagandeep, N.S.; Charak, A.; Tyagi, M.; Walia, R.S. (2022). Effect of IoT in Supply Chain · Management—A Review. Recent Advances in Operations Management Applications: Select · Proceedings of CIMS 2020, pp. 283–297. https://doi.org/10.1007/978-981-16-7059-6_22. [19] Birkel, H.S.; Hartmann, E. (2019). Impact of IoT challenges and risks for SCM. Supply Chain · Management: An International Journal, 24(1), 39–61. http://doi.org/10.1108/SCM-03-2018- ... [20] Sarker, I.H.; Khan, A.I.; Abushark, Y.B.; Alsolami, F. (2023). Internet of things (IoT) security · intelligence: a comprehensive overview, ML solutions and research directions. Mobile Networks · and Applications, 28(1), 296–312.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.researchgate.net/publication/378348624_Enhancing_Supply_Chain_Traceability_through_Blockchain_and_IoT_Integration_A_Comprehensive_Review",
+        "title": "(PDF) Enhancing Supply Chain Traceability through Blockchain and IoT Integration: A Comprehensive Review",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Traceability with IoT offers numerous advantages. IoT-based traceability solutions provide real-time visibility, allowing companies to monitor the exact location and status of their assets at any time.",
+            "type": "text"
+          },
+          {
+            "text": "The following real-world examples show different traceability solutions in different supply chains, each using wireless IoT technologies. All new wool packs in Australia have been fitted with an RFID eBale tag since July 2023 to enable wool bale traceability. The RFID system was implemented by the Australian Wool Exchange (AWEX). The eBale tags, developed in cooperation with HID, are customized versions of the IQ Pro Label RFID tag. The tag has an RFID chip and QR code with a unique number and is attached to every wool bale. Data is captured using RFID readers. Using the WoolClip program, wool data is captured on the farm. This data is transferred to the selling agent, warehouses, logistics and transport centers, and to domestic and international processing customers. With the unique ID, each bale is fully traceable throughout the entire supply chain.",
+            "type": "text"
+          },
+          {
+            "text": "The hardware and software required depends on the type of IoT technology used. Traceability solutions are on the rise in many industries. According to the market research platform “Gitnux”, the global market for track and trace solutions is expected to reach 7.4 billion USD by 2028. 98 percent of automotive manufacturers plan to increase the use of track and trace technology by 2030. Traceability software is being used by 30 percent of produce companies. 55 percent of companies surveyed claim that track and trace technology is a necessity in order to stay competitive in logistics. In fact, the logistics sector accounted for the largest market share of the track and trace market in 2020 at 34.7 percent. Traceability typically involves industrial labeling and identification for asset tracking throughout supply chains in all industries. Traceability is commonly part of IoT asset management solutions.",
+            "type": "text"
+          },
+          {
+            "text": "Traceability is an important part of digitalization in logistics. Shipments are tracked in real-time, and the movement of goods can be traced throughout the supply chain. In cold chains, track and trace solutions that use sensor technology are used to ensure that temperature-sensitive products stay within required temperatures during transit (temperature monitoring). This applies to many industries, such as healthcare, and food retail, for example. As part of digitalization in agriculture, IoT-based track and trace solutions are used to monitor and document the journey of agricultural products from farm to final customer. This process involves recording detailed information about each stage of production, including planting, cultivation, harvesting, processing, and distribution. Traceability systems in agriculture track data such as the origin of seeds, use of fertilizers and pesticides, farming practices, and environmental conditions.",
+            "type": "text"
+          },
+          {
+            "text": "Blockchain provides a secure, immutable ledger for recording transactions, which, when combined with IoT, can ensure that every step of a product's journey is transparent and tamper-proof. Another trend is the development of more sophisticated AI and machine learning algorithms that can analyze vast amounts of traceability data to predict potential disruptions, optimize logistics, and improve decision-making processes. Additionally, the increasing adoption of 5G networks will enable faster and more reliable data transmission, enhancing real-time tracking capabilities. Sustainability and regulatory pressures are also driving advancements in traceability, with a growing emphasis on tracking environmental impact and ensuring compliance with evolving regulations. Traceability with IoT offers numerous advantages. IoT-based traceability solutions provide real-time visibility, allowing companies to monitor the exact location and status of their assets at any time.",
+            "type": "text"
+          }
+        ],
+        "source": "https://wiot-group.com/think/en/resources/traceability/",
+        "title": "Enhancing Supply Chain Transparency with Traceability",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "The integration of blockchain technology and the Internet of Things (IoT) has emerged as a transformative approach to enhance supply chain traceability by creating a secure, transparent, and efficient way to track the movement of goods and materials.",
+            "type": "text"
+          },
+          {
+            "text": "Ünal, V.; Ömürgönülșen, M.; Belbağ, S.; Soyasal, M. (2020). The internet of things in supply chain management. In Logistics 4.0, 1st Edition; Paksoy, T., Kochan C.G., Ali, S.S., Eds.; CRC Press: Boca Raton, USA, pp. 27–34. http://doi.org/10.1201/9780429327636-5. Gagandeep, N.S.; Charak, A.; Tyagi, M.; Walia, R.S. (2022). Effect of IoT in Supply Chain Management—A Review. Recent Advances in Operations Management Applications: Select Proceedings of CIMS 2020, pp. 283–297. https://doi.org/10.1007/978-981-16-7059-6_22. Birkel, H.S.; Hartmann, E. (2019). Impact of IoT challenges and risks for SCM. Supply Chain Management: An International Journal, 24(1), 39–61. http://doi.org/10.1108/SCM-03-2018-0142. Sarker, I.H.; Khan, A.I.; Abushark, Y.B.; Alsolami, F. (2023). Internet of things (IoT) security intelligence: a comprehensive overview, ML solutions and research directions.",
+            "type": "text"
+          },
+          {
+            "text": "Nanda, S.K.; Panda, S.K.; Dash, M. (2023). Medical supply chain integrated with blockchain and IoT to track the logistics of medical products. Multimedia Tools and Applications, 1–23. https://doi.org/10.1007/s11042-023-14846-8. Batwa, A.; Norrman, A. (2021). Blockchain technology and trust in supply chain management: A literature review and research agenda. Operations and Supply Chain Management: An International Journal, 14(2), 203–220. http://doi.org/10.31387/oscm0450297. The truth about blockchain. (accessed on 1 June 2023) Available online: https://hbr.org/2017/01/the-truth-about-blockchain. Bitcoin: A Peer-to-Peer Electronic Cash System. (accessed on 1 June 2023) Available online: https://bitcoin.org/bitcoin.pdf. Bhat, M.S.; Dubey, S. (2023). An Overview of the Effects of Blockchain Technology in Food Chain Supply: A Case Study on Walmart.",
+            "type": "text"
+          },
+          {
+            "text": "Hasan, A.S.M.T.; Sabah, S.; Haque, R.U.; Daria, A.; Rasool, A.; Jiang, Q. (2022). Towards convergence of IoT and blockchain for secure supply chain transaction. Symmetry (Basel), 14(1), 64. http://doi.org/10.3390/sym14010064. Tang, C. S.; Veelenturf, L. P. (2019). The strategic role of logistics in the industry 4.0 era. Transportation Research Part E: Logistics and Transportation Review, 129, 1–11. Treiblmaier, H.; Mirkovski, K.; Lowry, P. B.; Zacharia, Z. G. (2020). The physical internet as a new supply chain paradigm: a systematic literature review and a comprehensive framework. The International Journal of Logistics Management, 31(2), 239–287. http://doi.org/10.1108/IJLM-11-2018-0284. Nobre, G. C.; Tavares, E. (2017). Scientific literature analysis on big data and internet of things applications on circular economy: a bibliometric study. Scientometrics, 111, 463–492.",
+            "type": "text"
+          },
+          {
+            "text": "Yu, P.; Liu, Z.; Hanes, E.; Mumtaz, J. (2022). Integration of IoT and Blockchain for Smart and Secured Supply Chain Management: Case Studies of China. Utilizing Blockchain Technologies in Manufacturing and Logistics Management, pp. 179–207. Honar Pajooh, H.; Rashid, M.; Alam, F.; Demidenko, S. (2021). Multi-layer blockchain-based security architecture for internet of things. Sensors, 21(3), 772. http://doi.org/10.3390/s21030772. Alfa, A. A.; Alhassan, J. K.; Olaniyi, O. M.; Olalere, M. (2021). Blockchain technology in IoT systems: current trends, methodology, problems, applications, and future directions. Journal of Reliable Intelligent Environment, 7(2), 115–143. https://doi.org/10.1007/s40860-020-00116-z. Luo, F.; Feng, T.; Zheng, L. (2021). Formal Security Evaluation and Improvement of Wireless HART Protocol in Industrial Wireless Network. Security and Communication Networks, 2021, 1–15.",
+            "type": "text"
+          }
+        ],
+        "source": "https://tecnoscientifica.com/journal/gisa/article/view/355",
+        "title": "Enhancing Supply Chain Traceability through Blockchain and IoT Integration: A Comprehensive Review | Green Intelligent Systems and Applications",
+        "type": "search_result"
+      }
+    ],
+    "id": "sevt_01S8TevL9a157yDqSun8yFxu",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:05:44.527689Z",
+    "tool_use_id": "sevt_0189zTyoXn4JX3CX5oiyUnKj",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Filippo Rizzante Marco Cusinato Elena Maria Previtera Daniele Angelucci (1) Patrizia Polliotto (1) (2) (3) Domenico Giovanni Siniscalco (1) (2) Secondina Giulia Ravera (1) (2) Federico Ferro Luzzi (1) (2) (1) Directors not invested with operational proxy (2) Independent director, according to the Corporate Governance Code (3) Lead independent director ... The Board of Statutory Auditors is responsible for the supervision of compliance with the law and by-laws. ... The Board of Directors has set up four internal committees with investigative, propositive and advisory functions: ... The Control and Risk Committee is currently composed of Non-Executive and Independent Director Avv. Federico Ferro-Luzzi, Non-Executive Director Daniele Angelucci and chaired by Avv. Patrizia Polliotto, Lead Independent Director. The members have acquired adequate knowledge and expertise in risk management in view of their professional experience, as well as in the business sector in which the Company operate",
+            "type": "text"
+          },
+          {
+            "text": "The Board of Directors has set up an internal committee for transactions with related parties, composed Non-Executive and Independent Director Avv. Federico Ferro-Luzzi, by Non-Executive Director Daniele Angelucci and chaired by Avv. Patrizia Polliotto, Lead Independent Director. ... The Sustainability Committee is composed of the CEO, Ms Tatiana Rizzante, Independent Directors Prof. Domenico Siniscalco and Eng. Secondina Ravera; the Committee is coordinated by the CFO at the technical secretariat level and assisted by the Company's ESG team as operational support. ... The Board of Directors has set up an internal Ethical AI Committee, which is currently composed of the CEO, Ms Tatiana Rizzante, Independent Director Prof. Domenico Siniscalco, COO Mr Gilberto Ceresa, representative of the Legal department Ms Elisa Rosati, Partner Mr Oliver Houseman, and chaired by Mr Jonas Heepen.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/investors/board-of-directors-and-other-corporate-bodies",
+        "title": "Board of directors and other corporate bodies | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply&#x27;s Chairman, Chief Executive Officer is Mario Rizzante. Other executives include Tatiana Rizzante, Chief Executive Officer; Filippo Rizzante, Chief Technology Officer and Executive Director and 6 others. See the full leadership team at Craft.",
+            "type": "text"
+          },
+          {
+            "text": "Reply's Chairman, Chief Executive Officer is Mario Rizzante. Reply's key executives include Mario Rizzante and 8 others.",
+            "type": "text"
+          }
+        ],
+        "source": "https://craft.co/reply/executives",
+        "title": "Reply CEO and Key Executive Team | Craft.co",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "The Board of Directors of Reply ... Rizzante, Marco Cusinato and Elena Maria Previtera, while Daniele Angelucci will assume the role of non-executive Director....",
+            "type": "text"
+          },
+          {
+            "text": "Reply is a network of highly specialized companies that support leading industrial groups in defining and developing business models enabled by new technologies such as AI, big data, cloud computing, digital communication, and the Internet of Things.",
+            "type": "text"
+          },
+          {
+            "text": "Audit and Risk Committee The Board of Directors appointed the following as members of the Committee: Patrizia Polliotto (Chairman), Federico Ferro-Luzzi, Non-Executive and Independent Director and Daniele Angelucci Non-Executive Director. Sustainability Committee The Board of Directors appointed the following as members of the Committee: the CEO Tatiana Rizzante (Chairman), Secondina Giulia Ravera and Domenico Giovanni Siniscalco, Non-Executive and Independent Directors. Buy back and disposal of Treasury Shares The Board of Directors has granted the appropriate powers for the purchase and sale of treasury shares in connection with the buy-back program already underway. Reply Reply [EXM, STAR: REY] specialises in the design and implementation of solutions based on new communication channels and digital media. Reply is a network of highly specialised companies supporting key European industrial groups operating in the telecom and media, industry and services, banking, insurance and publi",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/en/newsroom/financial-news/the-board-of-directors-appointed-the-company-officers-for-the-financial-years-2024-2026",
+        "title": "The Board of Directors appointed the company officers for the financial years 2024-2026 | Reply",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "FILIPPO RIZZANTE (EXECUTIVE DIRECTOR OF REPLY S.P.A.) He graduated in Computer Engineering at the University of Turin. He began his career at Reply in · 1999. In the early years, he worked within the Group mainly in consultancy and projects for the web · division, focusing in particular on the development of B2B and B2C portals. In 2006, he became · Executive Partner of the Reply Group, with responsibility for the Group’s companies dealing with · Oracle technologies, Security, Information Lifecycle Management, Web 2.0 and Open Source. Over · the years his responsibilities within the Group have grown and he assumed direct responsibility for · various business lines, including Architecture and Technologies, Digital and Mobile Media. Since 2012, in the capacity of Reply CTO, he has led the development of new offer elements associated with · technological innovation and assumed Group responsibility for all partnerships.",
+            "type": "text"
+          },
+          {
+            "text": "obtained the highest number of votes 74.247% Mr Mario Rizzante (Chairman), Ms Tatiana Rizzante, Mr Filippo Rizzante, Mr Marco Cusinato, Ms Elena Maria Previtera, Mr Daniele Angelucci, Ms Patrizia · Polliotto (Independent Director) and Domenico Giovanni Siniscalco (Independent Director). The following were drawn from the Investors’ list with a total shareholding of 3.96799%, which · received 25.701% of the votes Ms Secondina Giulia Ravera and Mr Federico Ferro-Luzzi (Independent · Directors). ... The nomination and substitution of Directors is governed by Art. 16 (Nomination of Directors) of the · By-laws, and is available on the Company’s institutional website. Art. 16 of the Company By-laws provides, inter alia, that: * the list of candidates running for Director, shall be deposited at the company’s registered office · or sent by certified email (pec) twenty-five days prior to the date of the first call for the Annual ·",
+            "type": "text"
+          },
+          {
+            "text": "Executive Director Tatiana Rizzante was also appointed CEO of the Company. The Chairman of the Board of Directors and CEO, Mr Mario Rizzante, and the CEO, Ms Tatiana · Rizzante, have been granted powers of ordinary and extraordinary administration of the Company, with the sole exception of those powers that cannot be delegated pursuant to law and the By-laws: (i) of potentially “price sensitive” operations, determined on the basis of the primary and secondary · legislation in force from time to time and (ii) any further operations reserved to the exclusive · jurisdiction of the Board of Directors, as set out by the Regulation with related parties. The Chairman, is responsible for the management of the Company and is also major shareholder, as ... There are no interlocking directorate conditions foreseen in the Italian Civil Code. the principles of proper risk management and of the reference regulatory and self-regulatory ...",
+            "type": "text"
+          },
+          {
+            "text": "DANIELE ANGELUCCI (NON-EXECUTIVE DIRECTOR OF REPLY S.P.A.) Mr Daniele Angelucci graduated in Information Sciences from the University of Turin. He worked · from 1976 to 1986 at the Centre of Study & Laboratories of Telecommunications (CSELT, now Telecom · Italy Lab) as a researcher. From 1986 to 1996 he worked in Mesarteam S.p.A. in various roles including · Technical Director of the Rome office, Head of Technical Software and then Technical Director of · Turin. He joined Reply as a Senior Partner in 1996. In 1996 he became President and founding member · of Cluster Reply, a group company focused on e-business solutions using Microsoft technology. From · 2000 to 2002 he was Director of operations in the Turin area. In 2003 he became CEO of Santer · S.p.A., a company specialised in the health market and local government. From 2006 to 2010 he was ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/contents/REPLY_Relazione_Governo_Societario_2025_ENG.pdf",
+        "title": "REPORT ON CORPORATE GOVERNANCE AND OWNERSHIP STRUCTURE",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Show more ... Experienced Management: RPYT.F&#x27;s management team is seasoned and experienced (8.2 years average tenure). ... Experienced Board: RPYT.F&#x27;s board of directors are considered experienced (8.2 years average tenure).",
+            "type": "text"
+          },
+          {
+            "text": "Mr. Mario Rizzante is the Co-Founder of Reply S.p.A. and serves as its Chairman, Chief Executive Officer and President. Mr. Rizzante serves as the President of Reply at avantage (UK) Limited. He serves as... Show more ... Experienced Management: RPYT.F's management team is seasoned and experienced (8.2 years average tenure). ... Experienced Board: RPYT.F's board of directors are considered experienced (8.2 years average tenure). ... The data used in our company analysis is from S&P Global Market Intelligence LLC. The following data is used in our analysis model to generate this report. Data is normalised which can introduce a delay from the source being available. * Example for US securities, for non-US equivalent regulatory forms and sources are used. Unless specified all financial data is based on a yearly period but updated quarterly. This is known as Trailing Twelve Month (TTM) or Last Twelve Month (LTM) Data.",
+            "type": "text"
+          }
+        ],
+        "source": "https://simplywall.st/stocks/us/software/otc-rpyt.f/reply/management",
+        "title": "Reply S.p.A. (RPYT.F) Leadership & Management Team Analysis - Simply Wall St",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Andrea Ranchino (Founder and CEO of Sense Reply S.r.l.) | Filippo Rizzante (Chief Technology Officer) | View more for Reply &gt;&gt;&gt;",
+            "type": "text"
+          }
+        ],
+        "source": "https://rocketreach.co/reply-management_b5c60ba6f42e0c52",
+        "title": "Reply Management Team | Org Chart",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Tatiana Rizzante · Executive Directors · Filippo Rizzante · Marco Cusinato · Elena Maria Previtera · Daniele Angelucci · (1) Patrizia Polliotto · (1) (2) (3 · ) Domenico Giovanni Siniscalco · (1) (2) Secondina Giulia Ravera · (1) (2) Federico Ferro Luzzi · (1) (2) Board of Statutory Auditors · Chairman · Ciro Di Carluccio · Sta · nding · auditors · Piergiorgio Re · Donatella Busso · Independent Auditors · PwC S.p.A. (1) Non · - executive Director · (2) Independent Directors according to the Corporate Governance code · (3) Lead · I · ndependent · D · irector · This report has been translated into English from the original Italian version, in case of doubt the Italian version shall pr · evail. KEY GROUP RESULTS · 5 · | Interim Management Report at 30 S · eptember 2025 · KEY GROUP RESULTS · Q3 2025 · % Q3 2024 · % Economic figures ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/contents/Interim_Management_Report_at_30_September_2025.pdf",
+        "title": "Interim Management Report at 30 September 2025",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Tatiana Rizzante · Executive Directors · Filippo Rizzante · Marco Cusinato · Elena Maria Previtera · Daniele Angelucci · (1) Patrizia Polliotto · (1) (2) (3) Domenico Giovanni Siniscalco · (1) (2) Secondina Giulia Ravera · (1) (2) Federico Ferro Luzzi · (1) (2) Board of Statutory Auditors · Chairman · Ciro Di Carluccio · Sta · nding · Auditors · Piergiorgio Re · Donatella Busso · Audit firm · PwC · S.p.A. (1) Non · - Executive Director · (2) Independent Director according to the Corporate Governance · C · ode · (3) Lead Independent Director · FINANCIAL HIGHLIGHTS · 5 · | Interim Management Report at 31 March 2026 · Financial highlights · (thousand Euros) Economic figures · Q1 2026 · % Q1 2025 · % Revenue · 644,961 · 100.0 · 607,540 · 100.0 · Gross operating income · 112,015 · 17.4 · 105,310 · 17.3 · Operating margin ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reply.com/contents/Interim_Management_Report_at_31_March_2026-1.pdf",
+        "title": "Interim Management Report at 31 March 2026",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Reply S.p.A.: Company profile, business summary, shareholders, managers, financial ratings, industry, sector and market information | Borsa Italiana: REY | Borsa Italiana",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.marketscreener.com/quote/stock/REPLY-S-P-A-38135655/company/",
+        "title": "Reply S.p.A.: Shareholders Board Members Managers and Company Profile | IT0005282865 | MarketScreener",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Tatiana Rizzante ACTIVE · Residence · 🇮🇹 Italy · Occupation · Ceo &amp; Executive Director · DA · Daniele Angelucci ACTIVE · Residence · 🇮🇹 Italy · Occupation · Cfo, Finance &amp; Control Manager And Executive Director · FR · Filippo Rizzante ACTIVE · Residence · 🇮🇹 Italy · Occupation · Executive Director · MC · Marco Cusinato ACTIVE · Residence · 🇮🇹 Italy · Occupation · Executive Director · ME · Maria Elena Previtera ACTIVE · Residence · 🇮🇹 Italy · Occupation · Exec. Director · EM · Engineer Marco Cusinato ACTIVE · Residence · 🇮🇹 Italy · Occupation · Cfo &amp; Executive Director · JJ · Justin Jackson ACTIVE · Residence · 🇮🇹 Italy · Occupation · Partner · AG · Andrea Gottardo ACTIVE · Residence · 🇮🇹 Italy · Occupation · Sec. To The Board · DP · DOMNICK PARRETTA ACTIVE ·",
+            "type": "text"
+          },
+          {
+            "text": "Tatiana Rizzante ACTIVE · Residence · 🇮🇹 Italy · Occupation · Ceo & Executive Director · DA · Daniele Angelucci ACTIVE · Residence · 🇮🇹 Italy · Occupation · Cfo, Finance & Control Manager And Executive Director · FR · Filippo Rizzante ACTIVE · Residence · 🇮🇹 Italy · Occupation · Executive Director · MC · Marco Cusinato ACTIVE · Residence · 🇮🇹 Italy · Occupation · Executive Director · ME · Maria Elena Previtera ACTIVE · Residence · 🇮🇹 Italy · Occupation · Exec. Director · EM · Engineer Marco Cusinato ACTIVE · Residence · 🇮🇹 Italy · Occupation · Cfo & Executive Director · JJ · Justin Jackson ACTIVE · Residence · 🇮🇹 Italy · Occupation · Partner · AG · Andrea Gottardo ACTIVE · Residence · 🇮🇹 Italy · Occupation · Sec. To The Board · DP · DOMNICK PARRETTA ACTIVE ·",
+            "type": "text"
+          },
+          {
+            "text": "The Co-founder, Chairman, Ceo & President of REPLY S.P.A. currently on record is Mario Rizzante; 10 officers are currently on record for REPLY S.P.A. Management authority at REPLY S.P.A. sits with these individuals, not with shareholders, who are covered separately and hold ownership rather than control. The source filing doesn't specify representation authority — whether officers can act individually or must sign jointly to bind the company — so that detail isn't available here. ... Exec. Director ... Sec. To The Board ... Complete appointment history, representation authority, and officer-level filings across jurisdictions. ... REPLY S.P.A. sits 2 levels below its ultimate parent, ICEBERG SRL, registered in Italy. 78 subsidiaries are recorded beneath it, across 6 jurisdictions. The full chain up to ICEBERG SRL is derived by walking shareholder filings across jurisdictions; no link in it is independently corroborated by REPLY S.P.A.'s own shareholder record.",
+            "type": "text"
+          },
+          {
+            "text": "The Co-founder, Chairman, Ceo & President of REPLY S.P.A. currently on record is Mario Rizzante; 10 officers are currently on record for REPLY S.P.A. Management authority at REPLY S.P.A. sits with these individuals, not with shareholders, who are covered separately and hold ownership rather than control. Does REPLY S.P.A. have a parent company or subsidiaries? REPLY S.P.A. sits 2 levels below its ultimate parent, ICEBERG SRL, registered in Italy. 78 subsidiaries are recorded beneath it, across 6 jurisdictions. Those 78 subsidiaries span Italy, Germany, United States, United Kingdom, Romania, Luxembourg jurisdictions, though this list should not be read as complete — subsidiaries only become visible here where shareholder data has actually been filed with a register, so holdings in jurisdictions without that filing simply won't appear. Seven of the 78 go a level deeper still, with their own further subsidiaries recorded beneath them — additional ownership layers this view doesn't expand",
+            "type": "text"
+          }
+        ],
+        "source": "https://zavia.ai/companies/reply-s-p-a-it-131999883/",
+        "title": "Reply S.P.A. Company Details & Registry Data (Italy) | Zavia",
+        "type": "search_result"
+      }
+    ],
+    "id": "sevt_01JwrkmNgYSSZ3J4eZKq5FxX",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:05:45.353388Z",
+    "tool_use_id": "sevt_01XdCQFAWZN7UStGD21XsJf9",
+    "type": "agent.tool_result"
+  },
+  {
+    "id": "sevt_01THrEqAD2q8UfXvXDEp3Kho",
+    "processed_at": "2026-11-05T11:05:45.421598Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "id": "sevt_014nfKoPkb5tKJt4JE7UWo2J",
+    "processed_at": "2026-11-05T11:05:58.619932Z",
+    "type": "agent.thinking"
+  },
+  {
+    "content": [
+      {
+        "text": "# Dossier di ricerca commerciale: Reply S.p.A. (reply.com)\n\n**Operazioni effettuate:** 4 chiamate a `web_search` (nessun errore) e 3 a `web_fetch`. Due fetch sono riusciti: la pagina Investors di Reply e il comunicato semestrale 2026 su Yahoo Finance. Uno è fallito (`url_not_in_prior_context` sulla pagina \"About Reply\", che non avevo tra gli URL già mostrati).\n\nQuando una fonte è indicata come \"solo risultati di ricerca\", il dato non è stato verificato aprendo la pagina e resta da verificare.\n\n## 1. Sintesi aziendale\n\n**Identità.** L'azienda è Reply S.p.A., capogruppo quotata (Euronext Milan, segmento STAR, ticker REY). ",
+        "type": "text"
+      },
+      {
+        "text": "La sede è in Corso Francia 110, 10143 Torino",
+        "type": "text"
+      },
+      {
+        "text": " (fonte: aziende.it, solo risultati di ricerca). Non ho rilevato omonimie che creino ambiguità.\n\n**Attività.** ",
+        "type": "text"
+      },
+      {
+        "text": "Reply è una rete di società altamente specializzate. Affianca grandi gruppi industriali nei settori telco e media, industria e servizi, banche e assicurazioni e settore pubblico. Li supporta nella definizione e nello sviluppo di modelli di business basati su AI, cloud computing, digital media e Internet of Things. I servizi comprendono consulenza, system integration e servizi digitali.",
+        "type": "text"
+      },
+      {
+        "text": " (fonte: comunicato semestrale 2026, consultato con fetch).\n\n**Offerta rilevante per il nostro ambito.** Il sito ufficiale elenca tra i servizi ",
+        "type": "text"
+      },
+      {
+        "text": "Supply Chain Management",
+        "type": "text"
+      },
+      {
+        "text": ", Internet of Things e Robotics & Autonomous Things. Tra i settori c'è la Logistica (pagina Investors di reply.com, consultata con fetch).\n\nIl gruppo ha una società specializzata, Logistics Reply. ",
+        "type": "text"
+      },
+      {
+        "text": "Logistics Reply è la società del gruppo specializzata in software per trasformare le supply chain, con oltre 25 anni di esperienza.",
+        "type": "text"
+      },
+      {
+        "text": " (solo risultati di ricerca.)\n\nIl suo prodotto principale è LEA Reply™. ",
+        "type": "text"
+      },
+      {
+        "text": "È una piattaforma di microservizi per inventario, magazzino, distribuzione, consegna, punti vendita e visibilità end-to-end. Comprende Warehouse Management, Supplier Portal, Dock Scheduling, Yard Management, Hub & Network, Last Mile, Dropship, In-Store Picking, Store Logistics e Visibility.",
+        "type": "text"
+      },
+      {
+        "text": " (LinkedIn, solo risultati di ricerca.)\n\n## 2. Dimensione e presenza geografica\n\n| Dato | Valore | Fonte e stato |\n|---|---|---|\n| Ricavi consolidati 2025 | 2.483,6 M€ (dichiarato) | ",
+        "type": "text"
+      },
+      {
+        "text": "Bilancio 2025 approvato il 12/03/2026: fatturato consolidato 2.483,6 M€ (2.300,5 M€ nel 2024) e utile netto di gruppo 250,9 M€ (211,1 M€ nel 2024)",
+        "type": "text"
+      },
+      {
+        "text": ". Pagina Investors, consultata con fetch. |\n| Ricavi 1° semestre 2026 | 1.311,9 M€ | ",
+        "type": "text"
+      },
+      {
+        "text": "EBITDA semestrale 233,2 M€ contro 223,7 M€ del 2025, pari al 17,8% del fatturato.",
+        "type": "text"
+      },
+      {
+        "text": " Fetch del comunicato (Business Wire via Yahoo Finance). Il comunicato indica una crescita del 7,4% sul 1° semestre 2025. |\n| Posizione finanziaria netta al 30/06/2026 | +402,0 M€ | ",
+        "type": "text"
+      },
+      {
+        "text": "Era +643,0 M€ al 31/03/2026 e +467,6 M€ al 31/12/2025.",
+        "type": "text"
+      },
+      {
+        "text": " |\n| Dipendenti | 16.402 al 30/09/2025 (15.353 al 30/09/2024) | ",
+        "type": "text"
+      },
+      {
+        "text": "Numero di dipendenti: 16.402 contro 15.353.",
+        "type": "text"
+      },
+      {
+        "text": " Resoconto intermedio Q3 2025, solo risultati di ricerca. Dato più recente non reperito. |\n| Società capogruppo (solo Reply S.p.A.) | Ricavi 2024 di 869,2 M€, 267 dipendenti | ",
+        "type": "text"
+      },
+      {
+        "text": "Ricavi della sola capogruppo 869.223.983 € nel 2024; 267 dipendenti.",
+        "type": "text"
+      },
+      {
+        "text": " È un dato di singola società, non di gruppo (aziende.it, solo risultati di ricerca). Un altro documento indica ",
+        "type": "text"
+      },
+      {
+        "text": "264 dipendenti della Capogruppo al 31/12/2024",
+        "type": "text"
+      },
+      {
+        "text": ". |\n\n**Presenza geografica.** Un database terzo (Zavia) registra ",
+        "type": "text"
+      },
+      {
+        "text": "78 controllate in 6 giurisdizioni: Italia, Germania, Stati Uniti, Regno Unito, Romania e Lussemburgo.",
+        "type": "text"
+      },
+      {
+        "text": " L'elenco è dichiaratamente non completo ed è una fonte non ufficiale. Il sito ufficiale ha una pagina \"Offices\" che non ho consultato, quindi il dettaglio per Paese resta da verificare.\n\n**Struttura proprietaria.** Zavia indica ICEBERG SRL come capogruppo ultima, ma avverte che la catena non è corroborata da Reply (",
+        "type": "text"
+      },
+      {
+        "text": "nessun anello della catena è confermato in modo indipendente dalla documentazione di Reply",
+        "type": "text"
+      },
+      {
+        "text": "). Il documento di governance di Reply descrive il Presidente come ",
+        "type": "text"
+      },
+      {
+        "text": "responsabile della gestione e azionista di maggioranza",
+        "type": "text"
+      },
+      {
+        "text": ".\n\n## 3. Filiera, logistica e tracciabilità\n\nReply è un fornitore di servizi IT, non un'azienda con filiera fisica. Non ho trovato stabilimenti o magazzini propri documentati, né esigenze di tracciabilità interne. Per Reply come cliente la voce resta: **Informazione non reperita nelle fonti pubbliche consultate.**\n\nIl dato rilevante è un altro: Reply vende soluzioni di logistica e tracciabilità, quindi è anche un potenziale concorrente o partner.\n\n- ",
+        "type": "text"
+      },
+      {
+        "text": "Logistics Reply dichiara tracciabilità end-to-end di ogni componente lungo la supply chain, dal fornitore alla consegna finale, con sensori IoT e digital twin.",
+        "type": "text"
+      },
+      {
+        "text": " (Pagina Manufacturing Logistics, solo risultati di ricerca.)\n- ",
+        "type": "text"
+      },
+      {
+        "text": "Il LEA Reply™ Supplier Portal consente di tracciare le attività di imballaggio e spedizione presso i fornitori, con visibilità sulle scorte in transito.",
+        "type": "text"
+      },
+      {
+        "text": "\n- ",
+        "type": "text"
+      },
+      {
+        "text": "Logistics Reply è \"Visionary\" nel Gartner Magic Quadrant per i Warehouse Management System per il settimo anno consecutivo.",
+        "type": "text"
+      },
+      {
+        "text": " ",
+        "type": "text"
+      },
+      {
+        "text": "Il Fraunhofer IML ha validato il WMS LEA Reply™ per la sesta volta consecutiva nel 2025.",
+        "type": "text"
+      },
+      {
+        "text": "\n- Clienti citati sul sito: ",
+        "type": "text"
+      },
+      {
+        "text": "Marazzi ha scelto LEA Reply™ WMS",
+        "type": "text"
+      },
+      {
+        "text": " e ",
+        "type": "text"
+      },
+      {
+        "text": "PUMA usa LEA Reply e GaliLEA, l'assistente AI per le operazioni di magazzino",
+        "type": "text"
+      },
+      {
+        "text": ". Sono fonti di pagine di prodotto, non verificate con fetch.\n\n## 4. Progetti di digitalizzazione e notizie rilevanti\n\nPer un fornitore di consulenza, i \"progetti dichiarati\" sono principalmente la strategia di offerta.\n\n- **Strategia AI.** ",
+        "type": "text"
+      },
+      {
+        "text": "Reply ha definito nuove offerte come Agentic AI, Silicon Shoring e AI pre-built applications.",
+        "type": "text"
+      },
+      {
+        "text": " Il Presidente cita inoltre ",
+        "type": "text"
+      },
+      {
+        "text": "la crescente centralità delle soluzioni che integrano AI, dati e oggetti connessi negli investimenti strategici delle imprese",
+        "type": "text"
+      },
+      {
+        "text": " (comunicato Q1 2025, risultati di ricerca).\n- **Logistica e robotica.** Il sito segnala ",
+        "type": "text"
+      },
+      {
+        "text": "una dimostrazione di inventario con droni, AI e WMS presentata a LogiMAT 2026 da Logistics Reply e Autonomous Reply",
+        "type": "text"
+      },
+      {
+        "text": " (solo risultati di ricerca).\n\n**Eventi degli ultimi 12 mesi** (cioè da novembre 2025):\n\n| Data | Evento | Fonte |\n|---|---|---|\n| 12/03/2026 | Approvazione bilancio 2025 e dividendo proposto di 1,35 € per azione | Pagina Investors, fetch. |\n| 09/04/2026 | Annuncio di un buyback fino a 3.607.950 azioni (circa 9,64% del capitale), per un massimo di 550 M€. Obiettivo dichiarato: ",
+        "type": "text"
+      },
+      {
+        "text": "piani di incentivazione azionaria, acquisizioni di partecipazioni, operazioni di finanza straordinaria e/o accordi con partner strategici",
+        "type": "text"
+      },
+      {
+        "text": ". Avvio il 13/04/2026. | Comunicato Reply, solo risultati di ricerca. |\n| Fino al 31/07/2026 | Attuazione del buyback: ",
+        "type": "text"
+      },
+      {
+        "text": "1.083.192 azioni proprie in portafoglio, pari al 2,895% del capitale",
+        "type": "text"
+      },
+      {
+        "text": " al 31/07/2026. | Comunicato Reply, solo risultati di ricerca. |\n| 30/07/2026 | Risultati semestrali: tutti gli indicatori in crescita (vedi sezione 2). | Fetch. |\n\n**Programma di buyback.** Era previsto fino al 23/10/2026, ma non ho verificato il dato finale a chiusura. La dichiarazione sullo scopo non indica una specifica operazione di M&A. Non va quindi interpretata come acquisizione in corso.\n\n**Prossima scadenza utile.** Il calendario Investors indica i risultati del terzo trimestre 2026 il 12/11/2026.\n\n**Acquisizioni.** Reply ha acquisito RED Scientific Reply Limited ad agosto 2025 (difesa e PA nel Regno Unito). L'acquisizione è fuori dai dodici mesi e non rilevante per la logistica.\n\n## 5. Interlocutori potenzialmente appropriati\n\nNon ho verificato nessun responsabile di logistica, supply chain, operations o IT interno a Reply. Per questo ruolo: **Informazione non reperita nelle fonti pubbliche consultate.**\n\nFigure verificate nella governance, che sono vertici societari e non interlocutori operativi:\n\n- **Mario Rizzante**, Presidente.\n- **Tatiana Rizzante**, CEO.\n- **Filippo Rizzante**, CTO e amministratore esecutivo. ",
+        "type": "text"
+      },
+      {
+        "text": "È CTO dal 2012 e ha la responsabilità di gruppo per tutte le partnership.",
+        "type": "text"
+      },
+      {
+        "text": " (Relazione sul governo societario 2025, solo risultati di ricerca.)\n- **Gilberto Ceresa**, COO. ",
+        "type": "text"
+      },
+      {
+        "text": "È membro dell'Ethical AI Committee.",
+        "type": "text"
+      },
+      {
+        "text": " (Solo risultati di ricerca.)\n- **Investor Relations**, non pertinenti commercialmente: Michael Lückenkötter e Paolo Capitelli (pagina Investors, fetch).\n\n**Ruoli da identificare:** i responsabili di Logistics Reply e del network IoT/Supply Chain di Reply, cioè un profilo partnership o alleanze. I nomi non sono stati trovati e vanno cercati su LinkedIn, che in questa ricerca non ho consultato direttamente.\n\n## 6. Valutazione preliminare della pertinenza commerciale\n\n*Questa è una valutazione, non un fatto documentato.*\n\n- **Come cliente diretto di sistemi di tracciabilità:** pertinenza apparentemente bassa. Non risultano filiere fisiche, magazzini o esigenze di tracciabilità proprie documentate.\n- **Come concorrente parziale:** Logistics Reply offre WMS, visibilità e tracciabilità su piattaforma proprietaria (LEA Reply™), con riconoscimenti Gartner e Fraunhofer. Nei progetti di integrazione potrebbe presentarsi come alternativa.\n- **Come partner o canale:** potrebbe essere opportuno valutare se Reply, come integratore con clienti nel manifatturiero, nell'automotive e nel retail, sia interessata a integrare hardware o sistemi di tracciabilità di terzi. Non ho prove di accordi di questo tipo; è un'ipotesi da verificare.\n- **Dimensione:** il gruppo è di grandi dimensioni (circa 2,5 miliardi di euro di ricavi nel 2025, oltre 16.000 dipendenti nel settembre 2025). Un eventuale contatto richiederebbe un interlocutore specifico.\n- **Buyback:** lo scopo dichiarato include acquisizioni e accordi con partner strategici. Non c'è alcuna operazione annunciata, quindi non va letto come segnale di una trattativa.\n\nLa decisione sull'avvio di un contatto spetta ai commerciali.\n\n## 7. Informazioni mancanti, contraddizioni e verifiche richieste\n\n**Discrepanze sui dati:**\n- **Ricavi 2025:** 2.483,6 M€ (pagina Investors, fetch), 2.497,6 M€ (QuiFinanza, solo risultati di ricerca) e \"2,48 miliardi\" (SoldiOnline, arrotondato). Il valore più attendibile è quello ufficiale. Non ho aperto il bilancio per spiegare la differenza con QuiFinanza.\n- **Ricavi 2024:** 2.295,9 M€ nella relazione annuale 2024 (",
+        "type": "text"
+      },
+      {
+        "text": "fatturato consolidato di 2.295,9 milioni",
+        "type": "text"
+      },
+      {
+        "text": ") contro 2.300,5 M€ come confronto nella pagina Investors 2026. La causa è irrisolta. Il Q3 2025 cita una riclassifica gestionale, ma non posso confermare che spieghi la differenza.\n- **Perimetro:** i 869 M€ riguardano la sola capogruppo italiana, non il gruppo.\n- **Errore nei risultati di ricerca:** SoldiOnline (risultati 2025) cita \"2023\" invece di \"2024\" come termine di confronto dell'utile; non l'ho usato.\n\n**Mancanti:**\n- Dipendenti aggiornati al 2026.\n- Ripartizione geografica ufficiale (pagina \"Offices\"/Company profile non consultata; il primo fetch è fallito).\n- Sedi e magazzini di Reply, esigenze interne di tracciabilità, interlocutori di logistica/IT/operations.\n- Esito finale del buyback dopo luglio 2026.\n- Pagine prodotto di Logistics Reply e casi cliente: non verificati con fetch.\n\n**Verifiche richieste:** consultare la pagina Company profile e la relazione annuale 2025 per ricavi per area e per Region. Identificare su LinkedIn i referenti di Logistics Reply e delle società IoT del gruppo.\n\n## 8. Fonti consultate\n\nFonti consultate con fetch:\n- Pagina Investors: https://www.reply.com/en/investors\n- Comunicato semestrale 2026 (Business Wire via Yahoo Finance): https://finance.yahoo.com/markets/stocks/articles/reply-p-board-directors-approves-115200324.html\n\nFonti da soli risultati di ricerca, non verificate con fetch:\n- https://www.reply.com/contents/Resoconto_intermedio_di_gestione_al_30_settembre_2025.pdf\n- https://www.reply.com/it/investors/financial-reports/2024/relazione-sulla-gestione.html\n- https://www.reply.com/en/newsroom/financial-news/reply-launch-of-a-share-buyback-program-for-a-maximum-number-of-3607950-shares\n- https://www.reply.com/en/newsroom/financial-news/share-buyback-program-july-2026\n- https://www.reply.com/en/newsroom/financial-news/the-board-of-directors-approves-the-quarterly-report-dated-31-march-2025\n- https://www.reply.com/logistics-reply/en/manufacturing-industry\n- https://www.reply.com/logistics-reply/en/about-us\n- https://www.reply.com/en/supply-chain-management\n- https://www.reply.com/en/logistics\n- https://www.linkedin.com/company/logistics-reply-s.r.l.\n- https://www.reply.com/contents/REPLY_Relazione_Governo_Societario_2025_ENG.pdf\n- https://www.reply.com/en/investors/board-of-directors-and-other-corporate-bodies\n- https://www.aziende.it/reply-s-p-a\n- https://quifinanza.it/borse/borsa-italiana/azioni/GETTEX/REJA/\n- https://zavia.ai/companies/reply-s-p-a-it-131999883/\n- https://www.teleborsa.it/News/2026/04/09/reply-avvia-buyback-fino-a-550-milioni-di-euro-dal-13-aprile-2026-241.html",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_01FcAK8vWwgmLHXMifJfveTX",
+    "processed_at": "2026-11-05T11:06:29.832426Z",
+    "type": "agent.message"
+  },
+  {
+    "id": "sevt_019FZuy6dEqNZiGSbpwgHKXN",
+    "is_error": false,
+    "model_request_start_id": "sevt_01THrEqAD2q8UfXvXDEp3Kho",
+    "model_usage": {
+      "cache_creation_input_tokens": 44978,
+      "cache_read_input_tokens": 27831,
+      "input_tokens": 2,
+      "output_tokens": 6862,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:06:29.832427Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "agent_name": "Agente di ricerca commerciale - Vertek Solutions",
+    "id": "sevt_019bFqbC9arRyWu6TpFBaDKN",
+    "processed_at": "2026-11-05T11:06:29.959637Z",
+    "session_thread_id": "sthr_01Vw2CsC8dQyF574n8JcrWSC",
+    "stop_details": null,
+    "stop_reason": {
+      "type": "end_turn"
+    },
+    "type": "session.thread_status_idle"
+  },
+  {
+    "budget": {
+      "max_list_cost": {
+        "amount": "100",
+        "currency": "USD"
+      },
+      "type": "limit"
+    },
+    "id": "sevt_017yyhvViDREeKLvioCKAS5a",
+    "processed_at": "2026-11-05T11:06:29.959638Z",
+    "type": "session.usage",
+    "usage": {
+      "active_seconds": 54.749,
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 75938
+      },
+      "cache_read_input_tokens": 29864,
+      "input_tokens": 8,
+      "list_cost": {
+        "amount": "31",
+        "currency": "USD"
+      },
+      "output_tokens": 7504,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 4
+      }
+    }
+  },
+  {
+    "id": "sevt_01JuziSaBF99hcqL4LGEdP9i",
+    "processed_at": "2026-11-05T11:06:29.959639Z",
+    "stop_details": null,
+    "stop_reason": {
+      "type": "end_turn"
+    },
+    "type": "session.status_idle"
+  }
+]

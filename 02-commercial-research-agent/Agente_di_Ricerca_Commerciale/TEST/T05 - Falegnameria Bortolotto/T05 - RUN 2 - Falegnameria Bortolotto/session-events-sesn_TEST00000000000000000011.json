@@ -1,0 +1,812 @@
+[
+  {
+    "id": "sevt_01LKCTCxQjPv3S3cdYZWydAo",
+    "processed_at": "2026-11-05T11:23:04.158722Z",
+    "type": "session.status_running"
+  },
+  {
+    "agent_name": "Agente di ricerca commerciale - Vertek Solutions",
+    "id": "sevt_01CB5wpRhkHbMD4pE6aEqbD3",
+    "processed_at": "2026-11-05T11:23:04.158723Z",
+    "session_thread_id": "sthr_01QNkeSot5FXJg699iUqWjZt",
+    "type": "session.thread_status_running"
+  },
+  {
+    "content": [
+      {
+        "text": "Prepara un dossier di ricerca commerciale su Falegnameria Bortolotto, dominio falegnameriabortolotto.it.",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_01FD1DrJE7uyQzzAY4PL8zct",
+    "processed_at": "2026-11-05T11:23:04.241338Z",
+    "type": "user.message"
+  },
+  {
+    "id": "sevt_014xtjbQNnk6M3TCpGwvgbac",
+    "processed_at": "2026-11-05T11:23:04.241339Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01EMoMDf5eeTPQCbsKeYrC17",
+    "input": {
+      "url": "https://falegnameriabortolotto.it"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:23:05.906192Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01CVrhUqve3mXwvHLWnR1sEu",
+    "input": {
+      "query": "Falegnameria Bortolotto"
+    },
+    "name": "web_search",
+    "processed_at": "2026-11-05T11:23:05.906193Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "id": "sevt_01NoxR84BmgrWbU8wsy5RasY",
+    "is_error": false,
+    "model_request_start_id": "sevt_014xtjbQNnk6M3TCpGwvgbac",
+    "model_usage": {
+      "cache_creation_input_tokens": 5301,
+      "cache_read_input_tokens": 0,
+      "input_tokens": 4,
+      "output_tokens": 117,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:23:05.906194Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "content": [
+      {
+        "source": {
+          "data": "---\nmeta-Robot: ALL\nmeta-author: Giacomo Cariulo\nmeta-description: Falegnameria Bortolotto realizza mobili e arredi su misura per abitazioni e attività commerciali, infissi, parquet, gazebo e coperture\nmeta-keywords: Falegnameria, Falegnameria Bortolotto, Manuel Bortolotto, Ottavio Bortolotto, Distribuzione Bortolotto, Falegnameria Vicenza, Falegnameria artigiana, Falegnameria veneto, Arredamenti, Complementi, Accessori, Serramenti interni, Serramenti esterni, Balconi, Avvolgibili, Portoncini d'ingresso, Portoncini blindati, Porte blindate, Porte interne scorrevoli, Rototraslanti, Legno, Alluminio, Vetro, Laminato, PVC, Arredi a misura, Arredi su misura, Arredi su ordinazione, Arredamento a misura, Arredamento su misura, Arredamento su ordinazione, Montaggio Preciso, Manutenzione scrupolosa\nmeta-rating: General\nmeta-revisit-after: 1 Weeks\ntitle: FALEGNAMERIA BORTOLOTTO - FALEGNAMERIA ARTIGIANALE VICENZA\n---\n\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/1.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/4.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/5.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/6.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/7.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/8.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/9.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/10.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_home/11.jpg)\n\n[![FALEGNAMERIA BORTOLOTTO A SPAZIO CASA di FIERA VICENZA](https://www.falegnameriabortolotto.it/images/banne_fiera_vicenza_2011.jpg)](http://www.spaziocasafiera.it/nqcontent.cfm?a_id=1368)\n\n## La nostra filosofia\n\n### La **Falegnameria Bortolotto**, è da anni una piccola eccellenza del *Made in Italy.*\n\nUna piccola azienda a gestione familiare che fa del rappporto diretto col cliente e della professionalità il suo fiore all’occhiello.\n\nRealizziamo **arredamento su misura**, **infissi**, **porte**, **pavimenti**, **scale**, **soppalchi**, **balconcini**, **tettoie**, **coperture per esterni** e tanto altro ancora.\n\nSiamo in grado di seguire il lavoro in ogni sua fase, dalla progettazione fino al montaggio.\n\n## Il nostro Showroom\n\n### Il nostro **Showroom** a *Tavarnelle di Sovizzo* propone un’ampia gamma della nostra produzione.\n\nPotete toccare con mano le nostre realizzazioni e studiare con i nostri incaricati la soluzione migliore perle vostre esigenze.\n\nInoltre potrete anche visitare una ricca esposizione dei prodotti delle migliori marche delle quali siamo rivenditori.\n\n| ![PIVATO](https://www.falegnameriabortolotto.it/images/brand_small/pivato.jpg) | ![CAMPESATO](https://www.falegnameriabortolotto.it/images/brand_small/campesato.jpg) | ![LEADER PORTE](https://www.falegnameriabortolotto.it/images/brand_small/leaderporte.jpg) | ![IDEAL FENSTER](https://www.falegnameriabortolotto.it/images/brand_small/idealfenster.jpg) |\n|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n\n**Falegnameria Bortolotto**  \np.i. 03605830243\n\nCopyright © 2011. **FALEGNAMERIA BORTOLOTTO**. Tutti i diritti sono riservati\n\n![W3C XHTML 1.0](https://www.falegnameriabortolotto.it/images/w3c_xhtml.jpg) ![W3C CSS](https://www.falegnameriabortolotto.it/images/w3c_css.jpg) ![ANY BROWSER](https://www.falegnameriabortolotto.it/images/any_browser.jpg)\n\n![FALEGNAMERIA ARTIGIANALE BORTOLOTTO](https://www.falegnameriabortolotto.it/images/logo_falegnameria_artigianale_bortolotto.png)\n\n![HOME PAGE](https://www.falegnameriabortolotto.it/images/mainmenu_home_f3.png)\n\n[](https://www.falegnameriabortolotto.it/falegnameria_artigianale.asp)\n\n[](https://www.falegnameriabortolotto.it/mobili_su_misura.asp)\n\n[](https://www.falegnameriabortolotto.it/infissi_in_legno.asp)\n\n[](https://www.falegnameriabortolotto.it/pavimenti_in_legno.asp)\n\n[](https://www.falegnameriabortolotto.it/falegnameria_vicenza.asp)\n\n[](https://www.falegnameriabortolotto.it/posa_in_opera_parquet.asp)\n\n[](https://www.falegnameriabortolotto.it/vendita_arredamento.asp)\n\n[![Facebook](https://www.falegnameriabortolotto.it/images/facebook.png)](http://www.facebook.com/pages/Falegnameria-Bortolotto-Manuel/358774977569891?fref=ts)\n\n[](#1)\n\n[](#2)\n\n[](#3)\n\n[](#4)\n\n[](#5)\n\n![Realizziamo i tuoi Sogni](https://www.falegnameriabortolotto.it/images/mobili_su_misura.png)\n\n# Esperienza pluriennale nella realizzazione di Mobili su Misura\n\nSiamo in grado di offrire un prodotto che racchiude in sé la cura artigianale dei dettagli, il gusto per un design originale e la scelta dei migliori materiali.\n\nTutto questo ci permette di ascoltare e capire le esigenze del cliente e realizzare la *soluzione ideale e su misura* per ogni casa. Perché tornare a casa sia sempre una bella sorpresa...\n\n![Calore, Eleganza, Prestigio](https://www.falegnameriabortolotto.it/images/calore_eleganza_prestigio.png)\n\n# Il tuo biglietto da visita\n\nL'arredamento di ogni attività commerciale parla un po' di noi, è il nostro biglietto da visita, l'ingresso nel nostro pianeta.\n\nStudieremo con voi la soluzione più adatta alla vostra immagine per far sì che il vostro ambiente diventi un'esperienza da vivere.\n\n![Nessun dettaglio è lasciato al caso](https://www.falegnameriabortolotto.it/images/nessun_dettaglio_e_lasciato_al_caso.png)\n\n# I dettagli, il valore aggiunto di ogni cosa\n\nCurare i dettagli, i complementi e gli accessori è la strada che intendiamo seguire, perché ogni oggetto deve essere studiato nei particolari.\n\nQualità e gusto,una miscela vincente.\n\n![Immaginare, Disegnare, Realizzare](https://www.falegnameriabortolotto.it/images/produzione_arredamento.png)\n\n# Oggetti di Design e di altissima qualità\n\nLa nostra pluriennale esperienza sarà messa al vostro servizio per proporvi soluzioni che combinino in sé un design raffinato unito alla qualità del lavoro artigianale.\n\nIl gusto del bello, la funzionalità e l'affidabilità sono l'anima di ogni nostra proposta.\n\n![Ogni cliente, una persona unica](https://www.falegnameriabortolotto.it/images/manutenzione_arredamento.png)\n\n# Manutenzione e assistenza sono sinonimo di serietà e professionalità\n\nPerché per noi il cliente è al centro delle nostre proposte e lo vogliamo seguire anche dopo l'acquisto. E' la nostra mission ma anche la convinzione che il rapporto diretto tra cliente e produttore sia la strada da seguire, la nuova sfida per il futuro.",
+          "media_type": "text/plain",
+          "type": "text"
+        },
+        "title": "FALEGNAMERIA BORTOLOTTO - FALEGNAMERIA ARTIGIANALE VICENZA",
+        "type": "document"
+      }
+    ],
+    "id": "sevt_01CMpdkanTcvqWaDHYWk4RmD",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:23:06.161991Z",
+    "tool_use_id": "sevt_01EMoMDf5eeTPQCbsKeYrC17",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Falegnameria Bortolotto realizza mobili e arredi su misura per abitazioni e attività commerciali, infissi, parquet, gazebo e coperture",
+            "type": "text"
+          },
+          {
+            "text": "Falegnameria Bortolotto p.i. 03605830243 · Copyright © 2011. FALEGNAMERIA BORTOLOTTO. Tutti i diritti sono riservati · Siamo in grado di offrire un prodotto che racchiude in sé la cura artigianale dei dettagli, il gusto per un design originale e la scelta dei migliori materiali. Tutto questo ci permette di ascoltare e capire le esigenze del cliente e realizzare la soluzione ideale e su misura per ogni casa. Perché tornare a casa sia sempre una bella sorpresa... L'arredamento di ogni attività commerciale parla un po' di noi, è il nostro biglietto da visita, l'ingresso nel nostro pianeta. Studieremo con voi la soluzione più adatta alla vostra immagine per far sì che il vostro ambiente diventi un'esperienza da vivere. Curare i dettagli, i complementi e gli accessori è la strada che intendiamo seguire, perché ogni oggetto deve essere studiato nei particolari.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.falegnameriabortolotto.it/",
+        "title": "FALEGNAMERIA BORTOLOTTO - FALEGNAMERIA ARTIGIANALE VICENZA",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Falegnameria Bortolotto Manuel, Zanè. 434 likes. Bortolotto Manuel e i membri del TEAM sono a vostra disposizione per offrirvi le loro competenze e d",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.facebook.com/manuelbortolot/",
+        "title": "Falegnameria Bortolotto Manuel | Zanè | Facebook",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "141 Followers, 166 Following, 120 Posts - Falegnameria Bortolotto Manuel (@bortolotto_home_design) on Instagram: &quot;...disegna il tuo ambiente e progetta i tuoi spazi...&quot;",
+            "type": "text"
+          },
+          {
+            "text": "141 Followers, 166 Following, 120 Posts - See Instagram photos and videos from Falegnameria Bortolotto Manuel (@bortolotto_home_design)",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.instagram.com/bortolotto_home_design/",
+        "title": "Falegnameria Bortolotto Manuel (@bortolotto_home_design) • Instagram photos and videos",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "FALEGNAMERIA BORTOLOTTO è la tradizione del Made in Italy a portata di mano. Falegnameria Bortolotto p.i. 03605830243 · Copyright © 2011. FALEGNAMERIA BORTOLOTTO.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.falegnameriabortolotto.it/falegnameria_vicenza.asp",
+        "title": "PUNTO VENDITA :: FALEGNAMERIA BORTOLOTTO - MOBILIFICIO ARTIGIANO VICENZA - MOBILI SU MISURA IN VENETO",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Partita IVA: 03605830243 - Codice Fiscale: BRTMNL78T05Z308V - Ragione Sociale: FALEGNAMERIA BORTOLOTTO MANUEL · Codice Ateco: 31091 - Fabbricazione di mobili per arredo domestico ... Sei il legale rappresentante della società e vuoi comunicare rettifiche? Clicca qui.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.visura.pro/imprese/2128351455-falegnameria-bortolotto-manuel.html",
+        "title": "FALEGNAMERIA BORTOLOTTO MANUEL Partita IVA:03605830243 | Report aziendale Gratuito",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Falegnameria Bortolotto Manuel, Via Padova, 14, Serramenti ed infissi Zanè Info e Contatti: Numero Telefono, Indirizzo e Mappa.",
+            "type": "text"
+          }
+        ],
+        "source": "https://aziende.virgilio.it/zane-vi/falegnameria-bortolotto-manuel",
+        "title": "Falegnameria Bortolotto Manuel - Zanè, Via Padova, 14",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "255 views, 14 likes, 0 loves, 3 comments, 0 shares, Facebook Watch Videos from Falegnameria Bortolotto Manuel: La porta che si chiude da sola",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.facebook.com/manuelbortolot/videos/la-porta-che-si-chiude-da-sola/749033871877331/",
+        "title": "La porta che si chiude da sola | By Falegnameria Bortolotto Manuel | Facebook",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Strada Di Settecà CAP 36100, Vicenza, Vicenza. ... La Falegnameria Battistella è stata fondata nel 1969 da Battistella Alessandro. Negli ultimi anni la Battistella Alessandro snc ha ottenuto la certifi...",
+            "type": "text"
+          }
+        ],
+        "source": "https://vicenza.infoisinfo.it/carta/falegnameria-bortolotto/1611243",
+        "title": "FALEGNAMERIA BORTOLOTTO - Infoisinfo Vicenza",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Falegnameria Bortolotto in Mobili Artistici in Stile - Produzione Sovizzo : Indirizzo, telefono, recensioni ed altre informazioni.",
+            "type": "text"
+          },
+          {
+            "text": "Tutte le informazioni riportate sulla pagina \"Falegnameria Bortolotto - 36050 Sovizzo -\" del sito www.reteimprese.it il 08:07:2025 01:56:06 8.3.21 sono state prelevate da fonti pubbliche su internet o inserite dagli utenti.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reteimprese.it/mobili-artistici-stile-produzione/sovizzo/azienda/1873086",
+        "title": "Falegnameria Bortolotto - 36050 Sovizzo -",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "GRATIS - Falegnameria Bortolotto Manuel: (p.iva 03605830243) - ZANÈ (Vicenza) - Codice Ateco: 43.32.02: Posa in opera di infissi, arredi, controsoffitti, pareti mobili e simili",
+            "type": "text"
+          }
+        ],
+        "source": "https://registroaziende.it/azienda/falegnameria-bortolotto-manuel-zane",
+        "title": "Dati della società Falegnameria Bortolotto Manuel (03605830243), Veneto, Vicenza, ZANÈ - REGISTROAZIENDE.it",
+        "type": "search_result"
+      }
+    ],
+    "id": "sevt_01NG7suFCBTohsLrwijNwSXq",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:23:06.437206Z",
+    "tool_use_id": "sevt_01CVrhUqve3mXwvHLWnR1sEu",
+    "type": "agent.tool_result"
+  },
+  {
+    "id": "sevt_018oo4Sbd1hvxjVrvg6wK5EU",
+    "processed_at": "2026-11-05T11:23:06.488135Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "id": "sevt_01E9c6yUunSdU4Hg1g6yaPW1",
+    "processed_at": "2026-11-05T11:23:08.394Z",
+    "type": "agent.thinking"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01EMSBqJWJSG64fnVudH17RU",
+    "input": {
+      "url": "https://registroaziende.it/azienda/falegnameria-bortolotto-manuel-zane"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:23:09.566782Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_015a4sSux1avmyq2ujuiniR6",
+    "input": {
+      "url": "https://www.visura.pro/imprese/2128351455-falegnameria-bortolotto-manuel.html"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:23:09.566783Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_013hP4n61d9dCAjhqg35YSkg",
+    "input": {
+      "url": "https://www.falegnameriabortolotto.it/falegnameria_vicenza.asp"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:23:09.566784Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01Eop7FtKDGHn9yJMVYb9yRV",
+    "input": {
+      "query": "Bortolotto Manuel falegnameria Zanè notizie 2026"
+    },
+    "name": "web_search",
+    "processed_at": "2026-11-05T11:23:09.566785Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "id": "sevt_01E5mg9HB2kU2unys1TP66Ff",
+    "is_error": false,
+    "model_request_start_id": "sevt_018oo4Sbd1hvxjVrvg6wK5EU",
+    "model_usage": {
+      "cache_creation_input_tokens": 10321,
+      "cache_read_input_tokens": 2033,
+      "input_tokens": 2,
+      "output_tokens": 407,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:23:09.566786Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "content": [
+      {
+        "text": "Web fetch error: url_not_accessible",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_01FZW9N33DJ68vXJ6AVpxXUc",
+    "is_error": true,
+    "processed_at": "2026-11-05T11:23:09.723421Z",
+    "tool_use_id": "sevt_01EMSBqJWJSG64fnVudH17RU",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "text": "Web fetch error: url_not_accessible",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_01YDyGFoC5SZMavjdccV1cSt",
+    "is_error": true,
+    "processed_at": "2026-11-05T11:23:10.046241Z",
+    "tool_use_id": "sevt_015a4sSux1avmyq2ujuiniR6",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "source": {
+          "data": "---\nmeta-Robot: ALL\nmeta-author: Giacomo Cariulo\nmeta-description: Nel nostro Showroom potete ammirare una gamma vasta di infissi, porte e finestre, serramenti, porte blindate, portoni d'ingresso, complementi di arredo, accessori in legno. Un'esposizione di mobili a VIcenza a tua completa disposizione\nmeta-keywords: Mobilificio artigiano, Negozio di mobili artigianali, mobili fatti am mano, mobili realizzati a mano, Negozio di mobili vicenza, negozio di mobili veneto, mobili costruiti a mano, arredamento fatto a mano, falegname artigiano, mobili classici fatti a mano, arredamenti artigianali, showroom mobili vicenza, punto vendita PIVATO, punto vendita CAMPESATO, punto vendita IDEAL FENSTER, punto vendita LEADER PORTE\nmeta-rating: General\nmeta-revisit-after: 1 Weeks\ntitle: PUNTO VENDITA :: FALEGNAMERIA BORTOLOTTO - MOBILIFICIO ARTIGIANO VICENZA - MOBILI SU MISURA IN VENETO\n---\n\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/1.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/2.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/3.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/4.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/5.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/6.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/7.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/8.jpg)\n- ![](https://www.falegnameriabortolotto.it/images/slide_showroom/9.jpg)\n\n![IL PUNTO VENDITA DELLA FALEGNAMERIA BORTOLOTTO](https://www.falegnameriabortolotto.it/images/showroom.jpg)\n\n### Da qualche anni, abbiamo aperto il nuovo **Showroom**. Uno spazio di oltre 200 mq alle porte di **Vicenza**, dove poter toccare con mano i prodotti della **FALEGNAMERIA BORTOLOTTO** e quelli dei nostri partners.\n\nNel nostro *punto vendita* è inoltre possibile usufruire della *consulenza specializzata* del nostro personale, sempre pronto a consigliarvi con scrupolo e indirizzarvi vestro le scelte migliori.\n\nNon solo un punto vendita di arredamenti e complementi di arredo, ma una vera possibilità di toccare con mano, la qualità di un prodotto artigianale, fatto con cura, competenza e passione.\n\n**FALEGNAMERIA BORTOLOTTO** è la tradizione del *Made in Italy* a portata di mano.\n\n**Falegnameria Bortolotto**  \np.i. 03605830243\n\nCopyright © 2011. **FALEGNAMERIA BORTOLOTTO**. Tutti i diritti sono riservati\n\n![W3C XHTML 1.0](https://www.falegnameriabortolotto.it/images/w3c_xhtml.jpg) ![W3C CSS](https://www.falegnameriabortolotto.it/images/w3c_css.jpg) ![ANY BROWSER](https://www.falegnameriabortolotto.it/images/any_browser.jpg)\n\n![FALEGNAMERIA ARTIGIANALE BORTOLOTTO](https://www.falegnameriabortolotto.it/images/logo_falegnameria_artigianale_bortolotto.png)\n\n[](https://www.falegnameriabortolotto.it/index.asp)\n\n[](https://www.falegnameriabortolotto.it/falegnameria_artigianale.asp)\n\n[](https://www.falegnameriabortolotto.it/mobili_su_misura.asp)\n\n[](https://www.falegnameriabortolotto.it/infissi_in_legno.asp)\n\n[](https://www.falegnameriabortolotto.it/pavimenti_in_legno.asp)\n\n![SHOWROOM](https://www.falegnameriabortolotto.it/images/mainmenu_showroom_f3.png)\n\n[](https://www.falegnameriabortolotto.it/posa_in_opera_parquet.asp)\n\n[](https://www.falegnameriabortolotto.it/vendita_arredamento.asp)\n\n[![Facebook](https://www.falegnameriabortolotto.it/images/facebook.png)](http://www.facebook.com/pages/Falegnameria-Bortolotto-Manuel/358774977569891?fref=ts)\n\n![VIENI A TOCCARE CON MANO](https://www.falegnameriabortolotto.it/images/negozio_di_mobili.png)",
+          "media_type": "text/plain",
+          "type": "text"
+        },
+        "title": "PUNTO VENDITA :: FALEGNAMERIA BORTOLOTTO - MOBILIFICIO ARTIGIANO VICENZA - MOBILI SU MISURA IN VENETO",
+        "type": "document"
+      }
+    ],
+    "id": "sevt_012zee1EEtAeCpTUnGk1eSNY",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:23:10.915337Z",
+    "tool_use_id": "sevt_013hP4n61d9dCAjhqg35YSkg",
+    "type": "agent.tool_result"
+  },
+  {
+    "content": [
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Falegnameria Bortolotto Manuel, Zanè. 434 likes. Bortolotto Manuel e i membri del TEAM sono a vostra disposizione per offrirvi le loro competenze e d",
+            "type": "text"
+          },
+          {
+            "text": "Falegnameria Bortolotto Manuel · Bortolotto Manuel e i membri del TEAM sono a vostra disposizione per offrirvi le loro competenze e d · Page · Furniture · Via Padova 14, Zanè, Italy · [CELLULARE_OSCURATO] · contatto011@example.invalid · falegnameriabortolotto.it ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.facebook.com/manuelbortolot/",
+        "title": "Falegnameria Bortolotto Manuel | Zanè | Facebook",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "GRATIS - Falegnameria Bortolotto Manuel: (p.iva 03605830243) - ZANÈ (Vicenza) - Codice Ateco: 43.32.02: Posa in opera di infissi, arredi, controsoffitti, pareti mobili e simili",
+            "type": "text"
+          }
+        ],
+        "source": "https://registroaziende.it/azienda/falegnameria-bortolotto-manuel-zane",
+        "title": "Dati della società Falegnameria Bortolotto Manuel (03605830243), Veneto, Vicenza, ZANÈ - REGISTROAZIENDE.it",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Il nostro nuovo negozio online dove trovi tutto ciò che ti serve, con offerte imperdibili. SCOPRI ORA · SERRAMENTI ED INFISSI Falegnameria Bortolotto Manuel · PREVENTIVO · TELEFONO · 0445 629840 · CHIAMA · Sei il proprietario?",
+            "type": "text"
+          }
+        ],
+        "source": "https://aziende.virgilio.it/zane-vi/falegnameria-bortolotto-manuel",
+        "title": "Falegnameria Bortolotto Manuel - Zanè, Via Padova, 14",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Via Padova, 14 - 36010 Zanè (VI) Chiedi preventivo · Telefono · 0445 629840 · Sei il titolare di questa attività? Rivendicala gratis · Inserisci gli orari · Scrivi una recensione · Rivendica gratis la tua attività per personalizzare ...",
+            "type": "text"
+          },
+          {
+            "text": "Trova tutte le informazioni, i contatti e le recensioni sull'attività Falegnameria Bortolotto Manuel di Zanè (VI)",
+            "type": "text"
+          },
+          {
+            "text": "Via Padova, 14 - 36010 Zanè (VI) Chiedi preventivo · Telefono · 0445 629840 · Sei il titolare di questa attività? Rivendicala gratis · Inserisci gli orari · Scrivi una recensione · Rivendica gratis la tua attività per personalizzare i contenuti e ricevere richieste di preventivo. Avrai 10 crediti omaggio per rispondere ai tuoi potenziali clienti · Completa la scheda · 20% 100% Aggiungi: Descrizione · Orari di apertura · Sistemi di pagamento · Gestisci questa attività · Dove si trova Falegnameria Bortolotto Manuel? Falegnameria Bortolotto Manuel si trova in Via Padova, 14 36010 Zanè (VI) Come posso contattare al telefono Falegnameria Bortolotto Manuel? Il numero di telefono verificato è 0445 629840 · Come raggiungere Falegnameria Bortolotto Manuel? Puoi raggiungere Falegnameria Bortolotto Manuel utilizzando la mappa ufficiale di Pagine Gialle ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.paginegialle.it/zane-vi/falegnameria-bortolotto-manuel",
+        "title": "» Falegnameria Bortolotto Manuel a Zanè (VI) | PagineGialle",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Bortolotto Manuel Via Padova 14, 36010 Zanè (Vicenza) Telefono: [CELLULARE_OSCURATO] Partita IVA: 03605830243 RETE: 216308.reteimprese.org SETTORE: Arredamento CATEGORIA: Falegnami Preferenze Cookie",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reteimprese.it/info_A216308B2",
+        "title": "Falegnameria Bortolotto Manuel : (Zanè) : Modulo richiesta informazioni.",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Via Padova, 14 - 36010 Zanè (VI) Chiedi preventivo · Telefono · 0445 629840 · Sei il titolare di questa attività? Rivendicala gratis · Inserisci gli orari · Rivendica gratis la tua attività per personalizzare i contenuti e ricevere richieste ...",
+            "type": "text"
+          },
+          {
+            "text": "Trova tutte le informazioni, i contatti e le recensioni sull'attività Falegnameria Bortolotto Manuel di Zanè (VI)",
+            "type": "text"
+          },
+          {
+            "text": "Via Padova, 14 - 36010 Zanè (VI) Chiedi preventivo · Telefono · 0445 629840 · Sei il titolare di questa attività? Rivendicala gratis · Inserisci gli orari · Rivendica gratis la tua attività per personalizzare i contenuti e ricevere richieste di preventivo. Avrai 10 crediti omaggio per rispondere ai tuoi potenziali clienti · Completa la scheda · 20% 100% Aggiungi: Descrizione · Orari di apertura · Sistemi di pagamento · Gestisci questa attività · Dov'è la sede di Falegnameria Bortolotto Manuel? La sede è in Via Padova, 14 36010 Zanè (VI) Qual è il numero di telefono di Falegnameria Bortolotto Manuel? Questo è il numero di telefono verificato 0445 629840 · Qual è il percorso migliore per raggiungere Falegnameria Bortolotto Manuel? Puoi trovare Falegnameria Bortolotto Manuel sulla mappa ufficiale di Pagine Bianche · Vedi tutti gli articoli ·",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.paginebianche.it/scheda/zane/falegnameria-bortolotto-manuel.14253449",
+        "title": "Falegnameria Bortolotto Manuel a Zanè (VI): Indirizzo e Contatti",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Ragione sociale: Falegnameria Bortolotto Manuel Partita IVA: *****243 Sede legale: *****via Padova CAP: *****36010 Città: *****e\\&#x27; (VI) Regione: Veneto · Conosci meglio le potenzialità del cliente Codice ATECO: 31.09.1 - Fabbricazione Di Mobili Per Arredo Domestico Codice REA: *****666 Natura giuridica: *****ale Data inizio attività: La prevendita e&#x27; riservata a un numero limitati di iscritti e puo terminare prima della mezzanotte! Occhio al Timer perche&#x27; scorre veloce! Clicca qui per la demo gratuita! ... La prevendita e&#x27; riservata a un numero limitati di iscritti e puo terminare prima della mezzanotte! Occhio al Timer perche&#x27; scorre veloce! Clicca qui per la demo gratuita! La prevendita e&#x27; riservata a un numero limitati di iscritti e puo terminare prima della mezzanotte! Occhio al Timer perche&#x27; scorre veloce! Clicca qui per la demo gratuita!",
+            "type": "text"
+          },
+          {
+            "text": "Ragione sociale: Falegnameria Bortolotto Manuel Partita IVA: *****243 Sede legale: *****via Padova CAP: *****36010 Città: *****e\\' (VI) Regione: Veneto · Conosci meglio le potenzialità del cliente Codice ATECO: 31.09.1 - Fabbricazione Di Mobili Per Arredo Domestico Codice REA: *****666 Natura giuridica: *****ale Data inizio attività: La prevendita e' riservata a un numero limitati di iscritti e puo terminare prima della mezzanotte! Occhio al Timer perche' scorre veloce! Clicca qui per la demo gratuita! ... La prevendita e' riservata a un numero limitati di iscritti e puo terminare prima della mezzanotte! Occhio al Timer perche' scorre veloce! Clicca qui per la demo gratuita! La prevendita e' riservata a un numero limitati di iscritti e puo terminare prima della mezzanotte! Occhio al Timer perche' scorre veloce! Clicca qui per la demo gratuita!",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.reportaziende.it/falegnameria_bortolotto_manuel_vi_03605830243",
+        "title": "Falegnameria Bortolotto Manuel (03605830243), Gratis fatturato e dettagli aziendali | ReportAziende.it",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "141 Followers, 166 Following, 120 Posts - Falegnameria Bortolotto Manuel (@bortolotto_home_design) on Instagram: &quot;...disegna il tuo ambiente e progetta i tuoi spazi...&quot;",
+            "type": "text"
+          },
+          {
+            "text": "141 Followers, 166 Following, 120 Posts - See Instagram photos and videos from Falegnameria Bortolotto Manuel (@bortolotto_home_design)",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.instagram.com/bortolotto_home_design/",
+        "title": "Falegnameria Bortolotto Manuel (@bortolotto_home_design) • Instagram photos and videos",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "255 views, 14 likes, 0 loves, 3 comments, 0 shares, Facebook Watch Videos from Falegnameria Bortolotto Manuel: La porta che si chiude da sola",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.facebook.com/manuelbortolot/videos/la-porta-che-si-chiude-da-sola/749033871877331/",
+        "title": "La porta che si chiude da sola | By Falegnameria Bortolotto Manuel | Facebook",
+        "type": "search_result"
+      },
+      {
+        "citations": {
+          "enabled": true
+        },
+        "content": [
+          {
+            "text": "Partita IVA: 03605830243 - Codice Fiscale: BRTMNL78T05Z308V - Ragione Sociale: FALEGNAMERIA BORTOLOTTO MANUEL · Codice Ateco: 31091 - Fabbricazione di mobili per arredo domestico ... Sei il legale rappresentante della società e vuoi comunicare rettifiche? Clicca qui. ... Qui sotto è riportato un elenco di aziende limitrofe con il medesimo codice Ateco. ... Noi e terze parti selezionate utilizziamo cookie o tecnologie simili per finalità tecniche e, con il tuo consenso, anche per altre finalità come specificato nella cookie policy. Utilizziamo i cookie per personalizzare contenuti ed annunci, per fornire funzionalità dei social media e per analizzare il nostro traffico. Condividiamo inoltre informazioni sul modo in cui utilizza il nostro sito con i nostri partner che si occupano di analisi dei dati web, pubblicità e social media, i quali potrebbero combinarle con altre informazioni che ha fornito loro o che hanno raccolto dal suo utilizzo dei loro servizi.",
+            "type": "text"
+          }
+        ],
+        "source": "https://www.visura.pro/imprese/2128351455-falegnameria-bortolotto-manuel.html",
+        "title": "FALEGNAMERIA BORTOLOTTO MANUEL Partita IVA:03605830243 | Report aziendale Gratuito",
+        "type": "search_result"
+      }
+    ],
+    "id": "sevt_01VcbZ7vAUCiTdDXMeXVES1g",
+    "is_error": false,
+    "processed_at": "2026-11-05T11:23:11.799182Z",
+    "tool_use_id": "sevt_01Eop7FtKDGHn9yJMVYb9yRV",
+    "type": "agent.tool_result"
+  },
+  {
+    "id": "sevt_01Ky77Uns6YY3DEh3mQBxr4J",
+    "processed_at": "2026-11-05T11:23:11.857587Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "id": "sevt_016XnjtwGfgrjbVjjJYoJENS",
+    "processed_at": "2026-11-05T11:23:13.812Z",
+    "type": "agent.thinking"
+  },
+  {
+    "evaluated_permission": "allow",
+    "evaluation": {
+      "type": "always_allow"
+    },
+    "id": "sevt_01ELoM7414qBinmiKCuCUYs4",
+    "input": {
+      "url": "https://www.reportaziende.it/falegnameria_bortolotto_manuel_vi_03605830243"
+    },
+    "name": "web_fetch",
+    "processed_at": "2026-11-05T11:23:13.924436Z",
+    "type": "agent.tool_use"
+  },
+  {
+    "id": "sevt_01Syz3Lbn6UjE4id6zPPP1Ju",
+    "is_error": false,
+    "model_request_start_id": "sevt_01Ky77Uns6YY3DEh3mQBxr4J",
+    "model_usage": {
+      "cache_creation_input_tokens": 7129,
+      "cache_read_input_tokens": 12354,
+      "input_tokens": 2,
+      "output_tokens": 135,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:23:13.924437Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "content": [
+      {
+        "text": "Web fetch error: url_not_accessible",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_01Wb8bPvvvpgMpxWCBY1Er3M",
+    "is_error": true,
+    "processed_at": "2026-11-05T11:23:14.746713Z",
+    "tool_use_id": "sevt_01ELoM7414qBinmiKCuCUYs4",
+    "type": "agent.tool_result"
+  },
+  {
+    "id": "sevt_01HkePyUkeRHurQ3Fj292wZd",
+    "processed_at": "2026-11-05T11:23:14.810734Z",
+    "type": "span.model_request_start"
+  },
+  {
+    "content": [
+      {
+        "text": "# Dossier commerciale: Falegnameria Bortolotto (falegnameriabortolotto.it)\n\n**Conteggio operazioni:** 2 chiamate a `web_search`, senza errori. 5 chiamate a `web_fetch`, di cui 2 riuscite (home e pagina Showroom del sito ufficiale) e 3 fallite con errore `url_not_accessible` (registroaziende.it, visura.pro, reportaziende.it). Ho concluso la ricerca presto perché le fonti pubbliche accessibili non aggiungevano elementi utili. Il motivo è spiegato nella sezione 7.\n\n## 1. Sintesi aziendale\n- **Identità.** Il sito riporta la P.IVA 03605830243 (",
+        "type": "text"
+      },
+      {
+        "text": "Falegnameria Bortolotto p.i. 03605830243",
+        "type": "text"
+      },
+      {
+        "text": "). Directory e registri d'impresa associano la stessa P.IVA a ",
+        "type": "text"
+      },
+      {
+        "text": "FALEGNAMERIA BORTOLOTTO MANUEL, codice ATECO 31091 (fabbricazione di mobili per arredo domestico)",
+        "type": "text"
+      },
+      {
+        "text": ". Il nome Manuel Bortolotto compare anche nelle meta-keywords del sito. Il collegamento tra sito e ditta si basa quindi sulla P.IVA. I dati dei registri provengono solo dai risultati di ricerca e non sono stati verificati con fetch.\n- **Forma giuridica.** Sembra una ditta individuale: il codice fiscale è di persona fisica e la natura giuridica risulta troncata nel risultato (",
+        "type": "text"
+      },
+      {
+        "text": "\"...ale\"",
+        "type": "text"
+      },
+      {
+        "text": "). Resta da verificare.\n- **Attività.** Il sito dichiara che ",
+        "type": "text"
+      },
+      {
+        "text": "realizza mobili e arredi su misura per abitazioni e attività commerciali, infissi, parquet, gazebo e coperture",
+        "type": "text"
+      },
+      {
+        "text": ". Si descrive come ",
+        "type": "text"
+      },
+      {
+        "text": "una piccola azienda a gestione familiare",
+        "type": "text"
+      },
+      {
+        "text": " che segue il lavoro dalla progettazione al montaggio.\n- **Rivendita.** Nello showroom espone anche prodotti di altre marche di cui è rivenditore: Pivato, Campesato, Leader Porte e Ideal Fenster (loghi sulla home).\n- **Mercato.** Il sito parla di clientela privata e di attività commerciali. Il mercato geografico servito non è dichiarato esplicitamente.\n- **Sito web.** Il copyright è del 2011 e il contenuto appare datato (fonte: home del sito ufficiale).\n\n## 2. Dimensione e presenza geografica\n- **Sede operativa/legale.** Via Padova 14, 36010 Zanè (VI), secondo ",
+        "type": "text"
+      },
+      {
+        "text": "PagineGialle",
+        "type": "text"
+      },
+      {
+        "text": " e ",
+        "type": "text"
+      },
+      {
+        "text": "Reteimprese",
+        "type": "text"
+      },
+      {
+        "text": ". La pagina Facebook riporta lo stesso indirizzo e l'email contatto011@example.invalid (",
+        "type": "text"
+      },
+      {
+        "text": "Facebook",
+        "type": "text"
+      },
+      {
+        "text": ").\n- **Showroom.** Il sito ufficiale cita uno showroom a Tavarnelle di Sovizzo (home) e descrive ",
+        "type": "text"
+      },
+      {
+        "text": "uno spazio di oltre 200 mq alle porte di Vicenza",
+        "type": "text"
+      },
+      {
+        "text": " (pagina Showroom). La pagina Showroom visualizzata non indica l'indirizzo.\n- **Discrepanza.** Un'altra directory colloca \"Falegnameria Bortolotto\" a Sovizzo (",
+        "type": "text"
+      },
+      {
+        "text": "Reteimprese, scheda Sovizzo",
+        "type": "text"
+      },
+      {
+        "text": "). Un'ulteriore voce a Vicenza, Strada di Settecà (",
+        "type": "text"
+      },
+      {
+        "text": "Infoisinfo",
+        "type": "text"
+      },
+      {
+        "text": "), è dubbia e potrebbe riferirsi a un'altra azienda. Il testo mostrato in quel risultato parla di una Falegnameria Battistella.\n- **Fatturato, dipendenti, anno di fondazione.** Informazione non reperita nelle fonti pubbliche consultate. Il sito parla solo di \"piccola azienda\" e la pagina Facebook cita \"i membri del TEAM\", senza numeri.\n- **Social.** Facebook: ",
+        "type": "text"
+      },
+      {
+        "text": "434 like",
+        "type": "text"
+      },
+      {
+        "text": ". Instagram: ",
+        "type": "text"
+      },
+      {
+        "text": "141 follower, 120 post",
+        "type": "text"
+      },
+      {
+        "text": ".\n\n## 3. Filiera, logistica e tracciabilità\n- **Stabilimenti e magazzini.** Il sito non descrive un laboratorio, magazzini o una rete distributiva. Informazione non reperita nelle fonti pubbliche consultate.\n- **Distribuzione.** Il modello descritto è la vendita diretta, con showroom e posa in opera. Il sito valorizza il ",
+        "type": "text"
+      },
+      {
+        "text": "rapporto diretto tra cliente e produttore",
+        "type": "text"
+      },
+      {
+        "text": " (home).\n- **Esigenze di tracciabilità.** Nessuna esigenza documentata.\n- **Stato dei codici ATECO.** I registri riportano ",
+        "type": "text"
+      },
+      {
+        "text": "43.32.02 (posa in opera di infissi, arredi, controsoffitti, pareti mobili e simili)",
+        "type": "text"
+      },
+      {
+        "text": " e 31.09.1. Sono dati da directory, non confermati con visura camerale.\n\n## 4. Progetti di digitalizzazione e notizie rilevanti\n- **Progetti dichiarati.** Nessun progetto pubblico di logistica, automazione o tracciabilità.\n- **Notizie degli ultimi 12 mesi.** Nessuna reperita. Il sito cita solo un banner storico di partecipazione a Spazio Casa, Fiera di Vicenza, con file di nome \"2011\". Non è un evento recente.\n- **Presenza digitale.** Sito statico con pagine .asp, profili social attivi in misura modesta e schede nelle directory.\n\n## 5. Interlocutori potenzialmente appropriati\n- **Manuel Bortolotto.** Il nome compare nelle meta-keywords del sito, nel nome della ditta registrata e nella pagina Facebook. Il ruolo di titolare è plausibile ma non confermato da una fonte che lo dichiari. Va verificato.\n- **Ottavio Bortolotto.** Compare nelle meta-keywords del sito. Ruolo non indicato.\n- Non risultano responsabili di logistica, supply chain, operations o IT. Con ogni probabilità non esistono figure dedicate.\n- **Contatti pubblici (solo per verifica interna, nessun contatto effettuato).** Telefono 0445 629840 (",
+        "type": "text"
+      },
+      {
+        "text": "PagineGialle",
+        "type": "text"
+      },
+      {
+        "text": "), cellulare [CELLULARE_OSCURATO] (",
+        "type": "text"
+      },
+      {
+        "text": "Facebook",
+        "type": "text"
+      },
+      {
+        "text": ") ed email contatto011@example.invalid.\n\n## 6. Valutazione preliminare della pertinenza commerciale\n*Questa è una valutazione, non un fatto documentato.*\n- Per ora la pertinenza appare **bassa**. L'azienda è molto piccola, lavora su commessa e fa vendita diretta. Non risultano stabilimenti multipli, flussi logistici complessi né esigenze di tracciabilità dichiarate.\n- Se una verifica successiva rilevasse un laboratorio con produzione in serie, più sedi o volumi più alti, la valutazione potrebbe cambiare. Al momento non ci sono elementi a sostegno.\n- Il contatto non appare prioritario. La decisione di qualificarlo o meno spetta ai commerciali.\n\n## 7. Informazioni mancanti, contraddizioni e verifiche richieste\n- **Ragione sociale e forma giuridica.** Da confermare con visura camerale (Registro Imprese). I siti dei registri consultati non erano accessibili.\n- **Sede.** Zanè (indirizzo in registri e directory) contro Tavarnelle di Sovizzo (showroom nel sito). Il rapporto tra le due sedi non è chiarito. Va chiarito anche il laboratorio.\n- **Fatturato e dipendenti.** Non reperiti. Tre fonti di dati societari (registroaziende.it, visura.pro, reportaziende.it) non erano consultabili con fetch. Non ho fatto ulteriori tentativi con queste fonti perché il limite per query senza risultati utili è 3 e per la pagina specifica le alternative non offrivano dati diversi.\n- **Ruoli degli interlocutori.** Non verificati.\n- **Date di aggiornamento.** Il sito non riporta date recenti, quindi i contenuti potrebbero essere obsoleti.\n- **Limite della ricerca.** La ricerca si è fermata ben prima dei limiti operativi (circa 20 ricerche, 15 minuti). Non ho effettuato altre ricerche su stampa o associazioni di settore, perché la prima query non ne faceva emergere e i dati disponibili indicano un'azienda di dimensioni molto ridotte. Una ricerca più ampia potrebbe comunque aggiungere elementi.\n\n## 8. Fonti consultate\nConsultate con fetch:\n- Sito ufficiale, home: https://www.falegnameriabortolotto.it/\n- Sito ufficiale, Showroom: https://www.falegnameriabortolotto.it/falegnameria_vicenza.asp\n\nSolo da risultati di ricerca, non verificate con fetch:\n- https://www.facebook.com/manuelbortolot/\n- https://www.instagram.com/bortolotto_home_design/\n- https://www.paginegialle.it/zane-vi/falegnameria-bortolotto-manuel\n- https://www.paginebianche.it/scheda/zane/falegnameria-bortolotto-manuel.14253449\n- https://www.reteimprese.it/info_A216308B2\n- https://www.reteimprese.it/mobili-artistici-stile-produzione/sovizzo/azienda/1873086\n- https://registroaziende.it/azienda/falegnameria-bortolotto-manuel-zane\n- https://www.visura.pro/imprese/2128351455-falegnameria-bortolotto-manuel.html\n- https://www.reportaziende.it/falegnameria_bortolotto_manuel_vi_03605830243\n- https://vicenza.infoisinfo.it/carta/falegnameria-bortolotto/1611243\n- https://aziende.virgilio.it/zane-vi/falegnameria-bortolotto-manuel",
+        "type": "text"
+      }
+    ],
+    "id": "sevt_012Q7zrXrgRu1ig4kXBq9uTf",
+    "processed_at": "2026-11-05T11:23:37.728971Z",
+    "type": "agent.message"
+  },
+  {
+    "id": "sevt_01UkYxWdG3mUy1ZAekwnEFds",
+    "is_error": false,
+    "model_request_start_id": "sevt_01HkePyUkeRHurQ3Fj292wZd",
+    "model_usage": {
+      "cache_creation_input_tokens": 160,
+      "cache_read_input_tokens": 19483,
+      "input_tokens": 2,
+      "output_tokens": 3637,
+      "speed": "standard"
+    },
+    "processed_at": "2026-11-05T11:23:37.728972Z",
+    "type": "span.model_request_end"
+  },
+  {
+    "agent_name": "Agente di ricerca commerciale - Vertek Solutions",
+    "id": "sevt_01R89tGfUGpahWSYhkDHoXiu",
+    "processed_at": "2026-11-05T11:23:37.842483Z",
+    "session_thread_id": "sthr_01QNkeSot5FXJg699iUqWjZt",
+    "stop_details": null,
+    "stop_reason": {
+      "type": "end_turn"
+    },
+    "type": "session.thread_status_idle"
+  },
+  {
+    "budget": {
+      "max_list_cost": {
+        "amount": "100",
+        "currency": "USD"
+      },
+      "type": "limit"
+    },
+    "id": "sevt_01YRKu1ZeLzvNjWqKNQHNuq3",
+    "processed_at": "2026-11-05T11:23:37.842484Z",
+    "type": "session.usage",
+    "usage": {
+      "active_seconds": 33.833,
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 22911
+      },
+      "cache_read_input_tokens": 33870,
+      "input_tokens": 10,
+      "list_cost": {
+        "amount": "12",
+        "currency": "USD"
+      },
+      "output_tokens": 4296,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 2
+      }
+    }
+  },
+  {
+    "id": "sevt_01RyFVLWmncd58aUSbFsWwro",
+    "processed_at": "2026-11-05T11:23:37.842485Z",
+    "stop_details": null,
+    "stop_reason": {
+      "type": "end_turn"
+    },
+    "type": "session.status_idle"
+  }
+]
