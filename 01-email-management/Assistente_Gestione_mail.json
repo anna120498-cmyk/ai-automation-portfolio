@@ -1,0 +1,2385 @@
+{
+  "name": "Assistente Gestione mail e richieste_Final",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -1872,
+        1232
+      ],
+      "id": "Placeholder",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cond",
+              "name": "id_messaggio",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "cond",
+              "name": "=mittente",
+              "value": "={{ $json.headers.from.replace(/^From:\\s*/i, '').trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "cond",
+              "name": "oggetto",
+              "value": "={{ $json.subject }}",
+              "type": "string"
+            },
+            {
+              "id": "cond",
+              "name": "testo",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "cond",
+              "name": "data",
+              "value": "={{ DateTime.fromISO($json.date).toFormat('dd/MM/yyyy HH:mm') }}",
+              "type": "string"
+            },
+            {
+              "id": "cond",
+              "name": "n_allegati",
+              "value": "={{ Object.keys($binary || {}).length }}",
+              "type": "number"
+            },
+            {
+              "id": "cond",
+              "name": "tipo_allegati",
+              "value": "={{ Object.values($binary || {}).map(f => f.fileName).join(', ') }}",
+              "type": "string"
+            },
+            {
+              "id": "cond",
+              "name": "allegato_non_processato",
+              "value": "={{ Object.values($binary || {}).some(f => !['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'].includes(f.mimeType)) }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -1248,
+        1232
+      ],
+      "id": "normalizza_dati_email",
+      "name": "Normalizza dati email"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "id_messaggio",
+        "joinMode": "enrichInput1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -960,
+        1088
+      ],
+      "id": "merge_esito_duplicati",
+      "name": "Merge esito duplicati"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cond",
+              "name": "risultato_analisi_ai",
+              "value": "={{ JSON.parse($json.content[0].text.match(/\\{[\\s\\S]*\\}/)[0]) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -256,
+        896
+      ],
+      "id": "normalizza_output_llm",
+      "name": "Normalizza output LLM"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "claude-haiku-4-5-20251001"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un assistente di uno studio di consulenza gestionale per PMI che offre servizi di controllo di gestione, organizzazione e sviluppo commerciale.\n\nIl tuo compito è quello di analizzare le email ricevute e di categorizzarle.\n\n1. Assegna la categoria\n\nScegli una sola categoria tra queste sei:\n\n- Richieste commerciali: preventivi, informazioni sui servizi, proposte di incontro. Vale anche per un cliente già noto, se chiede nuovi servizi.\n- Clienti attivi: documenti, domande o aggiornamenti su un incarico in corso.\n- Amministrazione: fatture, solleciti di pagamento, incassi, scadenze di pagamento.\n- Candidature: CV, candidature spontanee, richieste di tirocinio.\n- Newsletter: aggiornamenti di settore, inviti a eventi, contenuti promozionali.\n- Spam: pubblicità indesiderata, possibili tentativi di phishing.\n\n2. Scegli la priorità\n\n- Alta: solo per un problema bloccante di un cliente attivo, oppure per una scadenza entro pochi giorni.\n- Media: richiesta ordinaria che aspetta una risposta.\n- Bassa: nessuna scadenza e nessuna azione richiesta a breve.\n\n3. Assegna un intervallo di confidenza compreso tra 0 e 1 che indica quanto sei sicuro della categoria e della priorità.\n\n4. Assegna una scadenza se presente nel messaggio, altrimenti valorizza il campo con \"null\".\n\n5. Regole fisse\n\n- Newsletter e Spam sono sempre Bassa, anche se il testo dichiara urgenza. Candidature non superano Media. Richieste commerciali sono Alta solo con una scadenza dichiarata. Amministrazione è Alta se la scadenza del pagamento è già passata o cade entro il giorno lavorativo successivo alla data di ricezione; altrimenti Media.\n- se l'email è in lingua straniera traducila ricavando il significato originale e se incerto segnalalo attraverso il campo \"confidenza\".\n- non inventare informazioni e non dedurre informazioni, attieniti esclusivamente al testo dell'email.\n- se non riesci ad assegnare una categoria compila il campo con \"Categoria incerta\" e segnala una confidenza bassa.\n- se non riesci ad assegnare una priorità compila il campo con \"Priorità incerta\" e segnala una confidenza bassa.\n\n6. Rispondi\nRispondi solo con un oggetto JSON, senza testo prima o dopo:\n\n{\"id_messaggio\": \"{{ $json.id_messaggio }}\",\n\"categoria\": \"\",\n\"priorita\": \"Alta|Media|Bassa\",\n\"confidenza\": 0.0,\n\"scadenza\": \"AAAA-MM-GG oppure null\"\n}\n\n\nEmail da analizzare:\nData di ricezione: {{ $json.data }}\nMittente: {{ $json.mittente }}\nOggetto: {{ $json.oggetto }}\nTesto: {{ $json.testo }}\n\n\n\n"
+            }
+          ]
+        },
+        "simplify": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        -496,
+        1120
+      ],
+      "id": "llm_classifica_email",
+      "name": "LLM Classifica email",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "anthropicApi": {
+          "id": "PLACEHOLDER_CREDENZIALE_ANTHROPIC_API",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_ANTHROPIC"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id_messaggio }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -592,
+        864
+      ],
+      "id": "segna_come_letta",
+      "name": "Segna come letta",
+      "webhookId": "PLACEHOLDER_WEBHOOK_ID_SEGNA_COME_LETTA",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "PLACEHOLDER_CREDENZIALE_GMAIL_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GMAIL"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 40,
+        "simple": false,
+        "filters": {
+          "readStatus": "unread",
+          "receivedAfter": "={{ $now.minus({hours:24}).toISO() }}"
+        },
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -1664,
+        1232
+      ],
+      "id": "recupera_email_non_lette_ultime_24h",
+      "name": "Recupera email non lette ultime 24h",
+      "webhookId": "PLACEHOLDER_WEBHOOK_ID_RECUPERA_EMAIL_NON_LETTE_ULTIME_24H",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "alwaysOutputData": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "PLACEHOLDER_CREDENZIALE_GMAIL_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GMAIL"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "notes": "Un errore non perde dati, quindi se non funziona dopo tre tentativi si ferma e riprova al prossimo avvio del workflow",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id_messaggio",
+              "lookupValue": "={{ $json.id_messaggio }}"
+            },
+            {
+              "lookupColumn": "stato",
+              "lookupValue": "registrata"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1120,
+        928
+      ],
+      "id": "cerca_id_messaggio_duplicati",
+      "name": "Cerca id_messaggio duplicati",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "maxTries": 3,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "=",
+            "stato": "registrata",
+            "data e ora": "={{ $json.data }}",
+            "n allegati": "={{ $json.n_allegati }}",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "allegato non processato": "={{ $json.allegato_non_processato }}",
+            "tipo allegati": "={{ $json.tipo_allegati }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -704,
+        1184
+      ],
+      "id": "stato_email_registrata",
+      "name": "Stato email registrata",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ ({\"Richieste commerciali\": \"PLACEHOLDER_EMAIL_COMMERCIALE\", \"Clienti attivi\": \"PLACEHOLDER_EMAIL_REFERENTE_CLIENTI\", \"Amministrazione\": \"PLACEHOLDER_EMAIL_AMMINISTRAZIONE\", \"Candidature\": \"PLACEHOLDER_EMAIL_HR\"})[$json.categoria] ?? \"PLACEHOLDER_EMAIL_REVISIONE_DEFAULT\" }}",
+        "subject": "=Richiesta prioritaria: {{ $json.oggetto }}",
+        "message": "=Categoria: {{ $json.categoria }}\nMittente: {{ $json.mittente }} \nOggetto: {{ $json.oggetto }} \n\nL' email è stata registrata nel foglio di tracking. \nRispondi al mittente dalla casella dello studio.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1056,
+        1328
+      ],
+      "id": "invio_email_a_responsabile",
+      "name": "Invio email a responsabile",
+      "webhookId": "PLACEHOLDER_WEBHOOK_ID_INVIO_EMAIL_A_RESPONSABILE",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "PLACEHOLDER_CREDENZIALE_GMAIL_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GMAIL"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "endpointUrl": "PLACEHOLDER_ENDPOINTURL_ALERT",
+        "authentication": "bearerAuth",
+        "tool": {
+          "__rl": true,
+          "value": "slack_post_message",
+          "mode": "list",
+          "cachedResultName": "slack_post_message"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "=⚠️ Errore di classificazione email dopo i tentativi.\nClassificazione non completata. Verificare l'esecuzione n8n e lo stato nel Registro; il recupero automatico non è garantito.\n{{ $now.setZone('Europe/Rome').toFormat('dd/LL/yyyy HH:mm:ss') }}",
+            "channel_id": "PLACEHOLDER_CHANNEL_ID_ALERT_ERRORE_LLM"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "channel_id",
+              "displayName": "channel_id",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1.1,
+      "position": [
+        -336,
+        1680
+      ],
+      "id": "alert_errore_llm",
+      "name": "Alert errore LLM",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER_CREDENZIALE_HTTP_BEARER_MCP",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_MCP_BEARER"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -224,
+        544
+      ],
+      "id": "unisci_email_e_contenuto_analisi_llm",
+      "name": "Unisci email e contenuto analisi LLM",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "endpointUrl": "PLACEHOLDER_ENDPOINTURL_ALERT",
+        "authentication": "bearerAuth",
+        "tool": {
+          "__rl": true,
+          "value": "slack_post_message",
+          "mode": "list",
+          "cachedResultName": "slack_post_message"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "=⚠️ Errore nel flusso email alle {{ $now.setZone('Europe/Rome').toFormat('dd/LL/yyyy HH:mm') }}:\n{{ $json.error?.message ?? 'dettaglio non disponibile' }}.\nVerificare l'esecuzione n8n, il Registro e la casella; il recupero automatico non è garantito.",
+            "channel_id": "PLACEHOLDER_CHANNEL_ID_ALERT_ERRORE_FLUSSO"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "channel_id",
+              "displayName": "channel_id",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1.1,
+      "position": [
+        1280,
+        688
+      ],
+      "id": "alert_errore_flusso",
+      "name": "Alert errore flusso",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER_CREDENZIALE_HTTP_BEARER_MCP",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_MCP_BEARER"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "={{ $json.categoria }}",
+            "stato": "revisione umana richiesta",
+            "data e ora": "={{ $json['data e ora'] }}",
+            "n allegati": "={{ $json[\"n allegati\"] }}",
+            "motivo_verifica": "allegato non processato",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "priorita": "={{ $json.priorita }}",
+            "confidenza": "={{ $json.confidenza }}",
+            "allegato non processato": "={{ $json[\"allegato non processato\"] }}",
+            "tipo allegati": "={{ $json['tipo allegati'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        480,
+        240
+      ],
+      "id": "revisione_umana_richiesta_allegato_non_p",
+      "name": "Revisione umana richiesta - Allegato non processato",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "={{ $json.categoria }}",
+            "data e ora": "={{ $json[\"data e ora\"] }}",
+            "n allegati": "={{ $json[\"n allegati\"] }}",
+            "motivo_verifica": "classificazione incerta",
+            "stato": "revisione umana richiesta",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "priorita": "={{ $json.priorita }}",
+            "confidenza": "={{ $json.confidenza }}",
+            "allegato non processato": "={{ $json[\"allegato non processato\"] }}",
+            "tipo allegati": "={{ $json['tipo allegati'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        480,
+        448
+      ],
+      "id": "revisione_umana_richiesta_classificazion",
+      "name": "Revisione umana richiesta - Classificazione incerta",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.row_number !== undefined && $json.row_number !== null }}",
+              "rightValue": "={{ $json[\"ID messaggio\"] || \"\" }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -816,
+        928
+      ],
+      "id": "if_email_gi_registrata",
+      "name": "If email già registrata",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $('If priorità Alta').item.json.id_messaggio }}",
+            "mittente": "={{ $('If priorità Alta').item.json.mittente }}",
+            "oggetto": "={{ $('If priorità Alta').item.json.oggetto }}",
+            "categoria": "={{ $('If priorità Alta').item.json.categoria }}",
+            "stato": "notifica inviata al responsabile",
+            "data e ora": "={{ $('If priorità Alta').item.json[\"data e ora\"] }}",
+            "n allegati": "={{ $('If priorità Alta').item.json[\"n allegati\"] }}",
+            "motivo_verifica": "priorità alta",
+            "priorita": "={{ $('If priorità Alta').item.json.priorita }}",
+            "confidenza": "={{ $('If priorità Alta').item.json.confidenza }}",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "allegato non processato": "={{ $('If priorità Alta').item.json[\"allegato non processato\"] }}",
+            "tipo allegati": "={{ $('Revisione umana richiesta - Priorità Alta').item.json['tipo allegati'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        688,
+        1168
+      ],
+      "id": "registra_notifica_inviata",
+      "name": "Registra notifica inviata",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cond",
+              "leftValue": "={{ $json[\"allegato non processato\"] }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.categoria }}",
+              "rightValue": "Amministrazione",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        0,
+        336
+      ],
+      "id": "if_allegato_non_processato",
+      "name": "If allegato non processato"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.confidenza }}",
+              "rightValue": 0.8,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        512
+      ],
+      "id": "if_confidenza_0_8",
+      "name": "If confidenza ≤ 0.8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.priorita }}",
+              "rightValue": "Alta",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        352,
+        752
+      ],
+      "id": "if_priorit_alta",
+      "name": "If priorità Alta"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "={{ $json.categoria }}",
+            "data e ora": "={{ $json[\"data e ora\"] }}",
+            "motivo_verifica": "priorità alta",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "stato": "revisione umana richiesta",
+            "priorita": "={{ $json.priorita }}",
+            "confidenza": "={{ $json.confidenza }}",
+            "n allegati": "={{ $json[\"n allegati\"] }}",
+            "allegato non processato": "={{ $json[\"allegato non processato\"] }}",
+            "tipo allegati": "={{ $json['tipo allegati'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        656,
+        736
+      ],
+      "id": "revisione_umana_richiesta_priorit_alta",
+      "name": "Revisione umana richiesta - Priorità Alta",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "={{ $json.categoria }}",
+            "data e ora": "={{ $json[\"data e ora\"] }}",
+            "n allegati": "={{ $json[\"n allegati\"] }}",
+            "priorita": "={{ $json.priorita }}",
+            "confidenza": "={{ $json.confidenza }}",
+            "stato": "processata",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "allegato non processato": "={{ $json[\"allegato non processato\"] }}",
+            "tipo allegati": "={{ $json['tipo allegati'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        576,
+        976
+      ],
+      "id": "aggiorna_stato_processata",
+      "name": "Aggiorna stato - processata",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "={{ $json.risultato_analisi_ai.categoria }}",
+            "stato": "in elaborazione",
+            "data e ora": "={{ $json.data }}",
+            "n allegati": "={{ $json.n_allegati }}",
+            "priorita": "={{ $json.risultato_analisi_ai.priorita }}",
+            "confidenza": "={{ $json.risultato_analisi_ai.confidenza }}",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "allegato non processato": "={{ $json.allegato_non_processato }}",
+            "tipo allegati": "={{ $json.tipo_allegati }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        0,
+        976
+      ],
+      "id": "stato_email_in_elaborazione",
+      "name": "Stato email in elaborazione",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "errorMessage": "Classificazione LLM fallita dopo 3 tentativi. \nEsecuzione interrotta."
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        1552
+      ],
+      "id": "stop_errore_llm",
+      "name": "Stop Errore LLM"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Errore nel flusso. Esecuzione interrotta."
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        688
+      ],
+      "id": "stop_errore_flusso",
+      "name": "Stop Errore Flusso"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "PLACEHOLDER_ENDPOINTURL_ALERT",
+        "authentication": "bearerAuth",
+        "tool": {
+          "__rl": true,
+          "value": "slack_post_message",
+          "mode": "list",
+          "cachedResultName": "slack_post_message"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $now.setZone('Europe/Rome').toFormat('dd/LL/yyyy HH:mm:ss') }}\nEmail registrata correttamente in attesa di revisione umana:\nmittente: {{ $json.mittente }}\noggetto: {{ $json.oggetto }}\nmotivo verifica: {{ $json.motivo_verifica }}\n\n",
+            "channel_id": "PLACEHOLDER_CHANNEL_ID_ALERT_RICHIESTA_VERIFICA_UMANA"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "channel_id",
+              "displayName": "channel_id",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1.1,
+      "position": [
+        928,
+        272
+      ],
+      "id": "alert_richiesta_verifica_umana",
+      "name": "Alert Richiesta Verifica Umana",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER_CREDENZIALE_HTTP_BEARER_MCP",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_MCP_BEARER"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Recupera email non lette ultime 24h",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizza dati email": {
+      "main": [
+        [
+          {
+            "node": "Cerca id_messaggio duplicati",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge esito duplicati",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Unisci email e contenuto analisi LLM",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge esito duplicati": {
+      "main": [
+        [
+          {
+            "node": "If email già registrata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizza output LLM": {
+      "main": [
+        [
+          {
+            "node": "Unisci email e contenuto analisi LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Classifica email": {
+      "main": [
+        [
+          {
+            "node": "Normalizza output LLM",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recupera email non lette ultime 24h": {
+      "main": [
+        [
+          {
+            "node": "Normalizza dati email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cerca id_messaggio duplicati": {
+      "main": [
+        [
+          {
+            "node": "Merge esito duplicati",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unisci email e contenuto analisi LLM": {
+      "main": [
+        [
+          {
+            "node": "Stato email in elaborazione",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert errore LLM": {
+      "main": [
+        [
+          {
+            "node": "Stop Errore LLM",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert errore flusso": {
+      "main": [
+        [
+          {
+            "node": "Stop Errore Flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Revisione umana richiesta - Allegato non processato": {
+      "main": [
+        [
+          {
+            "node": "Alert Richiesta Verifica Umana",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Revisione umana richiesta - Classificazione incerta": {
+      "main": [
+        [
+          {
+            "node": "Alert Richiesta Verifica Umana",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stato email registrata": {
+      "main": [
+        [
+          {
+            "node": "LLM Classifica email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If email già registrata": {
+      "main": [
+        [
+          {
+            "node": "Segna come letta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stato email registrata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Invio email a responsabile": {
+      "main": [
+        [
+          {
+            "node": "Registra notifica inviata",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registra notifica inviata": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If allegato non processato": {
+      "main": [
+        [
+          {
+            "node": "Revisione umana richiesta - Allegato non processato",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If confidenza ≤ 0.8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If priorità Alta": {
+      "main": [
+        [
+          {
+            "node": "Revisione umana richiesta - Priorità Alta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggiorna stato - processata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Revisione umana richiesta - Priorità Alta": {
+      "main": [
+        [
+          {
+            "node": "Invio email a responsabile",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggiorna stato - processata": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Stato email in elaborazione": {
+      "main": [
+        [
+          {
+            "node": "If allegato non processato",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert Richiesta Verifica Umana": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Alert errore flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If confidenza ≤ 0.8": {
+      "main": [
+        [
+          {
+            "node": "Revisione umana richiesta - Classificazione incerta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If priorità Alta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "Europe/Rome",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "PLACEHOLDER_VERSION_ID",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "PLACEHOLDER_INSTANCE_ID"
+  },
+  "nodeGroups": [],
+  "id": "cond",
+  "tags": []
+}

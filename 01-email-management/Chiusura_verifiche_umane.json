@@ -1,0 +1,658 @@
+{
+  "name": "Chiusura verifiche umane_Final",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 19425459,
+          "mode": "list",
+          "cachedResultName": "Chiusura manuale",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "name": "Chiusura aggiunta",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        240
+      ],
+      "id": "chiusura_aggiunta",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "esito-ammesso",
+              "leftValue": "={{ ['chiusa','in gestione','non rilevante'].includes($json.esito) }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Esito ammesso?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        240,
+        240
+      ],
+      "id": "esito_ammesso"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "id_messaggio",
+              "lookupValue": "={{ $('Chiusura aggiunta').item.json.id_messaggio }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Cerca in Registro",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        480,
+        128
+      ],
+      "alwaysOutputData": true,
+      "id": "cerca_in_registro",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PLACEHOLDER_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Registro_email",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Registro",
+          "cachedResultUrl": "PLACEHOLDER_GOOGLE_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_messaggio": "={{ $json.id_messaggio }}",
+            "data e ora": "={{ $json[\"data e ora\"] }}",
+            "mittente": "={{ $json.mittente }}",
+            "oggetto": "={{ $json.oggetto }}",
+            "categoria": "={{ $json.categoria }}",
+            "priorita": "={{ $json.priorita }}",
+            "confidenza": "={{ $json.confidenza }}",
+            "n allegati": "={{ $json[\"n allegati\"] }}",
+            "tipo allegati": "={{ $json[\"tipo allegati\"] }}",
+            "allegato non processato": "={{ $json[\"allegato non processato\"] }}",
+            "stato": "={{ $('Chiusura aggiunta').item.json.esito }}",
+            "ultimo aggiornamento": "={{ $now.format('dd/MM/yyyy HH:mm') }}",
+            "motivo_verifica": "={{ $json.motivo_verifica }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_messaggio",
+              "displayName": "id_messaggio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data e ora",
+              "displayName": "data e ora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "mittente",
+              "displayName": "mittente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "oggetto",
+              "displayName": "oggetto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "priorita",
+              "displayName": "priorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "confidenza",
+              "displayName": "confidenza",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "n allegati",
+              "displayName": "n allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "tipo allegati",
+              "displayName": "tipo allegati",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "allegato non processato",
+              "displayName": "allegato non processato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "stato",
+              "displayName": "stato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "motivo_verifica",
+              "displayName": "motivo_verifica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ultimo aggiornamento",
+              "displayName": "ultimo aggiornamento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "name": "Scrivi chiusura in Registro",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1904,
+        112
+      ],
+      "id": "scrivi_chiusura_in_registro",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "PLACEHOLDER_CREDENZIALE_GOOGLE_SHEETS_OAUTH2",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_GOOGLE_SHEETS"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "endpointUrl": "PLACEHOLDER_ENDPOINTURL_ALERT",
+        "authentication": "bearerAuth",
+        "tool": {
+          "__rl": true,
+          "value": "slack_post_message",
+          "mode": "list",
+          "cachedResultName": "slack_post_message"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "channel_id": "PLACEHOLDER_CHANNEL_ID_ALERT_CHIUSURA",
+            "text": "=⚠️ Chiusura verifica NON registrata\n\nL'aggiornamento manuale non è andato a buon fine.\nid_messaggio: {{ $json.id_messaggio }}\nEsito inserito: \nInserita da:\nVerificare la scheda Chiusure e il Registro, poi reinserire la chiusura."
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "channel_id",
+              "displayName": "channel_id",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1.1,
+      "position": [
+        1856,
+        464
+      ],
+      "id": "alert_errore_flusso",
+      "name": "Alert Errore Flusso",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "PLACEHOLDER_CREDENZIALE_HTTP_BEARER_MCP",
+          "name": "PLACEHOLDER_NOME_CREDENZIALE_MCP_BEARER"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "errorMessage": "Errore nel flusso. Esecuzione interrotta."
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        464
+      ],
+      "id": "stop_and_error",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.id_messaggio }}",
+              "rightValue": "={{ $('Chiusura aggiunta').item.json.id_messaggio }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.stato }}",
+              "rightValue": "revisione umana richiesta",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1200,
+        128
+      ],
+      "id": "if_email_in_attesa_revisione_umana1",
+      "name": "If email in attesa revisione umana1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.id_messaggio }}",
+              "rightValue": "={{ $('Chiusura aggiunta').item.json.id_messaggio }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "cond",
+              "leftValue": "={{ $json.stato }}",
+              "rightValue": "chiusa",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        976,
+        128
+      ],
+      "id": "if_stato_email_diverso_da_chiusa",
+      "name": "If stato email diverso da chiusa"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "row_number",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        704,
+        128
+      ],
+      "id": "sort",
+      "name": "Sort"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "row_number",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        1424,
+        128
+      ],
+      "id": "sort1",
+      "name": "Sort1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1648,
+        128
+      ],
+      "id": "limit",
+      "name": "Limit"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Chiusura aggiunta": {
+      "main": [
+        [
+          {
+            "node": "Esito ammesso?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esito ammesso?": {
+      "main": [
+        [
+          {
+            "node": "Cerca in Registro",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert Errore Flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cerca in Registro": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert Errore Flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrivi chiusura in Registro": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Alert Errore Flusso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert Errore Flusso": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If email in attesa revisione umana1": {
+      "main": [
+        [
+          {
+            "node": "Sort1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If stato email diverso da chiusa": {
+      "main": [
+        [],
+        [
+          {
+            "node": "If email in attesa revisione umana1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "If stato email diverso da chiusa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort1": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Scrivi chiusura in Registro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "timezone": "Europe/Rome",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "PLACEHOLDER_VERSION_ID",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "PLACEHOLDER_INSTANCE_ID"
+  },
+  "nodeGroups": [],
+  "id": "cond",
+  "tags": []
+}
